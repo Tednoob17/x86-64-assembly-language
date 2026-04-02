@@ -2,3 +2,8 @@
 title = "x86-64 Assembly Language Programming with Ubuntu"
 authors = ["Ted Kouhouenou"]
 language = "en"
+
+
+[output.html]
+default-theme = "dark"
+preferred-dark-theme = "ayu"
