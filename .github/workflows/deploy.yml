@@ -48,7 +48,8 @@ jobs:
           rm -rf /tmp/gh-pages
 
           if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
-            git worktree add -B gh-pages /tmp/gh-pages origin/gh-pages
+            git fetch --depth=1 origin gh-pages:refs/remotes/origin/gh-pages
+            git worktree add -B gh-pages /tmp/gh-pages refs/remotes/origin/gh-pages
           else
             git worktree add --detach /tmp/gh-pages
             git -C /tmp/gh-pages switch --orphan gh-pages

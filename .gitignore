@@ -10,3 +10,6 @@ tmp/
 /src/quiz/
 /src/aquascope/
 x86.tar.gz
+.hugo_build.lock
+/cm
+.git/.cache_state
