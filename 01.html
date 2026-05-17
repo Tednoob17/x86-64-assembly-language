@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
+            window.path_to_searchindex_js = "searchindex-1f255e44.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -182,53 +182,39 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <pre><code>## 1.0 - Assembly and low level ?
-	Assembly language is a low-level  machine specific langage, each instruction set processor
-	used it's assembly in our case `x86-64` not run on different processor.
-	A High-level language are translated into assembly who is used by processor to execute a program.  
-	The assembly language help you to see how system ressources like memory, registers work .
-	
-	It help to improve algorithm development skills, debugging by practicing 
-	because it requires more thought, more attention and nuanced approch .
-	The function / procedure call, Input/Output instructions including the content 
-	and structure of function, a important significant implementations are best 
-	understood when working at a low-level.
-
-	In security world a fondamental mechanism of multi-processing concept
-	a shared memory, threaded processing can help to nicely understood race condition
-	and others bugs associated to this type of concepts.
-
-## 1.1 - History and Begining
-
-	`x86-64` instruction set for `x86-64` class of processor using by `64-bit` 
-	operation system.
-	`x86-64` is a `CISC` (Complex Instruction Set Computing)
-	We have multiple **internals processor design philosophy**
-
-	(x86_64, AMD64, x64) is a `64-bit` extension of `x86` instruction set
-	First annonced and available is **AMD Opteron** in 2003.
-	It introduces **64-bit mode** and **compatible mode**, and new **4 level paging**
-	mechanism. Compared to `32-bit` it support **virtual and physical memory**,
-	and a number of `GPR` (General Purpose Register) from `8` to `16` .
-	`SSE2` instruction in **64-bit mode** permit a **floatin-point arithmetic**.
-
-	128-bit vector register (XMM registers), it can store **one or two double precision floating-point number** 
-	up to **4 single precision**
-
-	- **64-bit mode** instructions are modified to support **64-bit operands** and 
-		**64-bit addressing mode**.
-	- **x86-64 architecture** use a **16-bit** and **32-bit** applications to
-	run on system
-	- Opteron, Athlon followed by **X2, X3, X4** to indicate the number of cores
-		and **XLT models**, same for **Turion, Sempron, Phenom**
-		
-
-	It important to note that a reader would have a prerequist in C, C++ or Java, because many
-	explation assume that reader is already familiar with programming concepts and with linux-based 
-	operating system and it's command line interface.
-
-If not i highly recommended you to do a [C Pool](https://tednoob17.github.io/42) of 42 School.
-</code></pre>
+                        <h2 id="10---assembly-and-low-level-"><a class="header" href="#10---assembly-and-low-level-">1.0 - Assembly and low level ?</a></h2>
+<p>Assembly language is a low-level, machine-specific language: each instruction-set processor
+uses its own assembly. In our case, <code>x86-64</code> assembly does not run on a different processor.</p>
+<p>High-level languages are translated into assembly or machine code, which the processor executes.
+Assembly language helps you understand system resources like memory and registers.</p>
+<p>It also helps improve algorithm development skills and debugging through practice, because it
+requires more thought, attention, and a nuanced approach. Function and procedure calls,
+input/output instructions, and the structure of functions — important implementation details —
+are best understood when working at a low level.</p>
+<p>In the security world, fundamental mechanisms of multiprocessing such as shared memory and
+threaded processing help to understand race conditions and other bugs associated with those concepts.</p>
+<h2 id="11---history-and-beginning"><a class="header" href="#11---history-and-beginning">1.1 - History and Beginning</a></h2>
+<p>The <code>x86-64</code> instruction set is used by <code>64-bit</code> operating systems. <code>x86-64</code> is a <code>CISC</code>
+(Complex Instruction Set Computing) architecture. There are multiple internal processor
+design philosophies.</p>
+<p>(x86_64, AMD64, x64) is a <code>64-bit</code> extension of the <code>x86</code> instruction set. The first widely
+available implementation was the <strong>AMD Opteron</strong> in 2003. It introduced <strong>64-bit mode</strong>,
+<strong>compatibility mode</strong>, and a new <strong>4-level paging</strong> mechanism. Compared to <code>32-bit</code>, it
+supports larger virtual and physical address spaces and increased the number of general-purpose
+registers (<code>GPR</code>) from <code>8</code> to <code>16</code>. <code>SSE2</code> instructions are available and are commonly used in
+64-bit mode for floating-point arithmetic.</p>
+<p>128-bit vector registers (XMM registers) can store one or two double-precision floating-point
+numbers or up to four single-precision numbers.</p>
+<ul>
+<li><strong>64-bit mode</strong> instructions were modified to support <strong>64-bit operands</strong> and <strong>64-bit addressing</strong>.</li>
+<li><strong>x86-64 architecture</strong> can run <strong>16-bit</strong> and <strong>32-bit</strong> applications on compatible systems.</li>
+<li>AMD product names such as Opteron and Athlon were followed by <strong>X2, X3, X4</strong> to indicate the
+number of cores; similar naming was used for <strong>Turion, Sempron, Phenom</strong>, and others.</li>
+</ul>
+<p>It is important to note that readers should have prerequisites in C, C++, or Java, because many
+explanations assume familiarity with programming concepts and with Linux-based operating systems
+and their command-line interfaces.</p>
+<p>If not, I highly recommend doing a <a href="https://tednoob17.github.io/42">C Pool</a> from 42 School.</p>
 
                     </main>
 

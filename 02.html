@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
+            window.path_to_searchindex_js = "searchindex-1f255e44.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -182,219 +182,181 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <pre><code># 2.0 - Architecture Overview
+                        <h1 id="20---architecture-overview"><a class="header" href="#20---architecture-overview">2.0 - Architecture Overview</a></h1>
+<h2 id="21--"><a class="header" href="#21--">2.1 -</a></h2>
+<p>A computer components include a <strong>CPU</strong> (Central Processing Unit), a <strong>RAM</strong> (Random Access Memory),
+a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).</p>
+<img src="img/Von_newman.png" style="min-width: 150px" />		
+<p><strong>A Big Picture of Von Neumann Architecture</strong></p>
+<p>A <strong>CPU or processor</strong> is a <strong>computer brain</strong> that contains a <strong>Control Unit</strong> (CU),
+main memory, and <strong>Arithmetic Logic Unit</strong> (ALU)
+A <strong>CPU</strong> includes all <strong>circuitry</strong> required to <strong>process input, store data, and generate output</strong>.
+It also follows <strong>program instructions</strong> that tell it which information
+to process and how to process it.</p>
+<ul>
+<li>
+<p><strong>CU</strong> (<code>Control Unit</code>): It responsible for how <strong>data moves thoughout system</strong>, for
+redirect all <strong>input</strong> and <strong>output flow</strong>, and <strong>gets code</strong> for instructions.</p>
+</li>
+<li>
+<p><strong>ALU</strong> (<code>Arithmetic and Logic Unit</code>) : It a part of <strong>CPU</strong> who handles all <strong>computations</strong>
+like <em>addition</em>, <em>subtraction</em>, and <em>comparisons</em>, with <strong>logical operations</strong>, <strong>arithmetic operations</strong>
+and <strong>bit shifting operation</strong></p>
+</li>
+<li>
+<p><strong>Register</strong> : It’s a sort of highly fast <strong>Computer memory</strong> that is used to <em>accept</em>, <em>store</em>, and <em>transport data</em>
+A <strong>Processor register</strong> is the term used to define the <strong>registers</strong> that <strong>CPU</strong> uses (General Purpose Register) .</p>
+</li>
+<li>
+<p><strong>Accumulator</strong> : It store the result of calculation that <strong>ALU</strong> makes.</p>
+</li>
+<li>
+<p><strong>Program Counter</strong>: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
+This next address is passed from <strong>Program counter</strong> to <strong>Memory Adress Register</strong>.</p>
+</li>
+<li>
+<p><strong>Memory Address Register</strong> : <code>MAR</code> <strong>stores</strong> the <strong>memory address locations</strong> of those instructions
+that are either to be <strong>fetched</strong> from the  <strong>memory</strong> or to be <strong>stored in the memory</strong>.</p>
+</li>
+<li>
+<p><strong>Memory Data Register</strong> : <code>MDR</code>  <strong>stores</strong> the <strong>instructions</strong> that are <strong>fetched</strong> from <strong>memory</strong>
+or any <em>information</em> that is to be <strong>transferred to and stored</strong> in the <strong>memory</strong>.</p>
+</li>
+<li>
+<p><strong>Current Instruction Register</strong> : <code>CIR</code> <strong>stores</strong> the recently <strong>fetched instructions</strong> while it waits for usage
+and <strong>execution</strong></p>
+</li>
+<li>
+<p><strong>Instruction Buffer Register</strong> : <code>IBR</code> is use for place the instruction that isn’t be <strong>immediately executed</strong> .</p>
+</li>
+</ul>
+<h3 id="input--output-devices"><a class="header" href="#input--output-devices">Input / Output Devices</a></h3>
+<p>The <strong>program or the data</strong> is read into <strong>main memory</strong> (<code>RAM</code>) from the <strong>secondary storage</strong> (<code>HDD</code>, <code>SSD</code>)
+If an result are <em>evaluated</em> by a computer and saved in it , you can <em>present</em> them to user via <strong>output devices</strong>.</p>
+<ul>
+<li>
+<p><strong>Buses</strong>: Data is sent from one part of a computer to another via <strong>buses</strong> which connect all key
+internal components to the memory and CPU.</p>
+</li>
+<li>
+<p><strong>Control Bus</strong>: It receive <strong>control commands</strong> from <code>CPU</code>, as well as status signals from <strong>other
+devices</strong>, and uses them to <strong>control and coordinate</strong> all of the computer’s actions.</p>
+</li>
+<li>
+<p><strong>Address Bus</strong>: It <strong>communicates</strong> between <strong>memory and the processor</strong>  data address (not the actual data)</p>
+</li>
+<li>
+<p><strong>Data Bus</strong>: It <strong>relays information</strong> between the <strong>memory unit</strong>, <strong>I/O devices</strong>, and the <strong>processor</strong>.</p>
+</li>
+</ul>
+<h2 id="22-data-storage-sizes"><a class="header" href="#22-data-storage-sizes">2.2 Data Storage Sizes</a></h2>
+<p>The <strong>x86-64 architecture</strong> supports a specific set of <strong>data storage size elements</strong>.
+The <strong>storage size</strong> are a direct <strong>correlation</strong> to variable declarations in high-level
+language (C, C++, Rust)</p>
+   <img src="img/big-size.png" style="min-width: 150px" />
+<h2 id="23-cpu-registers"><a class="header" href="#23-cpu-registers">2.3 CPU Registers</a></h2>
+<p>A <strong>CPU Registers</strong> or just <strong>register</strong>, is a <em>temporary</em> storage or <strong>working
+location</strong> built into the <strong>CPU</strong> itself (separate)
+A <code>64-bit</code> <strong>General Purpose Registers</strong> (GPRs) are in number of <strong>60</strong>, they can
+be used by all <strong>64-bits</strong> or some <em>portion</em> or subset accessed.</p>
+<p>When a <em>data</em> want to used a element with <strong>sizes</strong> less than <strong>64-bits</strong> (32-bit, 16-bit, or 8-bit)
+a specific part of this <strong>less sized register</strong> can be accessed by using a
+different <strong>register name</strong> like described here :</p>
+<img src="img/big_tab.png" style="min-width: 150px" />
+<p>As show in the <strong>excalidrw diagram</strong>, the first 4 registers, <code>rax</code>, <code>rbx</code>, <code>rcx</code>,
+<code>rdx</code> allow to accessed to 8-15 bits with the <code>ah</code>, <code>bh</code>, <code>ch</code>, and <code>dh</code> register names.
+But <code>ah</code> is provided for legacy support.</p>
+<p>A register save value the used to affected to them in <strong>hex</strong> base. By exemple if:</p>
+<pre><code class="language-bn">rax = 50.000.000.000 	  # value set to rax in decimal base (10)
+rax = 0000 000B A43B 7400 # the eax value is saved in hex base (16)
 
+ax = 50.000 			  # if ax is set to 50.000 in base decimal (10)
+ax = C350 				  # the ax calue is save in hex base 	(16)
 
-## 2.1 -  
-	A computer components include a **CPU** (Central Processing Unit), a **RAM** (Random Access Memory),
-	a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).
-	
-	
-	&lt;img src="img/Von_newman.png" style="min-width: 150px" /&gt;		
+rax = 0000 000B A43B C350 # each value is 1byte, the total do 16 byte, and each section separate by space do 16-bit
+  # the total do 64-bit,  here the lower 16-bit ax of rax is set the upper 48-bits are unaffected
+  # Note the change of ax to 7400 (16) to C350 (16)
 
-	**A Big Picture of Von Neumann Architecture**
-	 
-
-	A **CPU or processor** is a **computer brain** that contains a **Control Unit** (CU), 
-	main memory, and **Arithmetic Logic Unit** (ALU)
-	A **CPU** includes all **circuitry** required to **process input, store data, and generate output**.
-	It also follows **program instructions** that tell it which information
-	to process and how to process it.
-
-	- **CU** (`Control Unit`): It responsible for how **data moves thoughout system**, for
-	redirect all **input** and **output flow**, and **gets code** for instructions.
-
-	- **ALU** (`Arithmetic and Logic Unit`) : It a part of **CPU** who handles all **computations**
-		like *addition*, *subtraction*, and *comparisons*, with **logical operations**, **arithmetic operations**
-		and **bit shifting operation**
-
-	- **Register** : It's a sort of highly fast **Computer memory** that is used to *accept*, *store*, and *transport data* 
-		A **Processor register** is the term used to define the **registers** that **CPU** uses (General Purpose Register) .
-
-	- **Accumulator** : It store the result of calculation that **ALU** makes.
-
-	- **Program Counter**: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
-		This next address is passed from **Program counter** to **Memory Adress Register**.
-
-	- **Memory Address Register** : `MAR` **stores** the **memory address locations** of those instructions 
-		that are either to be **fetched** from the  **memory** or to be **stored in the memory**.
-
-	- **Memory Data Register** : `MDR`  **stores** the **instructions** that are **fetched** from **memory**
-		or any *information* that is to be **transferred to and stored** in the **memory**.
-
-	- **Current Instruction Register** : `CIR` **stores** the recently **fetched instructions** while it waits for usage 
-		and **execution**
-
-	- **Instruction Buffer Register** : `IBR` is use for place the instruction that isn't be **immediately executed** .
-
-	### Input / Output Devices
-	  
-	   The **program or the data** is read into **main memory** (`RAM`) from the **secondary storage** (`HDD`, `SSD`)
-	   If an result are *evaluated* by a computer and saved in it , you can *present* them to user via **output devices**. 	
-
-	   - **Buses**: Data is sent from one part of a computer to another via **buses** which connect all key 
-	   	internal components to the memory and CPU.
-
-	   - **Control Bus**: It receive **control commands** from `CPU`, as well as status signals from **other
-	   		devices**, and uses them to **control and coordinate** all of the computer's actions.
-	   - **Address Bus**: It **communicates** between **memory and the processor**  data address (not the actual data)
-	   - **Data Bus**: It **relays information** between the **memory unit**, **I/O devices**, and the **processor**.
-
-## 2.2 Data Storage Sizes
-	The **x86-64 architecture** supports a specific set of **data storage size elements**.
-	The **storage size** are a direct **correlation** to variable declarations in high-level
-	language (C, C++, Rust)
-
-	
-
-	   &lt;img src="img/big-size.png" style="min-width: 150px" /&gt;
-
-
-## 	2.3 CPU Registers 
-		A **CPU Registers** or just **register**, is a *temporary* storage or **working
-		location** built into the **CPU** itself (separate)
-		A `64-bit` **General Purpose Registers** (GPRs) are in number of **60**, they can 
-		be used by all **64-bits** or some *portion* or subset accessed.
-
-		When a *data* want to used a element with **sizes** less than **64-bits** (32-bit, 16-bit, or 8-bit)
-		a specific part of this **less sized register** can be accessed by using a 
-		different **register name** like described here :
-
-		  
-	&lt;img src="img/big_tab.png" style="min-width: 150px" /&gt;
-
-As show in the **excalidrw diagram**, the first 4 registers, `rax`, `rbx`, `rcx`,
-`rdx` allow to accessed to 8-15 bits with the `ah`, `bh`, `ch`, and `dh` register names.
-But `ah` is provided for legacy support.
-
-A register save value the used to affected to them in **hex** base. By exemple if:
-
-```bn
-		rax = 50.000.000.000 	  # value set to rax in decimal base (10)
-		rax = 0000 000B A43B 7400 # the eax value is saved in hex base (16)
-
-		ax = 50.000 			  # if ax is set to 50.000 in base decimal (10)
-		ax = C350 				  # the ax calue is save in hex base 	(16)
-
-		rax = 0000 000B A43B C350 # each value is 1byte, the total do 16 byte, and each section separate by space do 16-bit
-								  # the total do 64-bit,  here the lower 16-bit ax of rax is set the upper 48-bits are unaffected
-								  # Note the change of ax to 7400 (16) to C350 (16)
-						
-		al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
-		rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
-```
-
-For **32-bit register operations**, the *upper* 32-bit (first 32-bit from left to right) is set cleared (set to 0)
-
-	### RSP (Register Stack Pointer)
-		A `rsp` is a **register** who is not used for *data* or other uses but it used to point to the **top of the stack**. 
-
-	### RBP (Register Base Pointer)
-		A `rbp` is used as a **base pointer** during functions calls, it her only functions.
-
-	### RIP (Register Instruction Pointer)
-		A 	`rip` is a **special register** used by CPU ro point to the *next instruction* to be executed.
-		So if `rip` *points* to the *next instruction* means that in *debugger* the `rip` point to a instruction who is not 
-		*already executed*.
-	### Flag Register (rFlags)
-		A **flag register**, `rFlags` is used for store  *status* and `CPU` *control information* about the *instruction* that
-		was just executed.
-		The **rFlag**  is *directly updated* (`Status`) by **processor** and not accessible by program,
-
-		
-		&lt;img src="img/rflag.png" style="min-width: 150px" /&gt;
-	### XMM registers
-
-	The `XMM` are set of **dedicated registers** used to support **32-bit** and **64-bit floating point** 
-	operations and **Single Instruction Multiple Data** (`SIMD`) instructions.
-	`SIMD` allow a *single instructions* allow a *single instruction* to be applied
-	*simultaneaously* to to *multiple data items*, it help to increase a performance.
-
-		
-		&lt;img src="img/xmm-registers" style="min-width: 150px" /&gt;
-
-	### Cache Memory
-
-	**Cache memory** is a small *subset of the primary storage* or `RAM` located in the
-	**CPU chip**. If a *memory location* is accessed, a *copy* of the *value* is *placed*
-	in the cache*.
-	A **memory read** involves *sending* the *address* via the *bus* to the *memory controller*, 
-	which will *obtain the value* at the *requested memory location*, and *send it back* 
-	through *the bus*. Comparatively, if a *value* is in *cache*, it would be much faster 
-	to *access* that *value*.
-	A *cache hit* occurs when the *requested data* can be found in a *cache*, while a cache miss
-	*occurs* when it cannot. **Cache hits** are served by **reading data** from the *cache*, which is
-	faster than reading from *main memory*. The more requests that can be **served from
-	cache**, the faster the system will *typically perform*.
-
-	
-		&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
-
-
-## Main memory
- Memory can be viewed as a *series of bytes*, *one after another*. That is, *memory is byte
- addressable*. This means *each memory address* holds *one byte* of information. To *store*
- a **double-word**, **four bytes** are required which use *four memory addresses*.
- Additionally, *architecture* is `little-endian`. This means that the **Least Significant Byte**
- (`LSB`) is *stored* in the **lowest memory address**. The **Most Significant Byte** (`MSB`) is
- stored in the **highest memory location**.
- 
-	&lt;img src="img/memory_page" style="min-width: 150px" /&gt;
-
-For example, assuming the value of, **5,000,000** (`10`) `-&gt;` **004C4B40** (`16`), is to be placed in a
-**double-word** variable named `var1`.
-For a **little-endian** *architecture*, the **memory** picture would be as follows:
-
-
-&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
-
-Based on the **little-endian** *architecture*, the `LSB` is stored in the *lowest memory address*
-and the `MSB` is stored in the *highest memory location*.
-
-## 2.5 Memory Layout
-
-The *general memory layout* for a program is as shown:
-
-&lt;img src="img/memory_layout" style="min-width: 150px" /&gt;
-
-The `reserved` *section* is not *available* to *user programs*. The `text` (or code) *section* is
-where the *machine language* (i.e., the `1`'s and `0`'s that *represent the code*) is stored. The
-`data` section is where the *initialized data* is stored. This includes *declared variables* that
-have been provided an *initial value* at *assemble-time*. The uninitialized *data section*,
-typically called `BSS` *section*, is where *declared variables* that have *not been provided* an
-*initial value* are stored. If *accessed* before being set, the *value* will not be meaningful.
-The `heap` is where *dynamically allocated* data will be *stored* (if *requested*). The `stack`
-starts in **high memory** and *grows downward*.
-
-
-## Memory Hierarchy
- 
-In order to fully understand the various *different memory levels* and *associated usage*, it
-is useful to *review* the *memory hierarchy*. In general terms, *faster memory* is more
-*expensive* and *slower memory blocks* are *less expensive*. The `CPU` *registers* are *small*,
-*fast*, and *expensive*. **Secondary storage devices** such as *disk drives* and *Solid State
-Drives* (SSD's) are *larger, slower*, and *less expensive*. The overall goal is to *balance
-performance with cost*.
-An overview of the memory hierarchy is as follows:
-
-	&lt;img src="img/memory_hierarchy" style="min-width: 150px" /&gt;
-
-Where the *top* of the *triangle* represents the *fastest, smallest, and most expensive
-memory*. As we move down *levels*, the *memory becomes slower*, *larger*, and *less
-expensive*. The *goal* is to use an *effective balance between the small*, *fast*, *expensive
-memory* and the *large*, *slower*, and *cheaper memory*.
-
-
-
-	&lt;img src="img/table_hierarchy" style="min-width: 150px" /&gt;
-
-																			 
-Based on this table, a *primary storage access* at *100 nanoseconds*  is 30,000
-*times faster* than a *secondary storage* access, at *3 milliseconds* .
-The typical speeds improve over time (and these are already *out of date*). The key point
-is the relative *difference between* each *memory unit* is *significant*. *This difference*
-between *the memory units* applies even as newer, faster SSDs are being utilized.
+al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
+rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
 </code></pre>
+<p>For <strong>32-bit register operations</strong>, the <em>upper</em> 32-bit (first 32-bit from left to right) is set cleared (set to 0)</p>
+<h3 id="rsp-register-stack-pointer"><a class="header" href="#rsp-register-stack-pointer">RSP (Register Stack Pointer)</a></h3>
+<p>A <code>rsp</code> is a <strong>register</strong> who is not used for <em>data</em> or other uses but it used to point to the <strong>top of the stack</strong>.</p>
+<h3 id="rbp-register-base-pointer"><a class="header" href="#rbp-register-base-pointer">RBP (Register Base Pointer)</a></h3>
+<p>A <code>rbp</code> is used as a <strong>base pointer</strong> during functions calls, it her only functions.</p>
+<h3 id="rip-register-instruction-pointer"><a class="header" href="#rip-register-instruction-pointer">RIP (Register Instruction Pointer)</a></h3>
+<p>A 	<code>rip</code> is a <strong>special register</strong> used by CPU ro point to the <em>next instruction</em> to be executed.
+So if <code>rip</code> <em>points</em> to the <em>next instruction</em> means that in <em>debugger</em> the <code>rip</code> point to a instruction who is not
+<em>already executed</em>.</p>
+<h3 id="flag-register-rflags"><a class="header" href="#flag-register-rflags">Flag Register (rFlags)</a></h3>
+<p>A <strong>flag register</strong>, <code>rFlags</code> is used for store  <em>status</em> and <code>CPU</code> <em>control information</em> about the <em>instruction</em> that
+was just executed.
+The <strong>rFlag</strong>  is <em>directly updated</em> (<code>Status</code>) by <strong>processor</strong> and not accessible by program,</p>
+<img src="img/rflag.png" style="min-width: 150px" />
+### XMM registers
+<p>The <code>XMM</code> are set of <strong>dedicated registers</strong> used to support <strong>32-bit</strong> and <strong>64-bit floating point</strong>
+operations and <strong>Single Instruction Multiple Data</strong> (<code>SIMD</code>) instructions.
+<code>SIMD</code> allow a <em>single instructions</em> allow a <em>single instruction</em> to be applied
+<em>simultaneaously</em> to to <em>multiple data items</em>, it help to increase a performance.</p>
+<img src="img/xmm-registers" style="min-width: 150px" />
+<h3 id="cache-memory"><a class="header" href="#cache-memory">Cache Memory</a></h3>
+<p><strong>Cache memory</strong> is a small <em>subset of the primary storage</em> or <code>RAM</code> located in the
+<strong>CPU chip</strong>. If a <em>memory location</em> is accessed, a <em>copy</em> of the <em>value</em> is <em>placed</em>
+in the cache*.
+A <strong>memory read</strong> involves <em>sending</em> the <em>address</em> via the <em>bus</em> to the <em>memory controller</em>,
+which will <em>obtain the value</em> at the <em>requested memory location</em>, and <em>send it back</em>
+through <em>the bus</em>. Comparatively, if a <em>value</em> is in <em>cache</em>, it would be much faster
+to <em>access</em> that <em>value</em>.
+A <em>cache hit</em> occurs when the <em>requested data</em> can be found in a <em>cache</em>, while a cache miss
+<em>occurs</em> when it cannot. <strong>Cache hits</strong> are served by <strong>reading data</strong> from the <em>cache</em>, which is
+faster than reading from <em>main memory</em>. The more requests that can be <strong>served from
+cache</strong>, the faster the system will <em>typically perform</em>.</p>
+<img src="img/cpu_block_diagram2.png" style="min-width: 150px" />
+<h2 id="main-memory"><a class="header" href="#main-memory">Main memory</a></h2>
+<p>Memory can be viewed as a <em>series of bytes</em>, <em>one after another</em>. That is, <em>memory is byte
+addressable</em>. This means <em>each memory address</em> holds <em>one byte</em> of information. To <em>store</em>
+a <strong>double-word</strong>, <strong>four bytes</strong> are required which use <em>four memory addresses</em>.
+Additionally, <em>architecture</em> is <code>little-endian</code>. This means that the <strong>Least Significant Byte</strong>
+(<code>LSB</code>) is <em>stored</em> in the <strong>lowest memory address</strong>. The <strong>Most Significant Byte</strong> (<code>MSB</code>) is
+stored in the <strong>highest memory location</strong>.</p>
+<img src="img/memory_page" style="min-width: 150px" />
+<p>For example, assuming the value of, <strong>5,000,000</strong> (<code>10</code>) <code>-&gt;</code> <strong>004C4B40</strong> (<code>16</code>), is to be placed in a
+<strong>double-word</strong> variable named <code>var1</code>.
+For a <strong>little-endian</strong> <em>architecture</em>, the <strong>memory</strong> picture would be as follows:</p>
+<img src="img/cpu_block_diagram2.png" style="min-width: 150px" />
+<p>Based on the <strong>little-endian</strong> <em>architecture</em>, the <code>LSB</code> is stored in the <em>lowest memory address</em>
+and the <code>MSB</code> is stored in the <em>highest memory location</em>.</p>
+<h2 id="25-memory-layout"><a class="header" href="#25-memory-layout">2.5 Memory Layout</a></h2>
+<p>The <em>general memory layout</em> for a program is as shown:</p>
+<img src="img/memory_layout" style="min-width: 150px" />
+<p>The <code>reserved</code> <em>section</em> is not <em>available</em> to <em>user programs</em>. The <code>text</code> (or code) <em>section</em> is
+where the <em>machine language</em> (i.e., the <code>1</code>’s and <code>0</code>’s that <em>represent the code</em>) is stored. The
+<code>data</code> section is where the <em>initialized data</em> is stored. This includes <em>declared variables</em> that
+have been provided an <em>initial value</em> at <em>assemble-time</em>. The uninitialized <em>data section</em>,
+typically called <code>BSS</code> <em>section</em>, is where <em>declared variables</em> that have <em>not been provided</em> an
+<em>initial value</em> are stored. If <em>accessed</em> before being set, the <em>value</em> will not be meaningful.
+The <code>heap</code> is where <em>dynamically allocated</em> data will be <em>stored</em> (if <em>requested</em>). The <code>stack</code>
+starts in <strong>high memory</strong> and <em>grows downward</em>.</p>
+<h2 id="memory-hierarchy"><a class="header" href="#memory-hierarchy">Memory Hierarchy</a></h2>
+<p>In order to fully understand the various <em>different memory levels</em> and <em>associated usage</em>, it
+is useful to <em>review</em> the <em>memory hierarchy</em>. In general terms, <em>faster memory</em> is more
+<em>expensive</em> and <em>slower memory blocks</em> are <em>less expensive</em>. The <code>CPU</code> <em>registers</em> are <em>small</em>,
+<em>fast</em>, and <em>expensive</em>. <strong>Secondary storage devices</strong> such as <em>disk drives</em> and <em>Solid State
+Drives</em> (SSD’s) are <em>larger, slower</em>, and <em>less expensive</em>. The overall goal is to <em>balance
+performance with cost</em>.
+An overview of the memory hierarchy is as follows:</p>
+<img src="img/memory_hierarchy" style="min-width: 150px" />
+<p>Where the <em>top</em> of the <em>triangle</em> represents the <em>fastest, smallest, and most expensive
+memory</em>. As we move down <em>levels</em>, the <em>memory becomes slower</em>, <em>larger</em>, and <em>less
+expensive</em>. The <em>goal</em> is to use an <em>effective balance between the small</em>, <em>fast</em>, <em>expensive
+memory</em> and the <em>large</em>, <em>slower</em>, and <em>cheaper memory</em>.</p>
+<img src="img/table_hierarchy" style="min-width: 150px" />
+<p>Based on this table, a <em>primary storage access</em> at <em>100 nanoseconds</em>  is 30,000
+<em>times faster</em> than a <em>secondary storage</em> access, at <em>3 milliseconds</em> .
+The typical speeds improve over time (and these are already <em>out of date</em>). The key point
+is the relative <em>difference between</em> each <em>memory unit</em> is <em>significant</em>. <em>This difference</em>
+between <em>the memory units</em> applies even as newer, faster SSDs are being utilized.</p>
 
                     </main>
 

@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
+            window.path_to_searchindex_js = "searchindex-1f255e44.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -196,495 +196,389 @@
 <p>Before using this book, ensure you have the necessary tools installed (for example, <code>mdbook</code>, an assembler, and a Linux environment). Basic familiarity with C or another systems language and the Linux command line is recommended.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="0---why-assembly"><a href="#0---why-assembly" class="header">0 - Why Assembly?</a></h1>
-<pre><code>## 0.0 Why Assembly ?
-
-We choose Assembly because we want to provide a comprehensive introduction
-to assembly langage. Because it help to know how computer work and in AI area
-werw things become more complicated and were people not have a big reading retention,
-in world were we have a diminution of skilled person because ai usage for beginner not is advantage
-but for senior it's awesome but they create a gap between senior and junior.
-So a big understanding of things in world were averyone not understand what they do and just copy paste
-and not learn for adding AI in her workflow can be decisive.
-
-It also be a good basics for doing more thin in reverse engineering, vulnerability research and good
-programming specific stuff in low-level.
-It important for learn basics is a difference between simple programmer and
-computer scientist who can adapt to all ever-changing technologies.
-A adaptation is key.
-
-## 0.1  A interactive experience
-This book is a experimental project higly inspired by **x86-64 Assembly language programming with Ubuntu** By
-Ed Jorgensen, and by Cognitive Engineering Lab at Brown University experience on Rust Programming Language .
-
-## 0.2 Interactive Mechanics
-This book integrated interactive quizzes, test it in clicking "Start".
-
-When your response to question is incorrect you can choose to either rety the quizz or
-see the correct answers. It interesting and encouraged to retry the quiz until you get 100%.
-Note that after respond correctly to quizz you cannot retry it.
-
-You can also take note, select text and add your thoughts about it. 
-Once text selected, click the button and write a optionnal comment.
-
-&gt; **Note:** your highlights will disappear if we change the content that you've highlighted. 
-Also, your highlights are stored as a cookie. If you block cookies or change browsers, 
-then you won't see your previous highlights.
-</code></pre>
+<h2 id="10---assembly-and-low-level-"><a class="header" href="#10---assembly-and-low-level-">1.0 - Assembly and low level ?</a></h2>
+<p>Assembly language is a low-level  machine specific langage, each instruction set processor
+used it’s assembly in our case <code>x86-64</code> not run on different processor.
+A High-level language are translated into assembly who is used by processor to execute a program.<br>The assembly language help you to see how system ressources like memory, registers work .</p>
+<p>It help to improve algorithm development skills, debugging by practicing
+because it requires more thought, more attention and nuanced approch .
+The function / procedure call, Input/Output instructions including the content
+and structure of function, a important significant implementations are best
+understood when working at a low-level.</p>
+<p>In security world a fondamental mechanism of multi-processing concept
+a shared memory, threaded processing can help to nicely understood race condition
+and others bugs associated to this type of concepts.</p>
+<h2 id="11---history-and-begining"><a class="header" href="#11---history-and-begining">1.1 - History and Begining</a></h2>
+<p><code>x86-64</code> instruction set for <code>x86-64</code> class of processor using by <code>64-bit</code>
+operation system.
+<code>x86-64</code> is a <code>CISC</code> (Complex Instruction Set Computing)
+We have multiple <strong>internals processor design philosophy</strong></p>
+<p>(x86_64, AMD64, x64) is a <code>64-bit</code> extension of <code>x86</code> instruction set
+First annonced and available is <strong>AMD Opteron</strong> in 2003.
+It introduces <strong>64-bit mode</strong> and <strong>compatible mode</strong>, and new <strong>4 level paging</strong>
+mechanism. Compared to <code>32-bit</code> it support <strong>virtual and physical memory</strong>,
+and a number of <code>GPR</code> (General Purpose Register) from <code>8</code> to <code>16</code> .
+<code>SSE2</code> instruction in <strong>64-bit mode</strong> permit a <strong>floatin-point arithmetic</strong>.</p>
+<p>128-bit vector register (XMM registers), it can store <strong>one or two double precision floating-point number</strong>
+up to <strong>4 single precision</strong></p>
+<ul>
+<li><strong>64-bit mode</strong> instructions are modified to support <strong>64-bit operands</strong> and
+<strong>64-bit addressing mode</strong>.</li>
+<li><strong>x86-64 architecture</strong> use a <strong>16-bit</strong> and <strong>32-bit</strong> applications to
+run on system</li>
+<li>Opteron, Athlon followed by <strong>X2, X3, X4</strong> to indicate the number of cores
+and <strong>XLT models</strong>, same for <strong>Turion, Sempron, Phenom</strong></li>
+</ul>
+<p>It important to note that a reader would have a prerequist in C, C++ or Java, because many
+explation assume that reader is already familiar with programming concepts and with linux-based
+operating system and it’s command line interface.</p>
+<p>If not i highly recommended you to do a <a href="https://tednoob17.github.io/42">C Pool</a> of 42 School.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="1---assembly-and-low-level"><a href="#1---assembly-and-low-level" class="header">1 - Assembly and Low Level</a></h1>
-<pre><code>## 1.0 - Assembly and low level ?
-	Assembly language is a low-level  machine specific langage, each instruction set processor
-	used it's assembly in our case `x86-64` not run on different processor.
-	A High-level language are translated into assembly who is used by processor to execute a program.  
-	The assembly language help you to see how system ressources like memory, registers work .
-	
-	It help to improve algorithm development skills, debugging by practicing 
-	because it requires more thought, more attention and nuanced approch .
-	The function / procedure call, Input/Output instructions including the content 
-	and structure of function, a important significant implementations are best 
-	understood when working at a low-level.
-
-	In security world a fondamental mechanism of multi-processing concept
-	a shared memory, threaded processing can help to nicely understood race condition
-	and others bugs associated to this type of concepts.
-
-## 1.1 - History and Begining
-
-	`x86-64` instruction set for `x86-64` class of processor using by `64-bit` 
-	operation system.
-	`x86-64` is a `CISC` (Complex Instruction Set Computing)
-	We have multiple **internals processor design philosophy**
-
-	(x86_64, AMD64, x64) is a `64-bit` extension of `x86` instruction set
-	First annonced and available is **AMD Opteron** in 2003.
-	It introduces **64-bit mode** and **compatible mode**, and new **4 level paging**
-	mechanism. Compared to `32-bit` it support **virtual and physical memory**,
-	and a number of `GPR` (General Purpose Register) from `8` to `16` .
-	`SSE2` instruction in **64-bit mode** permit a **floatin-point arithmetic**.
-
-	128-bit vector register (XMM registers), it can store **one or two double precision floating-point number** 
-	up to **4 single precision**
-
-	- **64-bit mode** instructions are modified to support **64-bit operands** and 
-		**64-bit addressing mode**.
-	- **x86-64 architecture** use a **16-bit** and **32-bit** applications to
-	run on system
-	- Opteron, Athlon followed by **X2, X3, X4** to indicate the number of cores
-		and **XLT models**, same for **Turion, Sempron, Phenom**
-		
-
-	It important to note that a reader would have a prerequist in C, C++ or Java, because many
-	explation assume that reader is already familiar with programming concepts and with linux-based 
-	operating system and it's command line interface.
-
-If not i highly recommended you to do a [C Pool](https://tednoob17.github.io/42) of 42 School.
-</code></pre>
+<h2 id="10---assembly-and-low-level--1"><a class="header" href="#10---assembly-and-low-level--1">1.0 - Assembly and low level ?</a></h2>
+<p>Assembly language is a low-level, machine-specific language: each instruction-set processor
+uses its own assembly. In our case, <code>x86-64</code> assembly does not run on a different processor.</p>
+<p>High-level languages are translated into assembly or machine code, which the processor executes.
+Assembly language helps you understand system resources like memory and registers.</p>
+<p>It also helps improve algorithm development skills and debugging through practice, because it
+requires more thought, attention, and a nuanced approach. Function and procedure calls,
+input/output instructions, and the structure of functions — important implementation details —
+are best understood when working at a low level.</p>
+<p>In the security world, fundamental mechanisms of multiprocessing such as shared memory and
+threaded processing help to understand race conditions and other bugs associated with those concepts.</p>
+<h2 id="11---history-and-beginning"><a class="header" href="#11---history-and-beginning">1.1 - History and Beginning</a></h2>
+<p>The <code>x86-64</code> instruction set is used by <code>64-bit</code> operating systems. <code>x86-64</code> is a <code>CISC</code>
+(Complex Instruction Set Computing) architecture. There are multiple internal processor
+design philosophies.</p>
+<p>(x86_64, AMD64, x64) is a <code>64-bit</code> extension of the <code>x86</code> instruction set. The first widely
+available implementation was the <strong>AMD Opteron</strong> in 2003. It introduced <strong>64-bit mode</strong>,
+<strong>compatibility mode</strong>, and a new <strong>4-level paging</strong> mechanism. Compared to <code>32-bit</code>, it
+supports larger virtual and physical address spaces and increased the number of general-purpose
+registers (<code>GPR</code>) from <code>8</code> to <code>16</code>. <code>SSE2</code> instructions are available and are commonly used in
+64-bit mode for floating-point arithmetic.</p>
+<p>128-bit vector registers (XMM registers) can store one or two double-precision floating-point
+numbers or up to four single-precision numbers.</p>
+<ul>
+<li><strong>64-bit mode</strong> instructions were modified to support <strong>64-bit operands</strong> and <strong>64-bit addressing</strong>.</li>
+<li><strong>x86-64 architecture</strong> can run <strong>16-bit</strong> and <strong>32-bit</strong> applications on compatible systems.</li>
+<li>AMD product names such as Opteron and Athlon were followed by <strong>X2, X3, X4</strong> to indicate the
+number of cores; similar naming was used for <strong>Turion, Sempron, Phenom</strong>, and others.</li>
+</ul>
+<p>It is important to note that readers should have prerequisites in C, C++, or Java, because many
+explanations assume familiarity with programming concepts and with Linux-based operating systems
+and their command-line interfaces.</p>
+<p>If not, I highly recommend doing a <a href="https://tednoob17.github.io/42">C Pool</a> from 42 School.</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="2---architecture-overview"><a href="#2---architecture-overview" class="header">2 - Architecture Overview</a></h1>
-<pre><code># 2.0 - Architecture Overview
+<h1 id="20---architecture-overview"><a class="header" href="#20---architecture-overview">2.0 - Architecture Overview</a></h1>
+<h2 id="21--"><a class="header" href="#21--">2.1 -</a></h2>
+<p>A computer components include a <strong>CPU</strong> (Central Processing Unit), a <strong>RAM</strong> (Random Access Memory),
+a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).</p>
+<img src="img/Von_newman.png" style="min-width: 150px" />		
+<p><strong>A Big Picture of Von Neumann Architecture</strong></p>
+<p>A <strong>CPU or processor</strong> is a <strong>computer brain</strong> that contains a <strong>Control Unit</strong> (CU),
+main memory, and <strong>Arithmetic Logic Unit</strong> (ALU)
+A <strong>CPU</strong> includes all <strong>circuitry</strong> required to <strong>process input, store data, and generate output</strong>.
+It also follows <strong>program instructions</strong> that tell it which information
+to process and how to process it.</p>
+<ul>
+<li>
+<p><strong>CU</strong> (<code>Control Unit</code>): It responsible for how <strong>data moves thoughout system</strong>, for
+redirect all <strong>input</strong> and <strong>output flow</strong>, and <strong>gets code</strong> for instructions.</p>
+</li>
+<li>
+<p><strong>ALU</strong> (<code>Arithmetic and Logic Unit</code>) : It a part of <strong>CPU</strong> who handles all <strong>computations</strong>
+like <em>addition</em>, <em>subtraction</em>, and <em>comparisons</em>, with <strong>logical operations</strong>, <strong>arithmetic operations</strong>
+and <strong>bit shifting operation</strong></p>
+</li>
+<li>
+<p><strong>Register</strong> : It’s a sort of highly fast <strong>Computer memory</strong> that is used to <em>accept</em>, <em>store</em>, and <em>transport data</em>
+A <strong>Processor register</strong> is the term used to define the <strong>registers</strong> that <strong>CPU</strong> uses (General Purpose Register) .</p>
+</li>
+<li>
+<p><strong>Accumulator</strong> : It store the result of calculation that <strong>ALU</strong> makes.</p>
+</li>
+<li>
+<p><strong>Program Counter</strong>: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
+This next address is passed from <strong>Program counter</strong> to <strong>Memory Adress Register</strong>.</p>
+</li>
+<li>
+<p><strong>Memory Address Register</strong> : <code>MAR</code> <strong>stores</strong> the <strong>memory address locations</strong> of those instructions
+that are either to be <strong>fetched</strong> from the  <strong>memory</strong> or to be <strong>stored in the memory</strong>.</p>
+</li>
+<li>
+<p><strong>Memory Data Register</strong> : <code>MDR</code>  <strong>stores</strong> the <strong>instructions</strong> that are <strong>fetched</strong> from <strong>memory</strong>
+or any <em>information</em> that is to be <strong>transferred to and stored</strong> in the <strong>memory</strong>.</p>
+</li>
+<li>
+<p><strong>Current Instruction Register</strong> : <code>CIR</code> <strong>stores</strong> the recently <strong>fetched instructions</strong> while it waits for usage
+and <strong>execution</strong></p>
+</li>
+<li>
+<p><strong>Instruction Buffer Register</strong> : <code>IBR</code> is use for place the instruction that isn’t be <strong>immediately executed</strong> .</p>
+</li>
+</ul>
+<h3 id="input--output-devices"><a class="header" href="#input--output-devices">Input / Output Devices</a></h3>
+<p>The <strong>program or the data</strong> is read into <strong>main memory</strong> (<code>RAM</code>) from the <strong>secondary storage</strong> (<code>HDD</code>, <code>SSD</code>)
+If an result are <em>evaluated</em> by a computer and saved in it , you can <em>present</em> them to user via <strong>output devices</strong>.</p>
+<ul>
+<li>
+<p><strong>Buses</strong>: Data is sent from one part of a computer to another via <strong>buses</strong> which connect all key
+internal components to the memory and CPU.</p>
+</li>
+<li>
+<p><strong>Control Bus</strong>: It receive <strong>control commands</strong> from <code>CPU</code>, as well as status signals from <strong>other
+devices</strong>, and uses them to <strong>control and coordinate</strong> all of the computer’s actions.</p>
+</li>
+<li>
+<p><strong>Address Bus</strong>: It <strong>communicates</strong> between <strong>memory and the processor</strong>  data address (not the actual data)</p>
+</li>
+<li>
+<p><strong>Data Bus</strong>: It <strong>relays information</strong> between the <strong>memory unit</strong>, <strong>I/O devices</strong>, and the <strong>processor</strong>.</p>
+</li>
+</ul>
+<h2 id="22-data-storage-sizes"><a class="header" href="#22-data-storage-sizes">2.2 Data Storage Sizes</a></h2>
+<p>The <strong>x86-64 architecture</strong> supports a specific set of <strong>data storage size elements</strong>.
+The <strong>storage size</strong> are a direct <strong>correlation</strong> to variable declarations in high-level
+language (C, C++, Rust)</p>
+   <img src="img/big-size.png" style="min-width: 150px" />
+<h2 id="23-cpu-registers"><a class="header" href="#23-cpu-registers">2.3 CPU Registers</a></h2>
+<p>A <strong>CPU Registers</strong> or just <strong>register</strong>, is a <em>temporary</em> storage or <strong>working
+location</strong> built into the <strong>CPU</strong> itself (separate)
+A <code>64-bit</code> <strong>General Purpose Registers</strong> (GPRs) are in number of <strong>60</strong>, they can
+be used by all <strong>64-bits</strong> or some <em>portion</em> or subset accessed.</p>
+<p>When a <em>data</em> want to used a element with <strong>sizes</strong> less than <strong>64-bits</strong> (32-bit, 16-bit, or 8-bit)
+a specific part of this <strong>less sized register</strong> can be accessed by using a
+different <strong>register name</strong> like described here :</p>
+<img src="img/big_tab.png" style="min-width: 150px" />
+<p>As show in the <strong>excalidrw diagram</strong>, the first 4 registers, <code>rax</code>, <code>rbx</code>, <code>rcx</code>,
+<code>rdx</code> allow to accessed to 8-15 bits with the <code>ah</code>, <code>bh</code>, <code>ch</code>, and <code>dh</code> register names.
+But <code>ah</code> is provided for legacy support.</p>
+<p>A register save value the used to affected to them in <strong>hex</strong> base. By exemple if:</p>
+<pre><code class="language-bn">rax = 50.000.000.000 	  # value set to rax in decimal base (10)
+rax = 0000 000B A43B 7400 # the eax value is saved in hex base (16)
 
+ax = 50.000 			  # if ax is set to 50.000 in base decimal (10)
+ax = C350 				  # the ax calue is save in hex base 	(16)
 
-## 2.1 -  
-	A computer components include a **CPU** (Central Processing Unit), a **RAM** (Random Access Memory),
-	a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).
-	
-	
-	&lt;img src="img/Von_newman.png" style="min-width: 150px" /&gt;		
+rax = 0000 000B A43B C350 # each value is 1byte, the total do 16 byte, and each section separate by space do 16-bit
+  # the total do 64-bit,  here the lower 16-bit ax of rax is set the upper 48-bits are unaffected
+  # Note the change of ax to 7400 (16) to C350 (16)
 
-	**A Big Picture of Von Neumann Architecture**
-	 
-
-	A **CPU or processor** is a **computer brain** that contains a **Control Unit** (CU), 
-	main memory, and **Arithmetic Logic Unit** (ALU)
-	A **CPU** includes all **circuitry** required to **process input, store data, and generate output**.
-	It also follows **program instructions** that tell it which information
-	to process and how to process it.
-
-	- **CU** (`Control Unit`): It responsible for how **data moves thoughout system**, for
-	redirect all **input** and **output flow**, and **gets code** for instructions.
-
-	- **ALU** (`Arithmetic and Logic Unit`) : It a part of **CPU** who handles all **computations**
-		like *addition*, *subtraction*, and *comparisons*, with **logical operations**, **arithmetic operations**
-		and **bit shifting operation**
-
-	- **Register** : It's a sort of highly fast **Computer memory** that is used to *accept*, *store*, and *transport data* 
-		A **Processor register** is the term used to define the **registers** that **CPU** uses (General Purpose Register) .
-
-	- **Accumulator** : It store the result of calculation that **ALU** makes.
-
-	- **Program Counter**: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
-		This next address is passed from **Program counter** to **Memory Adress Register**.
-
-	- **Memory Address Register** : `MAR` **stores** the **memory address locations** of those instructions 
-		that are either to be **fetched** from the  **memory** or to be **stored in the memory**.
-
-	- **Memory Data Register** : `MDR`  **stores** the **instructions** that are **fetched** from **memory**
-		or any *information* that is to be **transferred to and stored** in the **memory**.
-
-	- **Current Instruction Register** : `CIR` **stores** the recently **fetched instructions** while it waits for usage 
-		and **execution**
-
-	- **Instruction Buffer Register** : `IBR` is use for place the instruction that isn't be **immediately executed** .
-
-	### Input / Output Devices
-	  
-	   The **program or the data** is read into **main memory** (`RAM`) from the **secondary storage** (`HDD`, `SSD`)
-	   If an result are *evaluated* by a computer and saved in it , you can *present* them to user via **output devices**. 	
-
-	   - **Buses**: Data is sent from one part of a computer to another via **buses** which connect all key 
-	   	internal components to the memory and CPU.
-
-	   - **Control Bus**: It receive **control commands** from `CPU`, as well as status signals from **other
-	   		devices**, and uses them to **control and coordinate** all of the computer's actions.
-	   - **Address Bus**: It **communicates** between **memory and the processor**  data address (not the actual data)
-	   - **Data Bus**: It **relays information** between the **memory unit**, **I/O devices**, and the **processor**.
-
-## 2.2 Data Storage Sizes
-	The **x86-64 architecture** supports a specific set of **data storage size elements**.
-	The **storage size** are a direct **correlation** to variable declarations in high-level
-	language (C, C++, Rust)
-
-	
-
-	   &lt;img src="img/big-size.png" style="min-width: 150px" /&gt;
-
-
-## 	2.3 CPU Registers 
-		A **CPU Registers** or just **register**, is a *temporary* storage or **working
-		location** built into the **CPU** itself (separate)
-		A `64-bit` **General Purpose Registers** (GPRs) are in number of **60**, they can 
-		be used by all **64-bits** or some *portion* or subset accessed.
-
-		When a *data* want to used a element with **sizes** less than **64-bits** (32-bit, 16-bit, or 8-bit)
-		a specific part of this **less sized register** can be accessed by using a 
-		different **register name** like described here :
-
-		  
-	&lt;img src="img/big_tab.png" style="min-width: 150px" /&gt;
-
-As show in the **excalidrw diagram**, the first 4 registers, `rax`, `rbx`, `rcx`,
-`rdx` allow to accessed to 8-15 bits with the `ah`, `bh`, `ch`, and `dh` register names.
-But `ah` is provided for legacy support.
-
-A register save value the used to affected to them in **hex** base. By exemple if:
-
-```bn
-		rax = 50.000.000.000 	  # value set to rax in decimal base (10)
-		rax = 0000 000B A43B 7400 # the eax value is saved in hex base (16)
-
-		ax = 50.000 			  # if ax is set to 50.000 in base decimal (10)
-		ax = C350 				  # the ax calue is save in hex base 	(16)
-
-		rax = 0000 000B A43B C350 # each value is 1byte, the total do 16 byte, and each section separate by space do 16-bit
-								  # the total do 64-bit,  here the lower 16-bit ax of rax is set the upper 48-bits are unaffected
-								  # Note the change of ax to 7400 (16) to C350 (16)
-						
-		al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
-		rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
-```
-
-For **32-bit register operations**, the *upper* 32-bit (first 32-bit from left to right) is set cleared (set to 0)
-
-	### RSP (Register Stack Pointer)
-		A `rsp` is a **register** who is not used for *data* or other uses but it used to point to the **top of the stack**. 
-
-	### RBP (Register Base Pointer)
-		A `rbp` is used as a **base pointer** during functions calls, it her only functions.
-
-	### RIP (Register Instruction Pointer)
-		A 	`rip` is a **special register** used by CPU ro point to the *next instruction* to be executed.
-		So if `rip` *points* to the *next instruction* means that in *debugger* the `rip` point to a instruction who is not 
-		*already executed*.
-	### Flag Register (rFlags)
-		A **flag register**, `rFlags` is used for store  *status* and `CPU` *control information* about the *instruction* that
-		was just executed.
-		The **rFlag**  is *directly updated* (`Status`) by **processor** and not accessible by program,
-
-		
-		&lt;img src="img/rflag.png" style="min-width: 150px" /&gt;
-	### XMM registers
-
-	The `XMM` are set of **dedicated registers** used to support **32-bit** and **64-bit floating point** 
-	operations and **Single Instruction Multiple Data** (`SIMD`) instructions.
-	`SIMD` allow a *single instructions* allow a *single instruction* to be applied
-	*simultaneaously* to to *multiple data items*, it help to increase a performance.
-
-		
-		&lt;img src="img/xmm-registers" style="min-width: 150px" /&gt;
-
-	### Cache Memory
-
-	**Cache memory** is a small *subset of the primary storage* or `RAM` located in the
-	**CPU chip**. If a *memory location* is accessed, a *copy* of the *value* is *placed*
-	in the cache*.
-	A **memory read** involves *sending* the *address* via the *bus* to the *memory controller*, 
-	which will *obtain the value* at the *requested memory location*, and *send it back* 
-	through *the bus*. Comparatively, if a *value* is in *cache*, it would be much faster 
-	to *access* that *value*.
-	A *cache hit* occurs when the *requested data* can be found in a *cache*, while a cache miss
-	*occurs* when it cannot. **Cache hits** are served by **reading data** from the *cache*, which is
-	faster than reading from *main memory*. The more requests that can be **served from
-	cache**, the faster the system will *typically perform*.
-
-	
-		&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
-
-
-## Main memory
- Memory can be viewed as a *series of bytes*, *one after another*. That is, *memory is byte
- addressable*. This means *each memory address* holds *one byte* of information. To *store*
- a **double-word**, **four bytes** are required which use *four memory addresses*.
- Additionally, *architecture* is `little-endian`. This means that the **Least Significant Byte**
- (`LSB`) is *stored* in the **lowest memory address**. The **Most Significant Byte** (`MSB`) is
- stored in the **highest memory location**.
- 
-	&lt;img src="img/memory_page" style="min-width: 150px" /&gt;
-
-For example, assuming the value of, **5,000,000** (`10`) `-&gt;` **004C4B40** (`16`), is to be placed in a
-**double-word** variable named `var1`.
-For a **little-endian** *architecture*, the **memory** picture would be as follows:
-
-
-&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
-
-Based on the **little-endian** *architecture*, the `LSB` is stored in the *lowest memory address*
-and the `MSB` is stored in the *highest memory location*.
-
-## 2.5 Memory Layout
-
-The *general memory layout* for a program is as shown:
-
-&lt;img src="img/memory_layout" style="min-width: 150px" /&gt;
-
-The `reserved` *section* is not *available* to *user programs*. The `text` (or code) *section* is
-where the *machine language* (i.e., the `1`'s and `0`'s that *represent the code*) is stored. The
-`data` section is where the *initialized data* is stored. This includes *declared variables* that
-have been provided an *initial value* at *assemble-time*. The uninitialized *data section*,
-typically called `BSS` *section*, is where *declared variables* that have *not been provided* an
-*initial value* are stored. If *accessed* before being set, the *value* will not be meaningful.
-The `heap` is where *dynamically allocated* data will be *stored* (if *requested*). The `stack`
-starts in **high memory** and *grows downward*.
-
-
-## Memory Hierarchy
- 
-In order to fully understand the various *different memory levels* and *associated usage*, it
-is useful to *review* the *memory hierarchy*. In general terms, *faster memory* is more
-*expensive* and *slower memory blocks* are *less expensive*. The `CPU` *registers* are *small*,
-*fast*, and *expensive*. **Secondary storage devices** such as *disk drives* and *Solid State
-Drives* (SSD's) are *larger, slower*, and *less expensive*. The overall goal is to *balance
-performance with cost*.
-An overview of the memory hierarchy is as follows:
-
-	&lt;img src="img/memory_hierarchy" style="min-width: 150px" /&gt;
-
-Where the *top* of the *triangle* represents the *fastest, smallest, and most expensive
-memory*. As we move down *levels*, the *memory becomes slower*, *larger*, and *less
-expensive*. The *goal* is to use an *effective balance between the small*, *fast*, *expensive
-memory* and the *large*, *slower*, and *cheaper memory*.
-
-
-
-	&lt;img src="img/table_hierarchy" style="min-width: 150px" /&gt;
-
-																			 
-Based on this table, a *primary storage access* at *100 nanoseconds*  is 30,000
-*times faster* than a *secondary storage* access, at *3 milliseconds* .
-The typical speeds improve over time (and these are already *out of date*). The key point
-is the relative *difference between* each *memory unit* is *significant*. *This difference*
-between *the memory units* applies even as newer, faster SSDs are being utilized.
+al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
+rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
 </code></pre>
+<p>For <strong>32-bit register operations</strong>, the <em>upper</em> 32-bit (first 32-bit from left to right) is set cleared (set to 0)</p>
+<h3 id="rsp-register-stack-pointer"><a class="header" href="#rsp-register-stack-pointer">RSP (Register Stack Pointer)</a></h3>
+<p>A <code>rsp</code> is a <strong>register</strong> who is not used for <em>data</em> or other uses but it used to point to the <strong>top of the stack</strong>.</p>
+<h3 id="rbp-register-base-pointer"><a class="header" href="#rbp-register-base-pointer">RBP (Register Base Pointer)</a></h3>
+<p>A <code>rbp</code> is used as a <strong>base pointer</strong> during functions calls, it her only functions.</p>
+<h3 id="rip-register-instruction-pointer"><a class="header" href="#rip-register-instruction-pointer">RIP (Register Instruction Pointer)</a></h3>
+<p>A 	<code>rip</code> is a <strong>special register</strong> used by CPU ro point to the <em>next instruction</em> to be executed.
+So if <code>rip</code> <em>points</em> to the <em>next instruction</em> means that in <em>debugger</em> the <code>rip</code> point to a instruction who is not
+<em>already executed</em>.</p>
+<h3 id="flag-register-rflags"><a class="header" href="#flag-register-rflags">Flag Register (rFlags)</a></h3>
+<p>A <strong>flag register</strong>, <code>rFlags</code> is used for store  <em>status</em> and <code>CPU</code> <em>control information</em> about the <em>instruction</em> that
+was just executed.
+The <strong>rFlag</strong>  is <em>directly updated</em> (<code>Status</code>) by <strong>processor</strong> and not accessible by program,</p>
+<img src="img/rflag.png" style="min-width: 150px" />
+### XMM registers
+<p>The <code>XMM</code> are set of <strong>dedicated registers</strong> used to support <strong>32-bit</strong> and <strong>64-bit floating point</strong>
+operations and <strong>Single Instruction Multiple Data</strong> (<code>SIMD</code>) instructions.
+<code>SIMD</code> allow a <em>single instructions</em> allow a <em>single instruction</em> to be applied
+<em>simultaneaously</em> to to <em>multiple data items</em>, it help to increase a performance.</p>
+<img src="img/xmm-registers" style="min-width: 150px" />
+<h3 id="cache-memory"><a class="header" href="#cache-memory">Cache Memory</a></h3>
+<p><strong>Cache memory</strong> is a small <em>subset of the primary storage</em> or <code>RAM</code> located in the
+<strong>CPU chip</strong>. If a <em>memory location</em> is accessed, a <em>copy</em> of the <em>value</em> is <em>placed</em>
+in the cache*.
+A <strong>memory read</strong> involves <em>sending</em> the <em>address</em> via the <em>bus</em> to the <em>memory controller</em>,
+which will <em>obtain the value</em> at the <em>requested memory location</em>, and <em>send it back</em>
+through <em>the bus</em>. Comparatively, if a <em>value</em> is in <em>cache</em>, it would be much faster
+to <em>access</em> that <em>value</em>.
+A <em>cache hit</em> occurs when the <em>requested data</em> can be found in a <em>cache</em>, while a cache miss
+<em>occurs</em> when it cannot. <strong>Cache hits</strong> are served by <strong>reading data</strong> from the <em>cache</em>, which is
+faster than reading from <em>main memory</em>. The more requests that can be <strong>served from
+cache</strong>, the faster the system will <em>typically perform</em>.</p>
+<img src="img/cpu_block_diagram2.png" style="min-width: 150px" />
+<h2 id="main-memory"><a class="header" href="#main-memory">Main memory</a></h2>
+<p>Memory can be viewed as a <em>series of bytes</em>, <em>one after another</em>. That is, <em>memory is byte
+addressable</em>. This means <em>each memory address</em> holds <em>one byte</em> of information. To <em>store</em>
+a <strong>double-word</strong>, <strong>four bytes</strong> are required which use <em>four memory addresses</em>.
+Additionally, <em>architecture</em> is <code>little-endian</code>. This means that the <strong>Least Significant Byte</strong>
+(<code>LSB</code>) is <em>stored</em> in the <strong>lowest memory address</strong>. The <strong>Most Significant Byte</strong> (<code>MSB</code>) is
+stored in the <strong>highest memory location</strong>.</p>
+<img src="img/memory_page" style="min-width: 150px" />
+<p>For example, assuming the value of, <strong>5,000,000</strong> (<code>10</code>) <code>-&gt;</code> <strong>004C4B40</strong> (<code>16</code>), is to be placed in a
+<strong>double-word</strong> variable named <code>var1</code>.
+For a <strong>little-endian</strong> <em>architecture</em>, the <strong>memory</strong> picture would be as follows:</p>
+<img src="img/cpu_block_diagram2.png" style="min-width: 150px" />
+<p>Based on the <strong>little-endian</strong> <em>architecture</em>, the <code>LSB</code> is stored in the <em>lowest memory address</em>
+and the <code>MSB</code> is stored in the <em>highest memory location</em>.</p>
+<h2 id="25-memory-layout"><a class="header" href="#25-memory-layout">2.5 Memory Layout</a></h2>
+<p>The <em>general memory layout</em> for a program is as shown:</p>
+<img src="img/memory_layout" style="min-width: 150px" />
+<p>The <code>reserved</code> <em>section</em> is not <em>available</em> to <em>user programs</em>. The <code>text</code> (or code) <em>section</em> is
+where the <em>machine language</em> (i.e., the <code>1</code>’s and <code>0</code>’s that <em>represent the code</em>) is stored. The
+<code>data</code> section is where the <em>initialized data</em> is stored. This includes <em>declared variables</em> that
+have been provided an <em>initial value</em> at <em>assemble-time</em>. The uninitialized <em>data section</em>,
+typically called <code>BSS</code> <em>section</em>, is where <em>declared variables</em> that have <em>not been provided</em> an
+<em>initial value</em> are stored. If <em>accessed</em> before being set, the <em>value</em> will not be meaningful.
+The <code>heap</code> is where <em>dynamically allocated</em> data will be <em>stored</em> (if <em>requested</em>). The <code>stack</code>
+starts in <strong>high memory</strong> and <em>grows downward</em>.</p>
+<h2 id="memory-hierarchy"><a class="header" href="#memory-hierarchy">Memory Hierarchy</a></h2>
+<p>In order to fully understand the various <em>different memory levels</em> and <em>associated usage</em>, it
+is useful to <em>review</em> the <em>memory hierarchy</em>. In general terms, <em>faster memory</em> is more
+<em>expensive</em> and <em>slower memory blocks</em> are <em>less expensive</em>. The <code>CPU</code> <em>registers</em> are <em>small</em>,
+<em>fast</em>, and <em>expensive</em>. <strong>Secondary storage devices</strong> such as <em>disk drives</em> and <em>Solid State
+Drives</em> (SSD’s) are <em>larger, slower</em>, and <em>less expensive</em>. The overall goal is to <em>balance
+performance with cost</em>.
+An overview of the memory hierarchy is as follows:</p>
+<img src="img/memory_hierarchy" style="min-width: 150px" />
+<p>Where the <em>top</em> of the <em>triangle</em> represents the <em>fastest, smallest, and most expensive
+memory</em>. As we move down <em>levels</em>, the <em>memory becomes slower</em>, <em>larger</em>, and <em>less
+expensive</em>. The <em>goal</em> is to use an <em>effective balance between the small</em>, <em>fast</em>, <em>expensive
+memory</em> and the <em>large</em>, <em>slower</em>, and <em>cheaper memory</em>.</p>
+<img src="img/table_hierarchy" style="min-width: 150px" />
+<p>Based on this table, a <em>primary storage access</em> at <em>100 nanoseconds</em>  is 30,000
+<em>times faster</em> than a <em>secondary storage</em> access, at <em>3 milliseconds</em> .
+The typical speeds improve over time (and these are already <em>out of date</em>). The key point
+is the relative <em>difference between</em> each <em>memory unit</em> is <em>significant</em>. <em>This difference</em>
+between <em>the memory units</em> applies even as newer, faster SSDs are being utilized.</p>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="3---data-representation"><a href="#3---data-representation" class="header">3 - Data Representation</a></h1>
-<pre><code># 3.0 Data Representation
-
-In a computer, data representation is how information is stored. It differs
+<h1 id="30-data-representation"><a class="header" href="#30-data-representation">3.0 Data Representation</a></h1>
+<p>In a computer, data representation is how information is stored. It differs
 depending on what you want to store; for example, the method used to store integers
-is different from the method used to store floating-point numbers and strings.
-
-Different bases are used here (binary, decimal, hex) to represent a number.
-Ex:
-
-	- 19 = 19 (10) = 13 (16) = 0x13
-	
-## 3.1 Integer Representation
-The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
+is different from the method used to store floating-point numbers and strings.</p>
+<p>Different bases are used here (binary, decimal, hex) to represent a number.
+Ex:</p>
+<ul>
+<li>19 = 19 (10) = 13 (16) = 0x13</li>
+</ul>
+<h2 id="31-integer-representation"><a class="header" href="#31-integer-representation">3.1 Integer Representation</a></h2>
+<p>The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
 amount of space provided by the computer.
-This directly impacts the size or range of numbers that can be represented.
-
-Ex:										 
-1 byte (8 bits) can represent 2^8, or 256, different numbers.
+This directly impacts the size or range of numbers that can be represented.</p>
+<p>Ex:<br>1 byte (8 bits) can represent 2^8, or 256, different numbers.
 These 256 numbers (0-255) can be unsigned (all positive).
-The signed range is (-128 to +127).
-
-So if a number that we want to represent need more space to be represented a larger
-size must be used. Like :
-	- A `word` 16-bits for 65.536 (0 - 65.535) for signed and (-32.768 - 32.767) for unsigned value
-	- A  `double-word` 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
-	+2.147,483,647) for unsigned value
-
-
-
-	&lt;img src="img/size-bytes.png"&gt;
-
-
-It is important to know whether a value can be represented; you need to know the size of the
+The signed range is (-128 to +127).</p>
+<p>So if a number that we want to represent need more space to be represented a larger
+size must be used. Like :</p>
+<ul>
+<li>A <code>word</code> 16-bits for 65.536 (0 - 65.535) for signed and (-32.768 - 32.767) for unsigned value</li>
+<li>A  <code>double-word</code> 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
++2.147,483,647) for unsigned value</li>
+</ul>
+<img src="img/size-bytes.png">
+<p>It is important to know whether a value can be represented; you need to know the size of the
 storage element (byte, word, double-word, quadword) being used and whether the values
 are signed or not.
 Signed values use a standard binary representation.
-Unsigned values use a **two's complement** representation.
-
-
-For example, the unsigned byte range can be represented using a number line as follows:
-
-	&lt;img src="img/size-bytes.png" &gt;
-		
-For example, the signed byte range can be represented using a number line as follows:
-
-	&lt;img src="img/size-bytes.png" &gt;
-
-
-When we examine a binary file with a debugger, it is difficult to know 
-whether a variable in memory is signed or not because unsigned values have a 
-different, positive-only range than signed values.
-
-For example, when the unsigned and signed values are within the overlapping positive
-range (0 to +127):
-
-- A signed byte representation of 12 (10) is 0x0C (16)
-- An unsigned byte representation of 12 (10) is also 0x0C (16)
-
-When the unsigned and signed values are outside the overlapping range:
-
-- A signed byte representation of -15 (10) is 0xF1 (16)
-- An unsigned byte representation of 241 (10) is also 0xF1 (16)
-
-Note: if your number contains a group of 4 bits (1111), that is 15 in decimal.
-### Two's Complement
-	To find a two's-complement representation for negative values 
-
-	1. take the one's complement (negate)
-	2. add 1 (in binary)
-
-So, for that, we can take an example:
-- (`-9`) you can use the positive value (`9`)
-- convert it to binary
-- invert all bits (change `1` to `0` and `0` to `1`)
-- add `+1` (binary addition)
-- And now you have the negative value.
-
-See below example :
-
-
-	&lt;img src="img/size-bytes.png" &gt;
-
- 
-## 3.3 Floating-point Representation
-
-The representation of floating-point numbers differs by format.
-The representation shown here is **IEEE 754** 32-bit **floating-point**
-
-
-After these calculations, the next step is to calculate the biased exponent,
+Unsigned values use a <strong>two’s complement</strong> representation.</p>
+<p>For example, the unsigned byte range can be represented using a number line as follows:</p>
+<img src="img/size-bytes.png">
+<p>For example, the signed byte range can be represented using a number line as follows:</p>
+<img src="img/size-bytes.png">
+<p>When we examine a binary file with a debugger, it is difficult to know
+whether a variable in memory is signed or not because unsigned values have a
+different, positive-only range than signed values.</p>
+<p>For example, when the unsigned and signed values are within the overlapping positive
+range (0 to +127):</p>
+<ul>
+<li>A signed byte representation of 12 (10) is 0x0C (16)</li>
+<li>An unsigned byte representation of 12 (10) is also 0x0C (16)</li>
+</ul>
+<p>When the unsigned and signed values are outside the overlapping range:</p>
+<ul>
+<li>A signed byte representation of -15 (10) is 0xF1 (16)</li>
+<li>An unsigned byte representation of 241 (10) is also 0xF1 (16)</li>
+</ul>
+<p>Note: if your number contains a group of 4 bits (1111), that is 15 in decimal.</p>
+<h3 id="twos-complement"><a class="header" href="#twos-complement">Two’s Complement</a></h3>
+<p>To find a two’s-complement representation for negative values</p>
+<ol>
+<li>take the one’s complement (negate)</li>
+<li>add 1 (in binary)</li>
+</ol>
+<p>So, for that, we can take an example:</p>
+<ul>
+<li>(<code>-9</code>) you can use the positive value (<code>9</code>)</li>
+<li>convert it to binary</li>
+<li>invert all bits (change <code>1</code> to <code>0</code> and <code>0</code> to <code>1</code>)</li>
+<li>add <code>+1</code> (binary addition)</li>
+<li>And now you have the negative value.</li>
+</ul>
+<p>See below example :</p>
+<img src="img/size-bytes.png">
+<h2 id="33-floating-point-representation"><a class="header" href="#33-floating-point-representation">3.3 Floating-point Representation</a></h2>
+<p>The representation of floating-point numbers differs by format.
+The representation shown here is <strong>IEEE 754</strong> 32-bit <strong>floating-point</strong></p>
+<p>After these calculations, the next step is to calculate the biased exponent,
 which is the exponent from the normalized scientific notation plus the bias. The
-value for the IEEE 32-bit floating-point standard is **127**, and
+value for the IEEE 32-bit floating-point standard is <strong>127</strong>, and
 the result should be converted to 8 bits (1 byte) and stored in the biased exponent
-portion of the word.
-
-
-	&lt;img src="img/size-bytes.png" &gt;
-
-A 64-bit floating-point standard representation is the same as 32-bit,
-however the format allows an `11-bit` biased exponent with a bias of `1023`
-
-
-	&lt;img src="img/size-bytes.png" &gt;
-
-It is possible that when a value is interpreted as floating-point and it does not
+portion of the word.</p>
+<img src="img/size-bytes.png">
+<p>A 64-bit floating-point standard representation is the same as 32-bit,
+however the format allows an <code>11-bit</code> biased exponent with a bias of <code>1023</code></p>
+<img src="img/size-bytes.png">
+<p>It is possible that when a value is interpreted as floating-point and it does not
 conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
 This might occur if an integer representation is treated as a floating-point
 representation or a floating-point arithmetic operation (add, subtract, multiply, or
-divide) results in a value that is too large or too small to be represented.
-
-The incorrect format or unrepresentable number is referred to as a `NaN` (Not a Number).
-
-
-## 3.4 Characters and strings
-
-Computer memory is designed to store and retrieve numbers.
+divide) results in a value that is too large or too small to be represented.</p>
+<p>The incorrect format or unrepresentable number is referred to as a <code>NaN</code> (Not a Number).</p>
+<h2 id="34-characters-and-strings"><a class="header" href="#34-characters-and-strings">3.4 Characters and strings</a></h2>
+<p>Computer memory is designed to store and retrieve numbers.
 So symbols (non-numeric data like characters) are assigned numeric values.
 This is the functionality of the ASCII (American Standard Code for Information Interchange) table.
-For example, the "A" character has the value "65" in decimal and "0x41" in hexadecimal.
-It is important to distinguish between the "2" character and the integer `2`.
-
-Unicode is an improvement over ASCII because it supports many languages.
-
-A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
-It is used to mark the end of strings.
-
- 
- 	 &lt;img src="img/size-bytes.png" &gt;
-
-And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
-A char uses 1 byte, so each character represents one byte plus a NULL character.
-An integer uses a minimum of 2 bytes.
-
-  &lt;img src="img/size-bytes.png" &gt;
-
-
-
-## Exercices
+For example, the “A” character has the value “65” in decimal and “0x41” in hexadecimal.
+It is important to distinguish between the “2” character and the integer <code>2</code>.</p>
+<p>Unicode is an improvement over ASCII because it supports many languages.</p>
+<p>A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
+It is used to mark the end of strings.</p>
+<pre><code> &lt;img src="img/size-bytes.png" &gt;
 </code></pre>
+<p>And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
+A char uses 1 byte, so each character represents one byte plus a NULL character.
+An integer uses a minimum of 2 bytes.</p>
+  <img src="img/size-bytes.png">
+<h2 id="exercices"><a class="header" href="#exercices">Exercices</a></h2>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="4---assembly-programming-draft"><a href="#4---assembly-programming-draft" class="header">4 - Assembly Programming (Draft)</a></h1>
-<pre><code>## Program Format
-
-
-An assembly file contains several parts:
-	- `Data` section where initialized data is declared and defined.
-	- `BSS` section where uninitialized data is declared.
-	- `Text` section where code is placed.
-
-Note that assembly code uses a semicolon `;` to comment code, so any character
+<h2 id="program-format"><a class="header" href="#program-format">Program Format</a></h2>
+<p>An assembly file contains several parts:</p>
+<ul>
+<li><code>Data</code> section where initialized data is declared and defined.</li>
+<li><code>BSS</code> section where uninitialized data is declared.</li>
+<li><code>Text</code> section where code is placed.</li>
+</ul>
+<p>Note that assembly code uses a semicolon <code>;</code> to comment code, so any character
 or text after a semicolon is ignored.
 Numbers can be specified in decimal, hex, or octal.
 The default base is decimal.
-All hex or base-16 values must be preceded with `0x`.
-For octal or base-8 values, use a `q` suffix like `777q`.
-
-
-A constant is defined with the `equ` keyword; its value cannot be changed during
+All hex or base-16 values must be preceded with <code>0x</code>.
+For octal or base-8 values, use a <code>q</code> suffix like <code>777q</code>.</p>
+<p>A constant is defined with the <code>equ</code> keyword; its value cannot be changed during
 program execution. It does not have an associated memory location
 and does not have a specific defined type/size (byte, word, double-word); it depends on the
-value.
-
-```asm
-	&lt;name&gt; equ 	&lt;value&gt;
-```
-Ex: 
-
-```asm
-	SIZE equ 	10000 ; Could be used as word or double-word but not a byte
-```
-## Data Section
-The `Data` section contains all initialized variables and constants. A naming
+value.</p>
+<pre><code class="language-asm">&lt;name&gt; equ 	&lt;value&gt;
+</code></pre>
+<p>Ex:</p>
+<pre><code class="language-asm">SIZE equ 	10000 ; Could be used as word or double-word but not a byte
+</code></pre>
+<h2 id="data-section"><a class="header" href="#data-section">Data Section</a></h2>
+<p>The <code>Data</code> section contains all initialized variables and constants. A naming
 specification for your variables is simple:
-	 It can start with an underscore or letter, followed by letters or numbers, including some special
-	 characters.
-
-```asm
-	&lt;variablename&gt;   &lt;dataType&gt; 	&lt;initialValue&gt;
-```
-
-Refer to these tables for a series of examples using various data types.
-
-![data type](img/data_types.png)
-
-Check out this example to see these primary assembler directives for initialized data declarations.
-Here `d` means `define`.
-
-```asm
-bVar		db		10 					; byte variable
+It can start with an underscore or letter, followed by letters or numbers, including some special
+characters.</p>
+<pre><code class="language-asm">&lt;variablename&gt;   &lt;dataType&gt; 	&lt;initialValue&gt;
+</code></pre>
+<p>Refer to these tables for a series of examples using various data types.</p>
+<p><img src="img/data_types.png" alt="data type"></p>
+<p>Check out this example to see these primary assembler directives for initialized data declarations.
+Here <code>d</code> means <code>define</code>.</p>
+<pre><code class="language-asm">bVar		db		10 					; byte variable
 cVar		db		"H"					; single character
 strng		db		"Hello World"		; string
 wVar		dw		5000				; 16-bit variable
@@ -692,50 +586,35 @@ dVar		dd		50000				; 32-bit variable
 arr			dd		100, 200, 300		; 3 element array
 flt1		dd		3.14159				; 32-bit float
 qVar		dq		1000000000			; 64-bit variable
-```
-The value specified here must fit the specified data type; for example,
-a `byte` variable set to `500` would generate an assembler error.
-
-## BSS section
-The `BSS` section contains uninitialized data or variables.
-It uses the same declaration pattern as the `Data` section.
-
-```asm
-	&lt;variable&gt;		&lt;resType&gt;		&lt;count&gt;
-```
-The supported data types are as follows:
-
-![data type](img/data_types2.png)
-
-These are the primary assembler directives used for uninitialized data declarations.
-
-```asm
-	bArr	resb		10 		; 10 element byte array
-	wArr	resw		50 		; 50 element word array
-	dArr	resd		100 	; 100 element double array
-	qArr	resq		200 	; 200 element quad array
-```
-
-Here `res` means reserve, and the last character after `res` tells you what type
-of variable you want to reserve space for without allocating memory.
-
-## Text Section
-
-The code is placed in the `text` section, and instructions are specified line by line.
+</code></pre>
+<p>The value specified here must fit the specified data type; for example,
+a <code>byte</code> variable set to <code>500</code> would generate an assembler error.</p>
+<h2 id="bss-section"><a class="header" href="#bss-section">BSS section</a></h2>
+<p>The <code>BSS</code> section contains uninitialized data or variables.
+It uses the same declaration pattern as the <code>Data</code> section.</p>
+<pre><code class="language-asm">&lt;variable&gt;		&lt;resType&gt;		&lt;count&gt;
+</code></pre>
+<p>The supported data types are as follows:</p>
+<p><img src="img/data_types2.png" alt="data type"></p>
+<p>These are the primary assembler directives used for uninitialized data declarations.</p>
+<pre><code class="language-asm">bArr	resb		10 		; 10 element byte array
+wArr	resw		50 		; 50 element word array
+dArr	resd		100 	; 100 element double array
+qArr	resq		200 	; 200 element quad array
+</code></pre>
+<p>Here <code>res</code> means reserve, and the last character after <code>res</code> tells you what type
+of variable you want to reserve space for without allocating memory.</p>
+<h2 id="text-section"><a class="header" href="#text-section">Text Section</a></h2>
+<p>The code is placed in the <code>text</code> section, and instructions are specified line by line.
 The text section includes some headers or labels before the code that defines the initial program
-entry point.
-
-```asm
-global _start
+entry point.</p>
+<pre><code class="language-asm">global _start
 _start:
-```
-
-No special label or directives are required to terminate the program.
+</code></pre>
+<p>No special label or directives are required to terminate the program.
 A system service is used to inform the operating system that the program should
-be terminated and the resources, such as memory, recovered and re-used.
-
-```asm
-; Simple example demonstrating basic program format and layout.
+be terminated and the resources, such as memory, recovered and re-used.</p>
+<pre><code class="language-asm">; Simple example demonstrating basic program format and layout.
 ; Ed Jorgensen
 ; July 18, 2014
 ; ************************************************************
@@ -803,7 +682,7 @@ mov	byte [bResult], al
 ;------------
 ; Word example
 ; wResult = wVar1 + wVar2
-	
+
 mov	ax,	word [wVar1]
 add ax, word [wVar2]
 mov	[wResult], ax
@@ -811,14 +690,14 @@ mov	[wResult], ax
 ;------------
 ; Double-Word example
 ; dResult = dVar1 + dVar2
-	
+
 mov	eax, dword [dVar1]
 add eax, dword [dVar2]
 mov	[dResult], eax
 ;------------
 ; QuadWord example
 ; qResult = qVar1 + qVar2
-	
+
 mov	rax,	qword [qVar1]
 add rax, qword [qVar2]
 mov	[qResult], rax
@@ -828,294 +707,233 @@ mov	[qResult], rax
 ; Done, terminate program.
 
 last:
-	mov		rax, SYS_exit		; Call code for exit
-	mov		rdi, EXIT_SUCCESS	; Exit program with success
-	syscall
-```
-
-
-
-
-
-
-## Exercices
+mov		rax, SYS_exit		; Call code for exit
+mov		rdi, EXIT_SUCCESS	; Exit program with success
+syscall
 </code></pre>
+<h2 id="exercices-1"><a class="header" href="#exercices-1">Exercices</a></h2>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="5---examples-and-exercises-draft"><a href="#5---examples-and-exercises-draft" class="header">5 - Examples and Exercises (Draft)</a></h1>
-<pre><code>## Tool Chain
-
-In general, the set of programming tools used to create a program is referred to as the
+<h2 id="tool-chain"><a class="header" href="#tool-chain">Tool Chain</a></h2>
+<p>In general, the set of programming tools used to create a program is referred to as the
 tool chain.
-The tool chain used here consists of the following:
-
-	- Assembler
-	- Linker
-	- Loader
-	- Debugger
-
-## 5.1 - Assemble / Link / Load Overview
-
-The source code file passes through multiple stages before becoming an executable program
-during the assemble, link, and load process. 
+The tool chain used here consists of the following:</p>
+<ul>
+<li>Assembler</li>
+<li>Linker</li>
+<li>Loader</li>
+<li>Debugger</li>
+</ul>
+<h2 id="51---assemble--link--load-overview"><a class="header" href="#51---assemble--link--load-overview">5.1 - Assemble / Link / Load Overview</a></h2>
+<p>The source code file passes through multiple stages before becoming an executable program
+during the assemble, link, and load process.
 The human-readable source code file is converted into an object file by the
 assembler, which is then transformed into an executable by the linker, and the
-executable is loaded into memory with the help of `loader`.
-
-
-
-
-![Overview: Assemble, Link, Load](src/)
-
-### Assembler 
-The assembler is a program that will read an assembly language source  code containing assembly 
-instruction in input file and convert the code into a machine language binary (bytecode).
-
-During this process the comment are removed and variable names and label are converted into appropriate
-addres (as required by the CPU during execution)
-
-The assembler used here is a `yasm` assembler.
-
-```yasm
-	yasm -g dwarf2 -f elf64 example.asm -l example.lst
-```
-
-- `-g dwarf2` : it used to specify to assembler to include debugging information in object file (`.o`)
-- `-f elf64` : Informs the assembler to create the object file in `elf64` format (which is appropriate to 64-bit Linux based-system)
-- `axample.asm` : is a assembly source file in input.
-- `-l example.lst` : in form assembler to create a list file named `example.lst`
-
-But What is **List File** ? The list file shows the line number, the relative address, the machine language version
-of instruction (including variable references), and the original source line, all these information can be 
-useful when debugging.
-
-```lst
-36 00000009 40660301		dVar1	dd		17000000
+executable is loaded into memory with the help of <code>loader</code>.</p>
+<p><img src="src" alt="Overview: Assemble, Link, Load"></p>
+<h3 id="assembler"><a class="header" href="#assembler">Assembler</a></h3>
+<p>The assembler is a program that will read an assembly language source  code containing assembly
+instruction in input file and convert the code into a machine language binary (bytecode).</p>
+<p>During this process the comment are removed and variable names and label are converted into appropriate
+addres (as required by the CPU during execution)</p>
+<p>The assembler used here is a <code>yasm</code> assembler.</p>
+<pre><code class="language-yasm">yasm -g dwarf2 -f elf64 example.asm -l example.lst
+</code></pre>
+<ul>
+<li><code>-g dwarf2</code> : it used to specify to assembler to include debugging information in object file (<code>.o</code>)</li>
+<li><code>-f elf64</code> : Informs the assembler to create the object file in <code>elf64</code> format (which is appropriate to 64-bit Linux based-system)</li>
+<li><code>axample.asm</code> : is a assembly source file in input.</li>
+<li><code>-l example.lst</code> : in form assembler to create a list file named <code>example.lst</code></li>
+</ul>
+<p>But What is <strong>List File</strong> ? The list file shows the line number, the relative address, the machine language version
+of instruction (including variable references), and the original source line, all these information can be
+useful when debugging.</p>
+<pre><code class="language-lst">36 00000009 40660301		dVar1	dd		17000000
 37 0000000D 40548900		dVar2	dd		9000000
 38 00000011 00000000		dResult	dd		0
-```
-
-* Line 36
-	- relativ address : `0x00000009` stored in the **data area**
-	- double-word variable: `dVar1` requires four-bytes.
-	- next address is `0x0000000D` so `dVar1` uses a `0x00000009`, `0x0000000A`, `0x0000000B`, `0x0000000C`
-	- `0x40660301` is the value in hex, as placed in memory. A `17000000` is `0x01036640.` in hex.
-		Remembered that architecture used here is  **little-endian** , the `LSB` (0x40) is placed 
-		in the lowest memory addess .
-	- A `0x40` is placed at `0x00000009` next `0x66` is placed in address `0x0000000A`
-	
-![Overview: Assemble, Link, Load](src/)
-
-
-For example, a fragment of the list file text section, excerpted from the example
-program in the previous chapter is as follows:
-```lst
-95						last:
+</code></pre>
+<ul>
+<li>Line 36</li>
+</ul>
+<ul>
+<li>relativ address : <code>0x00000009</code> stored in the <strong>data area</strong></li>
+<li>double-word variable: <code>dVar1</code> requires four-bytes.</li>
+<li>next address is <code>0x0000000D</code> so <code>dVar1</code> uses a <code>0x00000009</code>, <code>0x0000000A</code>, <code>0x0000000B</code>, <code>0x0000000C</code></li>
+<li><code>0x40660301</code> is the value in hex, as placed in memory. A <code>17000000</code> is <code>0x01036640.</code> in hex.
+Remembered that architecture used here is  <strong>little-endian</strong> , the <code>LSB</code> (0x40) is placed
+in the lowest memory addess .</li>
+<li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
+</ul>
+<p><img src="src" alt="Overview: Assemble, Link, Load"></p>
+<p>For example, a fragment of the list file text section, excerpted from the example
+program in the previous chapter is as follows:</p>
+<pre><code class="language-lst">95						last:
 96	0000005A 48C7C03C000000		mov		rax, SYS_exit
 97	00000061 48C7C300000000		mov		rdi, EXIT_SUCCESS
 98	00000068 0F05				syscall
-```
-
-- Again, the number to the left are the line numbers, the net number `0x0000005A` is the relative address
-	if where the line of code is placed.
-- The next number `0x48C7C03C000000`  is the machine language version of instruction, in hex , that the CPU
-	reads and understands.
-- The rest of the line is the original assembly language source instruction.
-- The label `last:` does not have a machine language instruction, it not a executable instruction.
-
-
-## Two-Pass Assembler
-
-The assembler will read a source code and convert it in bytecode who it translate in binary (understand by CPU)
-The 1's and 0's are referred to as machine language. This relationship between assembly code and binary readable language
-means that machine language can be converted back to human readable, but of course the comment, variable names and label names
-are missing, so the resulting code can be very difficult to read.
-
-Each line read by the assembler has her instruction generated, but in case when a instructions is a jumps
-like If statements or unconditional jumps, it not possible to perform the convertion of this instructions.
-
-Ex :	
-	```asm
-		mov		rax, 0
-		jmp		skipRest
-		...
-		...
-		...
-	skipRest:
-	```
-	Reading line by line a assembler cannot know if a skipRest is defined or just exist when
-	it read a line when it called, the solution for that is to read a file twice, it know by name of 
-	two-pass assembler.
-
-	### Fisrt pass
-
-		This step vary  of the design specific assembler, but several basic operations performed is:
-
-		- Create symbol table
-		- Expand macros
-		- Evaluate constant expressions
-
-		A `macro` is a program element that is expanded into a set of programmer predefinned
-		instructions.
-		A constant expression is an expression composed entirel of contants.
-		By example if a constant is used in one line do a operations, if we know from begenning that it was
-		declared this line can be read, understand and executed without problem.
-
-		Ex: 
-		
-		```asm
-			mov rax, BUFF+5
-		```
-
-
-	### Second pass
-
-	The steps taken on the second pass vary based on design of the specific assembler.
-	The differents basic operation performed on the second pass include :
-
-	- Final generation of code
-	- Creation of list file (if requested)
-	- Create object file
-
-	The generation of code is about to the conversion of the assembly language into
-	the CPU executable machine instruction. Knowing that a one-to-one correspondance, is used for transform 
-	instructions (instructions that do not use symbols on either the first or second pass)
-
-	A based assembler design can help to done code generation be done on the first or all done on the second pass. 
-	In much case a final generation is performed on second pass and require using the symbol table to check program
-	symbols and obtain the appropriate addresses from the table.
-
-	### Assembler Directives
-	Assembler directives are instructions to the assembler that direct the assembler to do
-	something. This might be formatting or layout. These directives are not translated into
-	instructions for the CPU.
-
-	##  Linker
-	The linker, sometimes referred to as linkage editor, will combine one or more object files into a 
-	single executable file including any neccesary libraries . 
-	A example using example file from previous chapter with GNU gold linker.
-
-	```sh
-		ld -g -o example example.o
-	```
-
-	  - `-g` is used to included debugging information in the final executable file.
-	  - `-o` specifies to create a executable file name **example** (with no extension)
-	  		 when the `-o` is ommitted the output file is named `a.out`
-	  The linker reader a `example.o` file who is input here, note that you can name you file
-	  like what you want and not need to have the same name as any of the input object files.
-
-	  It also possible to link multiples object file
-
-	  ```sh
-		ld -g -o example main.o example.o
-	  ```
-	When a function are located in **external** source file, any function not in the current source file 
-	must be declared as extern . Variables, such as
-	global variables, in other source files can be accessed by using the extern statement as
-	well, however data is typically transferred as arguments of the function call.
-
-	### Linking Process
-	
-	The object files and library routines are combined into a single executale module.
-	As part of combining the object file, the linker must adjust the relocatable addresses as necessary.
-	
-	Assuming there are  two source files, the main and  secondary source file
-	boths of which have been assembled into object file `main.o` and `funcs.o` .4
-	After assembles the calls to routines outside of file being assembled are declared with the external
-	assembler directive.
-
-	The code is not available
-	for an external reference and such references are marked as external in the object file.
-	The list file will show an R for such relocatable addresses. The linker must satisfy the
-	external references. Additionally, the final location of the external references must be
-	placed in the code.
-	For example, if the main.o object file calls a function in the funcs.o file, the linker must
-	update the call with the appropriate address as shown in the following illustration.
-
-
-	![free](src/)
-
-	Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
-	It started to relative address (0x100), and when it was combined with main.o the final executable 
-	it adapt her and take `0x400` like address, and the linker insert this address into the call statement
-	in the main in order to complete the linking process and ensure the function call work correctly it 
-	work with the relocatable adresses for both code and data.
-	
-
-
-	### Dynamic Linking
-	The linux Operating system supports dynamic linking who is represented by a `.so` (shared object file), which allows for postponing the resolution of some
-	symbols until a program is  being executed.
-	The actual instructions are not placed in exacutable file and instead, if needed, resolved and accessed at run-time.
-
-	This approach offers two advantages:
-	- The libraries oftem-used can be stored in only one location, not dupplicated in every single binary
-		because of failing / anomalyze dynamic linking
-	- If a nug in library is corrected all programs using dynamically will benefit from the correction (at next execution)
-		and others programs using a static linking would have to be re-linked before the correction is applied.
-
-	* Disadvantages
-	- When a library is updated the executable is break, because it depend of previous library version
-	- A program using his own library must be trusted so certified as package but not in component can be replaced.
-	
-	## Assemble / Link Script
-
-	For not wast a time for type always the command to assemble and link with `ld` it possible to write a script who do all
-	assembly and linking process 
-	See below: 
-	```bash
-	#!/bin/bash
-	
-	# Simple assemble/link script
-	
-	if [ -z $1 ]; then
-		echo "Usage: ./asm64 &lt;asmMainFile&gt; (no extension)"
-		exit
-	fi
-	#Verify no extensions were entered
-	
-	if [ ! -e "$1.asm" ]; then
-		echo "Error, $1.asm not found."
-		echo "Note, do not enter file extensions."
-		exit
-	fi
-	
-	# Compile, assemble, and link.
-	
-	yasm -Worphan-labels -g dwarf2 -f elf64 $1.asm -l $1.lst
-	
-	ld -g -o $1 $1.o
-	```
-	This script file can be name `asm64` we don't need obligatory a extension here because on linu
-	all is file.
-
-	```bash
-		chmod +x asm64  # to give execution right to script file
-	```
-
-	Execute it:
-	```bash
-		./asm64 example # to compile a file and give her the name example note that you can use another filename
-	```
-	## Loader 
-
-	The loader is a part of our opereationg system who load the file from secondary storage (Hard drive)
-	to primary storage (RAM), it create a new process for executable, and load the code in memeory, the program
-	is run when the executable is invoked 
-
-	```bash
-	./example  # the previous file created after linking and assembley
-	```
-
-	## Debugger
-
-	The debugger is used for control program execution of program, if during execution
-	nothing is printed to user it possible to use debugger to check a result .
-	Multiple debugger exist but the GNU product is appreciated for our exporation.
-	So we used a GNU DDD who is a graphical interface for `GDB`.
-
-	## Exercice
 </code></pre>
+<ul>
+<li>Again, the number to the left are the line numbers, the net number <code>0x0000005A</code> is the relative address
+if where the line of code is placed.</li>
+<li>The next number <code>0x48C7C03C000000</code>  is the machine language version of instruction, in hex , that the CPU
+reads and understands.</li>
+<li>The rest of the line is the original assembly language source instruction.</li>
+<li>The label <code>last:</code> does not have a machine language instruction, it not a executable instruction.</li>
+</ul>
+<h2 id="two-pass-assembler"><a class="header" href="#two-pass-assembler">Two-Pass Assembler</a></h2>
+<p>The assembler will read a source code and convert it in bytecode who it translate in binary (understand by CPU)
+The 1’s and 0’s are referred to as machine language. This relationship between assembly code and binary readable language
+means that machine language can be converted back to human readable, but of course the comment, variable names and label names
+are missing, so the resulting code can be very difficult to read.</p>
+<p>Each line read by the assembler has her instruction generated, but in case when a instructions is a jumps
+like If statements or unconditional jumps, it not possible to perform the convertion of this instructions.</p>
+<p>Ex :</p>
+<pre><code class="language-asm">mov		rax, 0
+jmp		skipRest
+...
+...
+...
+skipRest:
+</code></pre>
+<p>Reading line by line a assembler cannot know if a skipRest is defined or just exist when
+it read a line when it called, the solution for that is to read a file twice, it know by name of
+two-pass assembler.</p>
+<h3 id="fisrt-pass"><a class="header" href="#fisrt-pass">Fisrt pass</a></h3>
+<p>This step vary  of the design specific assembler, but several basic operations performed is:</p>
+<ul>
+<li>Create symbol table</li>
+<li>Expand macros</li>
+<li>Evaluate constant expressions</li>
+</ul>
+<p>A <code>macro</code> is a program element that is expanded into a set of programmer predefinned
+instructions.
+A constant expression is an expression composed entirel of contants.
+By example if a constant is used in one line do a operations, if we know from begenning that it was
+declared this line can be read, understand and executed without problem.</p>
+<p>Ex:</p>
+<pre><code class="language-asm">mov rax, BUFF+5
+</code></pre>
+<h3 id="second-pass"><a class="header" href="#second-pass">Second pass</a></h3>
+<p>The steps taken on the second pass vary based on design of the specific assembler.
+The differents basic operation performed on the second pass include :</p>
+<ul>
+<li>Final generation of code</li>
+<li>Creation of list file (if requested)</li>
+<li>Create object file</li>
+</ul>
+<p>The generation of code is about to the conversion of the assembly language into
+the CPU executable machine instruction. Knowing that a one-to-one correspondance, is used for transform
+instructions (instructions that do not use symbols on either the first or second pass)</p>
+<p>A based assembler design can help to done code generation be done on the first or all done on the second pass.
+In much case a final generation is performed on second pass and require using the symbol table to check program
+symbols and obtain the appropriate addresses from the table.</p>
+<h3 id="assembler-directives"><a class="header" href="#assembler-directives">Assembler Directives</a></h3>
+<p>Assembler directives are instructions to the assembler that direct the assembler to do
+something. This might be formatting or layout. These directives are not translated into
+instructions for the CPU.</p>
+<h2 id="linker"><a class="header" href="#linker">Linker</a></h2>
+<p>The linker, sometimes referred to as linkage editor, will combine one or more object files into a
+single executable file including any neccesary libraries .
+A example using example file from previous chapter with GNU gold linker.</p>
+<pre><code class="language-sh">ld -g -o example example.o
+</code></pre>
+<ul>
+<li><code>-g</code> is used to included debugging information in the final executable file.</li>
+<li><code>-o</code> specifies to create a executable file name <strong>example</strong> (with no extension)
+when the <code>-o</code> is ommitted the output file is named <code>a.out</code>
+The linker reader a <code>example.o</code> file who is input here, note that you can name you file
+like what you want and not need to have the same name as any of the input object files.</li>
+</ul>
+<p>It also possible to link multiples object file</p>
+<pre><code class="language-sh">ld -g -o example main.o example.o
+</code></pre>
+<p>When a function are located in <strong>external</strong> source file, any function not in the current source file
+must be declared as extern . Variables, such as
+global variables, in other source files can be accessed by using the extern statement as
+well, however data is typically transferred as arguments of the function call.</p>
+<h3 id="linking-process"><a class="header" href="#linking-process">Linking Process</a></h3>
+<p>The object files and library routines are combined into a single executale module.
+As part of combining the object file, the linker must adjust the relocatable addresses as necessary.</p>
+<p>Assuming there are  two source files, the main and  secondary source file
+boths of which have been assembled into object file <code>main.o</code> and <code>funcs.o</code> .4
+After assembles the calls to routines outside of file being assembled are declared with the external
+assembler directive.</p>
+<p>The code is not available
+for an external reference and such references are marked as external in the object file.
+The list file will show an R for such relocatable addresses. The linker must satisfy the
+external references. Additionally, the final location of the external references must be
+placed in the code.
+For example, if the main.o object file calls a function in the funcs.o file, the linker must
+update the call with the appropriate address as shown in the following illustration.</p>
+<p><img src="src" alt="free"></p>
+<p>Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
+It started to relative address (0x100), and when it was combined with main.o the final executable
+it adapt her and take <code>0x400</code> like address, and the linker insert this address into the call statement
+in the main in order to complete the linking process and ensure the function call work correctly it
+work with the relocatable adresses for both code and data.</p>
+<h3 id="dynamic-linking"><a class="header" href="#dynamic-linking">Dynamic Linking</a></h3>
+<p>The linux Operating system supports dynamic linking who is represented by a <code>.so</code> (shared object file), which allows for postponing the resolution of some
+symbols until a program is  being executed.
+The actual instructions are not placed in exacutable file and instead, if needed, resolved and accessed at run-time.</p>
+<p>This approach offers two advantages:</p>
+<ul>
+<li>The libraries oftem-used can be stored in only one location, not dupplicated in every single binary
+because of failing / anomalyze dynamic linking</li>
+<li>If a nug in library is corrected all programs using dynamically will benefit from the correction (at next execution)
+and others programs using a static linking would have to be re-linked before the correction is applied.</li>
+</ul>
+<ul>
+<li>Disadvantages</li>
+</ul>
+<ul>
+<li>When a library is updated the executable is break, because it depend of previous library version</li>
+<li>A program using his own library must be trusted so certified as package but not in component can be replaced.</li>
+</ul>
+<h2 id="assemble--link-script"><a class="header" href="#assemble--link-script">Assemble / Link Script</a></h2>
+<p>For not wast a time for type always the command to assemble and link with <code>ld</code> it possible to write a script who do all
+assembly and linking process
+See below:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# Simple assemble/link script
+
+if [ -z $1 ]; then
+echo "Usage: ./asm64 &lt;asmMainFile&gt; (no extension)"
+exit
+fi
+#Verify no extensions were entered
+
+if [ ! -e "$1.asm" ]; then
+echo "Error, $1.asm not found."
+echo "Note, do not enter file extensions."
+exit
+fi
+
+# Compile, assemble, and link.
+
+yasm -Worphan-labels -g dwarf2 -f elf64 $1.asm -l $1.lst
+
+ld -g -o $1 $1.o
+</code></pre>
+<p>This script file can be name <code>asm64</code> we don’t need obligatory a extension here because on linu
+all is file.</p>
+<pre><code class="language-bash">chmod +x asm64  # to give execution right to script file
+</code></pre>
+<p>Execute it:</p>
+<pre><code class="language-bash">./asm64 example # to compile a file and give her the name example note that you can use another filename
+</code></pre>
+<h2 id="loader"><a class="header" href="#loader">Loader</a></h2>
+<p>The loader is a part of our opereationg system who load the file from secondary storage (Hard drive)
+to primary storage (RAM), it create a new process for executable, and load the code in memeory, the program
+is run when the executable is invoked</p>
+<pre><code class="language-bash">./example  # the previous file created after linking and assembley
+</code></pre>
+<h2 id="debugger"><a class="header" href="#debugger">Debugger</a></h2>
+<p>The debugger is used for control program execution of program, if during execution
+nothing is printed to user it possible to use debugger to check a result .
+Multiple debugger exist but the GNU product is appreciated for our exporation.
+So we used a GNU DDD who is a graphical interface for <code>GDB</code>.</p>
+<h2 id="exercice"><a class="header" href="#exercice">Exercice</a></h2>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="style-guide"><a class="header" href="#style-guide">Style Guide</a></h1>
 <p>Follow the project’s style conventions for headings, prose, code blocks, and links. Prefer title case for headings, italics for terms, and hard wrap at 80 characters. Use relative links for intra-book references and <code>bash</code> highlighting for shell examples.</p>
