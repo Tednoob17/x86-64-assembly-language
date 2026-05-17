@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - x86-64 Assembly Language Programming with Ubuntu</title>
-        <base href="/">
+        <title>4 - Assembly Programming (Draft) - x86-64 Assembly Language Programming with Ubuntu</title>
 
 
         <!-- Custom HTML head -->
@@ -183,14 +182,22 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h2 id="40-draft-assembly-programming"><a class="header" href="#40-draft-assembly-programming">4.0 (Draft) Assembly Programming</a></h2>
+<p>This chapter introduces basic assembly programming concepts, instruction formats, addressing modes, and simple examples. (Content migrated from the x86 folder and cleaned for grammar and formatting.)</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;04&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;25cfeffe-252b-41bf-8d7d-3b69b13a8429&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Yasm&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the assembler being used in this chapter?&quot;}},{&quot;id&quot;:&quot;611bf18d-6415-4dc8-a2c3-5d8b30cf5021&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;;&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How are comments marked in an assembly language program?&quot;}},{&quot;id&quot;:&quot;428a107b-2cd6-4996-9c82-203fe0399428&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.data&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where initialized data is declared?&quot;}},{&quot;id&quot;:&quot;1f6e2b78-7bb8-4dbc-9d3f-438423b5f587&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.bss&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where uninitialized data is declared?&quot;}},{&quot;id&quot;:&quot;dcff8345-2645-4b00-8abc-b7c922ccc6f9&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.text&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where code is placed?&quot;}},{&quot;id&quot;:&quot;819bd8a2-07a8-4267-91e3-1845372add2f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;db, dw, dd, dq&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the data declarations for the following variables: byte-sized bNum=10, word-sized wNum=10291, double-word dwNum=2126010, quadword qwNum=10000000000?&quot;}},{&quot;id&quot;:&quot;36263b59-3a85-4a7d-9525-d55faf54cb21&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;resb, resw, resd, resq&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the uninitialized data declarations for: byte-sized array bArr with 100 elements, word-sized array wArr with 3000 elements, double-word array dwArr with 200 elements, quadword array qArr with 5000 elements?&quot;}},{&quot;id&quot;:&quot;c33cdaab-24aa-410f-9b25-2cedee712626&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;section .text&#92;nglobal _start&#92;n_start:&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the required declarations to signify the start of a program in the text section?&quot;}}]}" data-quiz-fullscreen="true"></div>
 
+<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="03.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="05.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -198,7 +205,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="03.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="05.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>

@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - x86-64 Assembly Language Programming with Ubuntu</title>
-        <base href="/">
+        <title>2 - Architecture Overview - x86-64 Assembly Language Programming with Ubuntu</title>
 
 
         <!-- Custom HTML head -->
@@ -183,14 +182,34 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="20-architecture-overview"><a class="header" href="#20-architecture-overview">2.0 Architecture Overview</a></h1>
+<h2 id="21-components"><a class="header" href="#21-components">2.1 Components</a></h2>
+<p>A computer contains a CPU (Central Processing Unit), RAM (main memory), storage (SSD/HDD), and I/O devices (keyboard, mouse, display). Buses connect these components and carry data, addresses, and control signals.</p>
+<h3 id="cpu"><a class="header" href="#cpu">CPU</a></h3>
+<p>The CPU contains a Control Unit (CU), an Arithmetic Logic Unit (ALU), and registers. The CU orchestrates data movement and instruction fetching; the ALU performs arithmetic and logical operations.</p>
+<h3 id="registers-and-memory"><a class="header" href="#registers-and-memory">Registers and memory</a></h3>
+<p>Registers are small, fast storage locations inside the CPU used for computation. The <code>rsp</code> register points to the top of the stack, <code>rbp</code> is typically used as a frame/base pointer, and <code>rip</code> holds the address of the next instruction.</p>
+<p>The architecture is little-endian: the least-significant byte of a multi-byte value is stored at the lowest memory address.</p>
+<div class="quiz-placeholder" data-quiz-name="&quot;02&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;1da4210a-e2a5-453b-bd00-fb390c555985&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A diagram showing the CPU, memory, and I/O connected by a bus.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Draw a picture of the Von Neumann architecture.&quot;}},{&quot;id&quot;:&quot;b3296e3e-12f9-45bf-bff4-07c1aa877020&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Bus&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What component connects memory to the CPU?&quot;}},{&quot;id&quot;:&quot;4e6c7477-aa42-459f-8557-acce2119b33f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Secondary storage, such as SSD or HDD&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Where are programs stored when the computer is turned off?&quot;}},{&quot;id&quot;:&quot;58760b66-5fcb-450f-b753-dd8fcea89346&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Main memory, RAM&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Where must programs be located when they are executing?&quot;}},{&quot;id&quot;:&quot;9727f146-d3d5-42e8-8e14-14ac5280b392&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It stores data so it can be accessed much faster than in RAM.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How does cache memory help overall performance?&quot;}},{&quot;id&quot;:&quot;36017f3f-410d-4889-a540-53d75f3906aa&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;4 bytes&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How many bytes does a C++ integer declared with `int` use?&quot;}},{&quot;id&quot;:&quot;96e2dcda-6303-4050-900e-881bde67a26c&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;1 byte&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;On the Intel x86-64 architecture, how many bytes can be stored at each address?&quot;}},{&quot;id&quot;:&quot;4657cded-ea44-417c-93c4-40a2c5ac4f02&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;40&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), what is the least significant byte (LSB)?&quot;}},{&quot;id&quot;:&quot;21ba4797-7e96-432f-b3c7-064a7b3987f5&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;00&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), what is the most significant byte (MSB)?&quot;}},{&quot;id&quot;:&quot;56faeda6-9493-4da9-83c4-96c0f402df9a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;40 4B 4C 00&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), show the little-endian memory layout.&quot;}},{&quot;id&quot;:&quot;bfa81060-8423-4678-9728-ee1634f932fa&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A diagram of the layout for the `rax` register.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Draw a picture of the layout for the `rax` register.&quot;}},{&quot;id&quot;:&quot;c4db7c2b-f059-40e3-bca3-6695a5d9ee2a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;rip&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which register points to the next instruction to be executed?&quot;}},{&quot;id&quot;:&quot;19f73543-d078-474e-aabc-78a5f5a3f9eb&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;rsp&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which register points to the current top of the stack?&quot;}},{&quot;id&quot;:&quot;979bd28d-7e93-4a25-a7fc-d894e397c630&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0000000000000000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If `al` is set to `05` (16), `ax` is set to `0007` (16), `eax` is set to `00000020` (16), and `rax` is set to `0000000000000000` (16), show the final contents of `rax`.&quot;}},{&quot;id&quot;:&quot;ac8711d5-d197-45cb-a6f5-046fd2b0c2e1&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;EF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `al` in hex?&quot;}},{&quot;id&quot;:&quot;738988b4-44d3-4c50-b1d1-7c683e380396&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;CDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `ax` in hex?&quot;}},{&quot;id&quot;:&quot;dc4c88eb-341c-4696-a225-fde945823697&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;89ABCDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `eax` in hex?&quot;}},{&quot;id&quot;:&quot;1fe24477-60bf-4863-8a99-f27bedbcb5f2&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0123456789ABCDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `rax` in hex?&quot;}}]}" data-quiz-fullscreen="true"></div>
 
+<h3 id="memory-layout"><a class="header" href="#memory-layout">Memory layout</a></h3>
+<p>Typical process memory layout contains sections such as <code>.text</code> (code), <code>.data</code> (initialized data), <code>.bss</code> (uninitialized data), heap (dynamic allocation), and stack (local data and call frames).</p>
+<h2 id="22-data-sizes"><a class="header" href="#22-data-sizes">2.2 Data sizes</a></h2>
+<p>Data sizes (byte, word, double-word, quad-word) determine the range of representable values. For example, a 1-byte (8-bit) unsigned value ranges 0–255; a signed byte ranges -128–127.</p>
+<h2 id="23-registers-overview"><a class="header" href="#23-registers-overview">2.3 Registers overview</a></h2>
+<p>The x86-64 architecture provides general-purpose registers (e.g., <code>rax</code>, <code>rbx</code>, <code>rcx</code>, <code>rdx</code>) and SIMD registers (<code>xmm0</code>–<code>xmmN</code>) for floating-point and vector operations.</p>
+<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="01.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="03.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -198,7 +217,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="01.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="03.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>
