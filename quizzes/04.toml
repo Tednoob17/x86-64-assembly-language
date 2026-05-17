@@ -1,0 +1,47 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the assembler being used in this chapter?"
+answer.answer = "Yasm"
+id = "25cfeffe-252b-41bf-8d7d-3b69b13a8429"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "How are comments marked in an assembly language program?"
+answer.answer = ";"
+id = "611bf18d-6415-4dc8-a2c3-5d8b30cf5021"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the section where initialized data is declared?"
+answer.answer = ".data"
+id = "428a107b-2cd6-4996-9c82-203fe0399428"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the section where uninitialized data is declared?"
+answer.answer = ".bss"
+id = "1f6e2b78-7bb8-4dbc-9d3f-438423b5f587"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the name of the section where code is placed?"
+answer.answer = ".text"
+id = "dcff8345-2645-4b00-8abc-b7c922ccc6f9"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the data declarations for the following variables: byte-sized bNum=10, word-sized wNum=10291, double-word dwNum=2126010, quadword qwNum=10000000000?"
+answer.answer = "db, dw, dd, dq"
+id = "819bd8a2-07a8-4267-91e3-1845372add2f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the uninitialized data declarations for: byte-sized array bArr with 100 elements, word-sized array wArr with 3000 elements, double-word array dwArr with 200 elements, quadword array qArr with 5000 elements?"
+answer.answer = "resb, resw, resd, resq"
+id = "36263b59-3a85-4a7d-9525-d55faf54cb21"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the required declarations to signify the start of a program in the text section?"
+answer.answer = "section .text\nglobal _start\n_start:"
+id = "c33cdaab-24aa-410f-9b25-2cedee712626"

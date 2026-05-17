@@ -1,0 +1,257 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for signed byte."
+answer.answer = "-128 to +127"
+id = "180681e4-4b8f-4133-8017-64d47fecb834"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for unsigned byte."
+answer.answer = "0 to 255"
+id = "89cf5c8a-9084-4a85-ba5e-c5c6017e64ff"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for signed word."
+answer.answer = "-32,768 to +32,767"
+id = "a991f526-346c-4bba-8ef0-35bb02d4bf3d"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for unsigned word."
+answer.answer = "0 to 65,535"
+id = "e9e38ba5-8615-4c45-9e4e-12f744d84b21"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for signed double-word."
+answer.answer = "-2,147,483,648 to +2,147,483,647"
+id = "f33198c2-f335-486b-a862-77d11a645496"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the range for unsigned double-word."
+answer.answer = "0 to 4,294,967,295"
+id = "f6052238-dff5-416a-9be5-9e6f3218b7d8"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `0000101` (2)."
+answer.answer = "5"
+id = "c1e907bd-1c9d-406d-8617-3ee0f231ca49"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `0001001` (2)."
+answer.answer = "9"
+id = "b72ed023-8a9e-431f-9623-246f80686b70"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `0001101` (2)."
+answer.answer = "13"
+id = "e5898813-80c4-4cfe-a8d1-6149884c01af"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `0010101` (2)."
+answer.answer = "21"
+id = "bdbdb5de-5540-42b8-b54e-94ca21014c4b"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, byte-size, two's-complement value of `-3` (10)."
+answer.answer = "FD"
+id = "d0f0c205-b139-4e39-903b-16b0c0e66c62"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, byte-size, two's-complement value of `+11` (10)."
+answer.answer = "0B"
+id = "94c0532d-4716-46dc-a653-eef681f2593f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, byte-size, two's-complement value of `-9` (10)."
+answer.answer = "F7"
+id = "def92d0e-f3db-401d-9104-aeadb4c1290a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, byte-size, two's-complement value of `-21` (10)."
+answer.answer = "EB"
+id = "5587ac36-0799-4715-a5ec-9950cd3e2e99"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, word-size, two's-complement value of `-17` (10)."
+answer.answer = "FFEF"
+id = "76b612ed-5b35-4f5f-b086-dfc9cd9a2a69"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, word-size, two's-complement value of `+17` (10)."
+answer.answer = "0011"
+id = "abdfa802-3f74-4518-b0f3-9f7f1d61e093"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, word-size, two's-complement value of `-31` (10)."
+answer.answer = "FFE1"
+id = "0ae3ac6f-1ea6-44e9-8b4f-c8e1af2d4a6c"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, word-size, two's-complement value of `-138` (10)."
+answer.answer = "FF76"
+id = "d9931483-4f14-4dba-ab89-d27934c8eabc"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, double-word-size, two's-complement value of `-11` (10)."
+answer.answer = "FFFFFFF5"
+id = "9b9424ec-83fc-44a2-a73b-58283600e1ea"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, double-word-size, two's-complement value of `-27` (10)."
+answer.answer = "FFFFFFE5"
+id = "16da217f-f832-4bf4-b4a3-8539e5a0e7a3"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, double-word-size, two's-complement value of `+7` (10)."
+answer.answer = "00000007"
+id = "16c0f43d-7955-43ee-8b64-59a8c726f01a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, double-word-size, two's-complement value of `-261` (10)."
+answer.answer = "FFFFFEFB"
+id = "188d3206-0929-493b-bd4e-977cee51fcee"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `FFFFFFFB` (16)."
+answer.answer = "-5"
+id = "3e634d05-b809-41ff-93fa-42d72f7c0f72"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `FFFFFFEA` (16)."
+answer.answer = "-22"
+id = "9dd6f8f7-42bd-4399-89f9-4f3cee10d667"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `FFFFFFF3` (16)."
+answer.answer = "-13"
+id = "2a0b4a15-8905-4661-bc07-22e41cd88015"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal value of `FFFFFFF8` (16)."
+answer.answer = "-8"
+id = "529eb00f-1ae3-48c6-8f69-32db20322070"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which of the following decimal values has an exact representation in binary: 0.1, 0.2, 0.3, 0.4, or 0.5?"
+answer.answer = "0.5"
+id = "7cf0c7b6-4718-49de-b573-c482538c8b7a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal representation of `0xC1440000`."
+answer.answer = "-12.25"
+id = "e595a2e7-233f-487a-b787-f998fcb8374f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal representation of `0x41440000`."
+answer.answer = "12.25"
+id = "bee9d416-5935-4af5-8897-66d2dfd28196"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal representation of `0xC0D00000`."
+answer.answer = "-6.5"
+id = "33699485-bf10-4dff-a27d-f04f7d367703"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the decimal representation of `0xC0F00000`."
+answer.answer = "-7.5"
+id = "18d9be56-ff33-462b-ac9c-220f64d7ce69"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, IEEE 32-bit floating-point representation of +11.25."
+answer.answer = "0x41340000"
+id = "520d5c80-a163-4a4c-9fd2-2b307121609e"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, IEEE 32-bit floating-point representation of -17.125."
+answer.answer = "0xC1888000"
+id = "a05df955-53d3-4f09-aa2e-6d8b52da1e11"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, IEEE 32-bit floating-point representation of +21.875."
+answer.answer = "0x41AF0000"
+id = "bbcfa3e1-9df8-4807-90ba-953aefc708a5"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide the hex, IEEE 32-bit floating-point representation of -0.75."
+answer.answer = "0xBF400000"
+id = "a00e9e7c-a3bd-4115-b5f7-83ff786f5f2b"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the ASCII code, in hex, for A?"
+answer.answer = "0x41"
+id = "1669c895-c5f1-4bbe-85f1-a6083f172fda"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the ASCII code, in hex, for a?"
+answer.answer = "0x61"
+id = "b501efe2-48f7-49ad-8091-7fe5cca5fa7b"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the ASCII code, in hex, for 0?"
+answer.answer = "0x30"
+id = "532aa616-b71c-4499-9c9b-0f204b218e6e"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the ASCII code, in hex, for 8?"
+answer.answer = "0x38"
+id = "b35ddcb6-09a8-457c-827b-4a319341a56f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the ASCII code, in hex, for tab?"
+answer.answer = "0x09"
+id = "d18ca1bf-bbe4-44ad-af52-cf4779df077b"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the ASCII values, in hex, for World?"
+answer.answer = "0x57 0x6F 0x72 0x6C 0x64"
+id = "fc8b9153-5c77-44c3-ab19-7955aa1c089f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the ASCII values, in hex, for 123?"
+answer.answer = "0x31 0x32 0x33"
+id = "7de37a32-a04e-485c-8528-32a9408ebabe"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What are the ASCII values, in hex, for Yes!?"
+answer.answer = "0x59 0x65 0x73 0x21 0x3F"
+id = "a173e7c6-1186-4723-a0d5-f46f9b14fda8"

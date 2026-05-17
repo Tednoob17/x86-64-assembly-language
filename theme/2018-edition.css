@@ -1,0 +1,10 @@
+/* Copied from clone/rust-book/theme/2018-edition.css */
+span.caption {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+span.caption code {
+  font-size: 0.875em;
+  font-weight: 400;
+}

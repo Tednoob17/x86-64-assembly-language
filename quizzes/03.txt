@@ -1,0 +1,91 @@
+Below are some quiz questions.
+
+1) Provide the range for each of the following:
+	1. signed byte
+		R: -128 to +127
+	2. unsigned byte
+		R: 0 to 255
+	3. signed word
+		R: -32,768 to +32,767
+	4. unsigned word
+		R: 0 to 65,535
+	5. signed double-word
+		R: -2,147,483,648 to +2,147,483,647
+	6. unsigned double-word
+		R: 0 to 4,294,967,295
+2) Provide the decimal values of the following binary numbers:
+	1. `0000101` (2)
+		R: 5
+	2. `0001001` (2)
+		R: 9
+	3. `0001101` (2)
+		R: 13
+	4. `0010101` (2)
+		R: 21
+3) Provide the hex, byte-size, two's-complement values of the following decimal values.
+	1. `-3` (10)
+		R:
+	2. `+11` (10)
+		R:
+	3. `-9` (10)
+		R:
+	4. `-21` (10)
+		R:
+4) Provide the hex, word-size, two's-complement values of the following decimal values.
+	1. `-17` (10)
+		R:
+	2. `+17` (10)
+		R:
+	3. `-31` (10)
+		R:
+	4. `-138` (10)
+		R:
+5) Provide the hex, double-word-size, two's-complement values of the following decimal values.
+	1. `-11` (10)
+		R:
+	2. `-27` (10)
+		R:
+	3. `+7` (10)
+		R:
+	4. `-261` (10)
+		R:
+6) Provide the decimal values of the following hex, double-word-sized, two's-complement values.
+	1. `FFFFFFFB` (16)
+		R:
+	2. `FFFFFFEA` (16)
+		R:
+	3. `FFFFFFF3` (16)
+		R:
+	4. `FFFFFFF8` (16)
+		R:
+7) Which of the following decimal values has an exact representation in binary?
+	1. `0.1`
+	2. `0.2`
+	3. `0.3`
+	4. `0.4`
+	5. `0.5`
+8) Provide the decimal representation of the following IEEE 32-bit floating-point values.
+	1. `0xC1440000`
+	2. `0x41440000`
+	3. `0xC0D00000`
+	4. `0xC0F00000`
+9) Provide the hex, IEEE 32-bit floating-point representation of the following floating-point values.
+	1. `+11.25` (10)
+	2. `-17.125` (10)
+	3. `+21.875` (10)
+	4. `-0.75` (10)
+10) What is the ASCII code, in hex, for each of the following characters:
+	1. `A`
+		R: `0x41`
+	2. `a`
+		R: `0x61`
+	3. `0`
+		R: `0x30`
+	4. `8`
+		R: `0x38`
+	5. tab
+		R: `0x09`
+11) What are the ASCII values, in hex, for each of the following strings:
+	1. `World`
+	2. `123`
+	3. `Yes!?`

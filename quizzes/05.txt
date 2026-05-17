@@ -1,0 +1,18 @@
+1) What is the relationship between assembly language and machine language?
+	R:
+2) What actions are performed on the first pass of the assembler?
+	R:
+3) What actions are performed on the second pass of the assembler?
+	R:
+4) What actions are performed by the linker?
+	R:
+5) What actions are performed by the loader?
+	R:
+6) Provide an example of a constant expression.
+	R:
+7) Draw a diagram of the entire assemble, link, and load process.
+	R:
+8) When is a shared object file linked with a program?
+	R:
+9) What is contained in the symbol table (two things)?
+	R:

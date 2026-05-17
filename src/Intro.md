@@ -1,7 +1,6 @@
 # Introduction
 
-This book is a reflexion, a work and thinking, a exercice resolution on a `x86-64 Assembly Language Programming with Ubuntu`
-book written by [Dr. Ed Jorgensen](https://www.legacy.com/us/obituaries/name/edward-jorgensen-obituary?id=59464082)
+This book is a reflection and a practical study of x86-64 assembly language programming on Ubuntu. It is based on the book "x86-64 Assembly Language Programming with Ubuntu" by Dr. Ed Jorgensen.
 
-For each chapter i want to describe what i learn with illustratration, exercices resolutions, and what i understand.
+In each chapter I describe what I learned, include illustrations and solved exercises, and provide explanations to aid understanding.
 

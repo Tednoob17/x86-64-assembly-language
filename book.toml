@@ -7,3 +7,39 @@ language = "en"
 [output.html]
 default-theme = "dark"
 preferred-dark-theme = "ayu"
+
+additional-css = [
+	"ferris.css",
+	"theme/semantic-notes.css",
+	"theme/listing.css",
+	"theme/2018-edition.css",
+	# Not doing any research right now, so no need to pester users with a form.
+	# "clone/rust-book/js-extensions/packages/consent-form/dist/index.css",
+	"js-extensions/packages/feedback/dist/index.css",
+]
+additional-js = [
+	"ferris.js",
+	# "clone/rust-book/js-extensions/packages/telemetry/dist/index.js",
+	# "clone/rust-book/js-extensions/packages/consent-form/dist/index.js",
+	"js-extensions/packages/feedback/dist/index.js",
+]
+
+git-repository-url = "https://github.com/Tednoob17/x86-64-assembly-language"
+
+[preprocessor.quiz]
+fullscreen = true
+validate = true
+cache-answers = true
+	more-words = "words.dic"
+optional = true
+
+[preprocessor.aquascope]
+optional = true
+
+# [build]
+# extra-watch-dirs = ["quizzes", "clone/rust-book/js-extensions/packages/feedback/dist"]
+[output.html.search]
+use-boolean-and = true
+
+[build]
+extra-watch-dirs = ["quizzes"]

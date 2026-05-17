@@ -1,0 +1,107 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Draw a picture of the Von Neumann architecture."
+answer.answer = "A diagram showing the CPU, memory, and I/O connected by a bus."
+id = "1da4210a-e2a5-453b-bd00-fb390c555985"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What component connects memory to the CPU?"
+answer.answer = "Bus"
+id = "b3296e3e-12f9-45bf-bff4-07c1aa877020"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Where are programs stored when the computer is turned off?"
+answer.answer = "Secondary storage, such as SSD or HDD"
+id = "4e6c7477-aa42-459f-8557-acce2119b33f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Where must programs be located when they are executing?"
+answer.answer = "Main memory, RAM"
+id = "58760b66-5fcb-450f-b753-dd8fcea89346"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "How does cache memory help overall performance?"
+answer.answer = "It stores data so it can be accessed much faster than in RAM."
+id = "9727f146-d3d5-42e8-8e14-14ac5280b392"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "How many bytes does a C++ integer declared with `int` use?"
+answer.answer = "4 bytes"
+id = "36017f3f-410d-4889-a540-53d75f3906aa"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "On the Intel x86-64 architecture, how many bytes can be stored at each address?"
+answer.answer = "1 byte"
+id = "96e2dcda-6303-4050-900e-881bde67a26c"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Given the 32-bit hex `004C4B40` (16), what is the least significant byte (LSB)?"
+answer.answer = "40"
+id = "4657cded-ea44-417c-93c4-40a2c5ac4f02"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Given the 32-bit hex `004C4B40` (16), what is the most significant byte (MSB)?"
+answer.answer = "00"
+id = "21ba4797-7e96-432f-b3c7-064a7b3987f5"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Given the 32-bit hex `004C4B40` (16), show the little-endian memory layout."
+answer.answer = "40 4B 4C 00"
+id = "56faeda6-9493-4da9-83c4-96c0f402df9a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Draw a picture of the layout for the `rax` register."
+answer.answer = "A diagram of the layout for the `rax` register."
+id = "bfa81060-8423-4678-9728-ee1634f932fa"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which register points to the next instruction to be executed?"
+answer.answer = "rip"
+id = "c4db7c2b-f059-40e3-bca3-6695a5d9ee2a"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Which register points to the current top of the stack?"
+answer.answer = "rsp"
+id = "19f73543-d078-474e-aabc-78a5f5a3f9eb"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "If `al` is set to `05` (16), `ax` is set to `0007` (16), `eax` is set to `00000020` (16), and `rax` is set to `0000000000000000` (16), show the final contents of `rax`."
+answer.answer = "0000000000000000"
+id = "979bd28d-7e93-4a25-a7fc-d894e397c630"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `al` in hex?"
+answer.answer = "EF"
+id = "ac8711d5-d197-45cb-a6f5-046fd2b0c2e1"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `ax` in hex?"
+answer.answer = "CDEF"
+id = "738988b4-44d3-4c50-b1d1-7c683e380396"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `eax` in hex?"
+answer.answer = "89ABCDEF"
+id = "dc4c88eb-341c-4696-a225-fde945823697"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `rax` in hex?"
+answer.answer = "0123456789ABCDEF"
+id = "1fe24477-60bf-4863-8a99-f27bedbcb5f2"

@@ -1,0 +1,11 @@
+[config]
+default_to_workspace = false
+
+[tasks.watch-book]
+script = "mdbook serve --open"
+
+[tasks.build-mdbook]
+script = "mdbook build"
+
+[tasks.build]
+dependencies = ["build-mdbook"]

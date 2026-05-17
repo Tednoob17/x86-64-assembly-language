@@ -1,1 +1,12 @@
-book
+book/
+mdbook-quiz/
+target/
+tmp/
+.idea/
+.DS_Store
+*~
+.aquascope-cache/
+.nova/
+/src/quiz/
+/src/aquascope/
+x86.tar.gz

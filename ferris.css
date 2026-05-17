@@ -1,0 +1,12 @@
+/* Minimal ferris.css copied from reference */
+body.light .does_not_compile,
+body.light .panics,
+body.light .not_desired_behavior,
+body.rust .does_not_compile,
+body.rust .panics,
+body.rust .not_desired_behavior {
+  background: #fff1f1;
+}
+
+.ferris-container { position: absolute; z-index: 99; right: 5px; top: 30px; }
+.ferris { vertical-align: top; margin-left: 0.2em; height: auto; }

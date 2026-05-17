@@ -1,0 +1,33 @@
+1) What is the name of the assembler being used in this chapter?
+	R: Yasm
+2) How are comments marked in an assembly language program?
+	R: `;`
+3) What is the name of the section where initialized data is declared?
+	R: `.data`
+4) What is the name of the section where uninitialized data is declared?
+	R: `.bss`
+5) What is the name of the section where code is placed?
+	R: `.text`
+6) What are the data declarations for each of the following variables with the given values?
+	1. byte-sized variable `bNum` set to `10`
+		R: `db`
+	2. word-sized variable `wNum` set to `10,291`
+		R: `dw`
+	3. double-word-sized variable `dwNum` set to `2,126,010`
+		R: `dd`
+	4. quadword-sized variable `qwNum` set to `10,000,000,000`
+		R: `dq`
+7) What are the uninitialized data declarations for each of the following?
+	1. byte-sized array named `bArr` with 100 elements
+		R: `resb`
+	2. word-sized array named `wArr` with 3000 elements
+		R: `resw`
+	3. double-word-sized array named `dwArr` with 200 elements
+		R: `resd`
+	4. quadword-sized array named `qArr` with 5000 elements
+		R: `resq`
+8) What are the required declarations to signify the start of a program in the text section?
+	R:
+	section .text
+	global _start
+	_start

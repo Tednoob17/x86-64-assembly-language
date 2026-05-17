@@ -1,0 +1,55 @@
+Below are some quiz questions.
+
+1) Draw a picture of the Von Neumann architecture.
+2) What component connects memory to the CPU?
+	R: Bus
+3) Where are programs stored when the computer is turned off?
+	R: Secondary storage, such as SSD or HDD
+4) Where must programs be located when they are executing?
+	R: Main memory, RAM
+5) How does cache memory help overall performance?
+	R: It stores data so it can be accessed much faster than in RAM.
+6) How many bytes does a C++ integer declared with `int` use?
+	R: 4 bytes
+7) On the Intel x86-64 architecture, how many bytes can be stored at each address?
+	R: 1 byte
+8) Given the 32-bit hex `004C4B40` (16), what is the:
+	1. Least Significant Byte (LSB)
+		R: 40
+	2. Most Significant Byte (MSB)
+		R: 00
+9) Given the 32-bit hex `004C4B40` (16), show the little-endian memory layout.
+	R:
+10) Draw a picture of the layout for the `rax` register.
+11) How many bits does each of the following represent:
+	1. `al`
+		R: 8-bit
+	2. `rcx`
+		R: 64-bit
+	3. `bx`
+		R: 16-bit
+	4. `edx`
+		R: 32-bit
+	5. `r11`
+		R: 64-bit
+	6. `r8b`
+		R: 8-bit
+	7. `sil`
+		R: 8-bit
+	8. `r14w`
+		R: 16-bit
+12) Which register points to the next instruction to be executed?
+	R: `rip`
+13) Which register points to the current top of the stack?
+	R: `rsp`
+14) If `al` is set to `05` (16), `ax` is set to `0007` (16), `eax` is set to `00000020` (16), and `rax` is set to `0000000000000000` (16), show the final contents of `rax`.
+	R: `rax = 0000000000000000 00000020 0007 05`
+15) If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of the following registers in hex?
+	1. `al`
+		R: EF
+	2. `ax`
+		R: ABCD
+	3. `eax`
+		R: 23456789
+	4. `rax`
+		R: 0000000000000001

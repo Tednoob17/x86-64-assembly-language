@@ -14,7 +14,59 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      # --- Build prerequisites -------------------------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ hashFiles('x86/js-extensions/pnpm-lock.yaml') }}-${{ runner.os }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - name: Build js-extensions (pnpm)
+        working-directory: x86/js-extensions
+        run: |
+          pnpm install
+          pnpm run build
+
+      - name: Copy js-extensions dist into repo root
+        run: |
+          mkdir -p js-extensions/packages
+          for d in x86/js-extensions/packages/*/dist ; do
+            pkg=$(basename $(dirname $d))
+            mkdir -p js-extensions/packages/$pkg
+            cp -r "$d" js-extensions/packages/$pkg/ || true
+          done
+
+      - name: Setup Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      - name: Install mdbook-quiz preprocessor
+        run: cargo install mdbook-quiz --locked || true
+
+      - name: Cache cargo registry and target
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: cargo-${{ hashFiles('**/Cargo.lock') }}-${{ runner.os }}
+          restore-keys: cargo-${{ runner.os }}-
+
+      # --- mdBook itself ------------------------------------------------------
       - name: Install mdBook
         uses: peaceiris/actions-mdbook@v1
         with:

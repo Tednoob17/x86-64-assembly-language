@@ -1,0 +1,53 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the relationship between assembly language and machine language?"
+answer.answer = "Assembly is a human-readable symbolic form of machine language."
+id = "b3392c97-c6d8-48a5-80db-b388ea68d2b8"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What actions are performed on the first pass of the assembler?"
+answer.answer = "It assigns addresses and builds the symbol table."
+id = "e3d7b469-2afb-4610-9c2b-0af590112918"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What actions are performed on the second pass of the assembler?"
+answer.answer = "It resolves symbols and emits machine code."
+id = "425d6dd1-4b0e-4ea0-aeda-44b865561a98"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What actions are performed by the linker?"
+answer.answer = "It combines object files and resolves external references."
+id = "be3d2c2d-fef3-4d45-b7d4-609a6f92861d"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What actions are performed by the loader?"
+answer.answer = "It maps the program into memory and starts execution."
+id = "f9856bd6-364e-41ba-92c5-022b612d03a6"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Provide an example of a constant expression."
+answer.answer = "2 + 3 * 4"
+id = "592b406c-62a7-4c80-8b15-141be3d63f07"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "Draw a diagram of the entire assemble, link, and load process."
+answer.answer = "Source code -> assembler -> object file(s) -> linker -> executable -> loader -> running program"
+id = "6d0d968d-19b3-465c-9900-9c1124da239f"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "When is a shared object file linked with a program?"
+answer.answer = "At load time, by the dynamic linker."
+id = "8741b47e-94b4-467d-95c5-b64ccb708082"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is contained in the symbol table (two things)?"
+answer.answer = "Symbol names and their addresses."
+id = "43623dd7-5929-4676-8822-d8b0455df4ea"
