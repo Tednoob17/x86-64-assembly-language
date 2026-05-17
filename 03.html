@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-09f92e01.js";
+            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -182,19 +182,146 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="30-data-representation"><a class="header" href="#30-data-representation">3.0 Data Representation</a></h1>
-<p>Data representation describes how information is stored. Different types (integers, floating-point, characters) use different encodings.</p>
-<h2 id="31-integer-representation"><a class="header" href="#31-integer-representation">3.1 Integer representation</a></h2>
-<p>Computers represent numbers in binary. The number of bits determines the range: 8 bits → 256 values (0–255 unsigned, -128–127 signed). Larger types (16-bit word, 32-bit double-word, 64-bit quad-word) increase the range.</p>
-<p>Two’s complement is the common representation for signed integers: invert the bits (one’s complement) and add one.</p>
-<h2 id="32-floating-point-representation"><a class="header" href="#32-floating-point-representation">3.2 Floating-point representation</a></h2>
-<p>Floating-point numbers follow the IEEE 754 standard. A 32-bit single-precision value uses a sign bit, an 8-bit biased exponent (bias 127), and a 23-bit fraction.</p>
-<h2 id="33-characters-and-strings"><a class="header" href="#33-characters-and-strings">3.3 Characters and strings</a></h2>
-<p>Characters map to numeric codes (ASCII, Unicode). Strings are sequences of bytes, often terminated by a NUL byte in C-style strings.</p>
-<p>The button to see the quizzes is below.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;03&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;180681e4-4b8f-4133-8017-64d47fecb834&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-128 to +127&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed byte.&quot;}},{&quot;id&quot;:&quot;89cf5c8a-9084-4a85-ba5e-c5c6017e64ff&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 255&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned byte.&quot;}},{&quot;id&quot;:&quot;a991f526-346c-4bba-8ef0-35bb02d4bf3d&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-32,768 to +32,767&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed word.&quot;}},{&quot;id&quot;:&quot;e9e38ba5-8615-4c45-9e4e-12f744d84b21&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 65,535&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned word.&quot;}},{&quot;id&quot;:&quot;f33198c2-f335-486b-a862-77d11a645496&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-2,147,483,648 to +2,147,483,647&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed double-word.&quot;}},{&quot;id&quot;:&quot;f6052238-dff5-416a-9be5-9e6f3218b7d8&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 4,294,967,295&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned double-word.&quot;}},{&quot;id&quot;:&quot;c1e907bd-1c9d-406d-8617-3ee0f231ca49&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0000101` (2).&quot;}},{&quot;id&quot;:&quot;b72ed023-8a9e-431f-9623-246f80686b70&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;9&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0001001` (2).&quot;}},{&quot;id&quot;:&quot;e5898813-80c4-4cfe-a8d1-6149884c01af&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;13&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0001101` (2).&quot;}},{&quot;id&quot;:&quot;bdbdb5de-5540-42b8-b54e-94ca21014c4b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;21&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0010101` (2).&quot;}},{&quot;id&quot;:&quot;d0f0c205-b139-4e39-903b-16b0c0e66c62&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FD&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-3` (10).&quot;}},{&quot;id&quot;:&quot;94c0532d-4716-46dc-a653-eef681f2593f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0B&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `+11` (10).&quot;}},{&quot;id&quot;:&quot;def92d0e-f3db-401d-9104-aeadb4c1290a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;F7&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-9` (10).&quot;}},{&quot;id&quot;:&quot;5587ac36-0799-4715-a5ec-9950cd3e2e99&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;EB&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-21` (10).&quot;}},{&quot;id&quot;:&quot;76b612ed-5b35-4f5f-b086-dfc9cd9a2a69&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-17` (10).&quot;}},{&quot;id&quot;:&quot;abdfa802-3f74-4518-b0f3-9f7f1d61e093&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0011&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `+17` (10).&quot;}},{&quot;id&quot;:&quot;0ae3ac6f-1ea6-44e9-8b4f-c8e1af2d4a6c&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFE1&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-31` (10).&quot;}},{&quot;id&quot;:&quot;d9931483-4f14-4dba-ab89-d27934c8eabc&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FF76&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-138` (10).&quot;}},{&quot;id&quot;:&quot;9b9424ec-83fc-44a2-a73b-58283600e1ea&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFFF5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-11` (10).&quot;}},{&quot;id&quot;:&quot;16da217f-f832-4bf4-b4a3-8539e5a0e7a3&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFFE5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-27` (10).&quot;}},{&quot;id&quot;:&quot;16c0f43d-7955-43ee-8b64-59a8c726f01a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;00000007&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `+7` (10).&quot;}},{&quot;id&quot;:&quot;188d3206-0929-493b-bd4e-977cee51fcee&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFEFB&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-261` (10).&quot;}},{&quot;id&quot;:&quot;3e634d05-b809-41ff-93fa-42d72f7c0f72&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFFB` (16).&quot;}},{&quot;id&quot;:&quot;9dd6f8f7-42bd-4399-89f9-4f3cee10d667&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-22&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFEA` (16).&quot;}},{&quot;id&quot;:&quot;2a0b4a15-8905-4661-bc07-22e41cd88015&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-13&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFF3` (16).&quot;}},{&quot;id&quot;:&quot;529eb00f-1ae3-48c6-8f69-32db20322070&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-8&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFF8` (16).&quot;}},{&quot;id&quot;:&quot;7cf0c7b6-4718-49de-b573-c482538c8b7a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which of the following decimal values has an exact representation in binary: 0.1, 0.2, 0.3, 0.4, or 0.5?&quot;}},{&quot;id&quot;:&quot;e595a2e7-233f-487a-b787-f998fcb8374f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-12.25&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC1440000`.&quot;}},{&quot;id&quot;:&quot;bee9d416-5935-4af5-8897-66d2dfd28196&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;12.25&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0x41440000`.&quot;}},{&quot;id&quot;:&quot;33699485-bf10-4dff-a27d-f04f7d367703&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-6.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC0D00000`.&quot;}},{&quot;id&quot;:&quot;18d9be56-ff33-462b-ac9c-220f64d7ce69&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-7.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC0F00000`.&quot;}},{&quot;id&quot;:&quot;520d5c80-a163-4a4c-9fd2-2b307121609e&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41340000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of +11.25.&quot;}},{&quot;id&quot;:&quot;a05df955-53d3-4f09-aa2e-6d8b52da1e11&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0xC1888000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of -17.125.&quot;}},{&quot;id&quot;:&quot;bbcfa3e1-9df8-4807-90ba-953aefc708a5&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41AF0000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of +21.875.&quot;}},{&quot;id&quot;:&quot;a00e9e7c-a3bd-4115-b5f7-83ff786f5f2b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0xBF400000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of -0.75.&quot;}},{&quot;id&quot;:&quot;1669c895-c5f1-4bbe-85f1-a6083f172fda&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for A?&quot;}},{&quot;id&quot;:&quot;b501efe2-48f7-49ad-8091-7fe5cca5fa7b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x61&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for a?&quot;}},{&quot;id&quot;:&quot;532aa616-b71c-4499-9c9b-0f204b218e6e&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x30&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for 0?&quot;}},{&quot;id&quot;:&quot;b35ddcb6-09a8-457c-827b-4a319341a56f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x38&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for 8?&quot;}},{&quot;id&quot;:&quot;d18ca1bf-bbe4-44ad-af52-cf4779df077b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x09&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for tab?&quot;}},{&quot;id&quot;:&quot;fc8b9153-5c77-44c3-ab19-7955aa1c089f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x57 0x6F 0x72 0x6C 0x64&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for World?&quot;}},{&quot;id&quot;:&quot;7de37a32-a04e-485c-8528-32a9408ebabe&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x31 0x32 0x33&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for 123?&quot;}},{&quot;id&quot;:&quot;a173e7c6-1186-4723-a0d5-f46f9b14fda8&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x59 0x65 0x73 0x21 0x3F&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for Yes!?&quot;}}]}" data-quiz-fullscreen="true"></div>
+                        <pre><code># 3.0 Data Representation
 
-<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css">
+In a computer, data representation is how information is stored. It differs
+depending on what you want to store; for example, the method used to store integers
+is different from the method used to store floating-point numbers and strings.
+
+Different bases are used here (binary, decimal, hex) to represent a number.
+Ex:
+
+	- 19 = 19 (10) = 13 (16) = 0x13
+	
+## 3.1 Integer Representation
+The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
+amount of space provided by the computer.
+This directly impacts the size or range of numbers that can be represented.
+
+Ex:										 
+1 byte (8 bits) can represent 2^8, or 256, different numbers.
+These 256 numbers (0-255) can be unsigned (all positive).
+The signed range is (-128 to +127).
+
+So if a number that we want to represent need more space to be represented a larger
+size must be used. Like :
+	- A `word` 16-bits for 65.536 (0 - 65.535) for signed and (-32.768 - 32.767) for unsigned value
+	- A  `double-word` 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
+	+2.147,483,647) for unsigned value
+
+
+
+	&lt;img src="img/size-bytes.png"&gt;
+
+
+It is important to know whether a value can be represented; you need to know the size of the
+storage element (byte, word, double-word, quadword) being used and whether the values
+are signed or not.
+Signed values use a standard binary representation.
+Unsigned values use a **two's complement** representation.
+
+
+For example, the unsigned byte range can be represented using a number line as follows:
+
+	&lt;img src="img/size-bytes.png" &gt;
+		
+For example, the signed byte range can be represented using a number line as follows:
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+
+When we examine a binary file with a debugger, it is difficult to know 
+whether a variable in memory is signed or not because unsigned values have a 
+different, positive-only range than signed values.
+
+For example, when the unsigned and signed values are within the overlapping positive
+range (0 to +127):
+
+- A signed byte representation of 12 (10) is 0x0C (16)
+- An unsigned byte representation of 12 (10) is also 0x0C (16)
+
+When the unsigned and signed values are outside the overlapping range:
+
+- A signed byte representation of -15 (10) is 0xF1 (16)
+- An unsigned byte representation of 241 (10) is also 0xF1 (16)
+
+Note: if your number contains a group of 4 bits (1111), that is 15 in decimal.
+### Two's Complement
+	To find a two's-complement representation for negative values 
+
+	1. take the one's complement (negate)
+	2. add 1 (in binary)
+
+So, for that, we can take an example:
+- (`-9`) you can use the positive value (`9`)
+- convert it to binary
+- invert all bits (change `1` to `0` and `0` to `1`)
+- add `+1` (binary addition)
+- And now you have the negative value.
+
+See below example :
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+ 
+## 3.3 Floating-point Representation
+
+The representation of floating-point numbers differs by format.
+The representation shown here is **IEEE 754** 32-bit **floating-point**
+
+
+After these calculations, the next step is to calculate the biased exponent,
+which is the exponent from the normalized scientific notation plus the bias. The
+value for the IEEE 32-bit floating-point standard is **127**, and
+the result should be converted to 8 bits (1 byte) and stored in the biased exponent
+portion of the word.
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+A 64-bit floating-point standard representation is the same as 32-bit,
+however the format allows an `11-bit` biased exponent with a bias of `1023`
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+It is possible that when a value is interpreted as floating-point and it does not
+conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
+This might occur if an integer representation is treated as a floating-point
+representation or a floating-point arithmetic operation (add, subtract, multiply, or
+divide) results in a value that is too large or too small to be represented.
+
+The incorrect format or unrepresentable number is referred to as a `NaN` (Not a Number).
+
+
+## 3.4 Characters and strings
+
+Computer memory is designed to store and retrieve numbers.
+So symbols (non-numeric data like characters) are assigned numeric values.
+This is the functionality of the ASCII (American Standard Code for Information Interchange) table.
+For example, the "A" character has the value "65" in decimal and "0x41" in hexadecimal.
+It is important to distinguish between the "2" character and the integer `2`.
+
+Unicode is an improvement over ASCII because it supports many languages.
+
+A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
+It is used to mark the end of strings.
+
+ 
+ 	 &lt;img src="img/size-bytes.png" &gt;
+
+And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
+A char uses 1 byte, so each character represents one byte plus a NULL character.
+An integer uses a minimum of 2 bytes.
+
+  &lt;img src="img/size-bytes.png" &gt;
+
+
+
+## Exercices
+</code></pre>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

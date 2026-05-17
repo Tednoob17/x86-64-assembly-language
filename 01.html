@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-09f92e01.js";
+            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -182,13 +182,53 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="10-assembly-and-low-level"><a class="header" href="#10-assembly-and-low-level">1.0 Assembly and Low Level</a></h2>
-<p>Assembly language is a low-level, machine-specific language. Each processor family (here <code>x86-64</code>) uses its own instruction set. High-level languages are translated into assembly, which the processor executes.</p>
-<p>Studying assembly improves algorithmic thinking and debugging skills because it requires attention to detail and a deeper understanding of system resources such as memory and registers.</p>
-<p>Assembly knowledge is useful in systems programming and security (race conditions, concurrency bugs, reverse engineering).</p>
-<h2 id="11-history-and-background"><a class="header" href="#11-history-and-background">1.1 History and background</a></h2>
-<p><code>x86-64</code> (also called AMD64 or x64) is a 64-bit extension of the <code>x86</code> instruction set. It was introduced by AMD (Opteron) in 2003 and added support for 64-bit operands, extended registers, and paging features.</p>
-<p>Readers will benefit from prior exposure to C, C++, or Java and a basic understanding of Linux and the command line.</p>
+                        <pre><code>## 1.0 - Assembly and low level ?
+	Assembly language is a low-level  machine specific langage, each instruction set processor
+	used it's assembly in our case `x86-64` not run on different processor.
+	A High-level language are translated into assembly who is used by processor to execute a program.  
+	The assembly language help you to see how system ressources like memory, registers work .
+	
+	It help to improve algorithm development skills, debugging by practicing 
+	because it requires more thought, more attention and nuanced approch .
+	The function / procedure call, Input/Output instructions including the content 
+	and structure of function, a important significant implementations are best 
+	understood when working at a low-level.
+
+	In security world a fondamental mechanism of multi-processing concept
+	a shared memory, threaded processing can help to nicely understood race condition
+	and others bugs associated to this type of concepts.
+
+## 1.1 - History and Begining
+
+	`x86-64` instruction set for `x86-64` class of processor using by `64-bit` 
+	operation system.
+	`x86-64` is a `CISC` (Complex Instruction Set Computing)
+	We have multiple **internals processor design philosophy**
+
+	(x86_64, AMD64, x64) is a `64-bit` extension of `x86` instruction set
+	First annonced and available is **AMD Opteron** in 2003.
+	It introduces **64-bit mode** and **compatible mode**, and new **4 level paging**
+	mechanism. Compared to `32-bit` it support **virtual and physical memory**,
+	and a number of `GPR` (General Purpose Register) from `8` to `16` .
+	`SSE2` instruction in **64-bit mode** permit a **floatin-point arithmetic**.
+
+	128-bit vector register (XMM registers), it can store **one or two double precision floating-point number** 
+	up to **4 single precision**
+
+	- **64-bit mode** instructions are modified to support **64-bit operands** and 
+		**64-bit addressing mode**.
+	- **x86-64 architecture** use a **16-bit** and **32-bit** applications to
+	run on system
+	- Opteron, Athlon followed by **X2, X3, X4** to indicate the number of cores
+		and **XLT models**, same for **Turion, Sempron, Phenom**
+		
+
+	It important to note that a reader would have a prerequist in C, C++ or Java, because many
+	explation assume that reader is already familiar with programming concepts and with linux-based 
+	operating system and it's command line interface.
+
+If not i highly recommended you to do a [C Pool](https://tednoob17.github.io/42) of 42 School.
+</code></pre>
 
                     </main>
 

@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-09f92e01.js";
+            window.path_to_searchindex_js = "searchindex-33f9af1f.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -196,69 +196,927 @@
 <p>Before using this book, ensure you have the necessary tools installed (for example, <code>mdbook</code>, an assembler, and a Linux environment). Basic familiarity with C or another systems language and the Linux command line is recommended.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="0---why-assembly"><a href="#0---why-assembly" class="header">0 - Why Assembly?</a></h1>
-<h2 id="00-why-assembly"><a class="header" href="#00-why-assembly">0.0 Why Assembly?</a></h2>
-<p>We choose assembly to provide a clear introduction to low-level programming and to explain how computers work. Understanding assembly helps with debugging, reverse engineering, vulnerability research, and writing performant low-level code. It also bridges the gap between beginners who rely on copy/paste and experienced engineers who understand system behaviour.</p>
-<p>This material is intended to give readers a solid foundation so they can adapt to changing technologies.</p>
-<h2 id="01-an-interactive-experience"><a class="header" href="#01-an-interactive-experience">0.1 An interactive experience</a></h2>
-<p>This book is an experimental project inspired by <em>x86-64 Assembly Language Programming with Ubuntu</em> by Ed Jorgensen and the Cognitive Engineering Lab at Brown University.</p>
-<h2 id="02-interactive-mechanics"><a class="header" href="#02-interactive-mechanics">0.2 Interactive mechanics</a></h2>
-<p>The book integrates interactive quizzes. When a quiz is incorrect you can retry or view the correct answers — retrying until you get 100% is encouraged. After answering correctly a quiz cannot be retried.</p>
-<p>You can also highlight text and add optional notes. Highlights are stored in cookies and will be lost if the content changes or if you change browser or block cookies.</p>
-<blockquote>
-<p><strong>Note:</strong> Highlights are stored in cookies; blocking cookies or switching browsers will remove them.</p>
-</blockquote>
+<pre><code>## 0.0 Why Assembly ?
+
+We choose Assembly because we want to provide a comprehensive introduction
+to assembly langage. Because it help to know how computer work and in AI area
+werw things become more complicated and were people not have a big reading retention,
+in world were we have a diminution of skilled person because ai usage for beginner not is advantage
+but for senior it's awesome but they create a gap between senior and junior.
+So a big understanding of things in world were averyone not understand what they do and just copy paste
+and not learn for adding AI in her workflow can be decisive.
+
+It also be a good basics for doing more thin in reverse engineering, vulnerability research and good
+programming specific stuff in low-level.
+It important for learn basics is a difference between simple programmer and
+computer scientist who can adapt to all ever-changing technologies.
+A adaptation is key.
+
+## 0.1  A interactive experience
+This book is a experimental project higly inspired by **x86-64 Assembly language programming with Ubuntu** By
+Ed Jorgensen, and by Cognitive Engineering Lab at Brown University experience on Rust Programming Language .
+
+## 0.2 Interactive Mechanics
+This book integrated interactive quizzes, test it in clicking "Start".
+
+When your response to question is incorrect you can choose to either rety the quizz or
+see the correct answers. It interesting and encouraged to retry the quiz until you get 100%.
+Note that after respond correctly to quizz you cannot retry it.
+
+You can also take note, select text and add your thoughts about it. 
+Once text selected, click the button and write a optionnal comment.
+
+&gt; **Note:** your highlights will disappear if we change the content that you've highlighted. 
+Also, your highlights are stored as a cookie. If you block cookies or change browsers, 
+then you won't see your previous highlights.
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="1---assembly-and-low-level"><a href="#1---assembly-and-low-level" class="header">1 - Assembly and Low Level</a></h1>
-<h2 id="10-assembly-and-low-level"><a class="header" href="#10-assembly-and-low-level">1.0 Assembly and Low Level</a></h2>
-<p>Assembly language is a low-level, machine-specific language. Each processor family (here <code>x86-64</code>) uses its own instruction set. High-level languages are translated into assembly, which the processor executes.</p>
-<p>Studying assembly improves algorithmic thinking and debugging skills because it requires attention to detail and a deeper understanding of system resources such as memory and registers.</p>
-<p>Assembly knowledge is useful in systems programming and security (race conditions, concurrency bugs, reverse engineering).</p>
-<h2 id="11-history-and-background"><a class="header" href="#11-history-and-background">1.1 History and background</a></h2>
-<p><code>x86-64</code> (also called AMD64 or x64) is a 64-bit extension of the <code>x86</code> instruction set. It was introduced by AMD (Opteron) in 2003 and added support for 64-bit operands, extended registers, and paging features.</p>
-<p>Readers will benefit from prior exposure to C, C++, or Java and a basic understanding of Linux and the command line.</p>
+<pre><code>## 1.0 - Assembly and low level ?
+	Assembly language is a low-level  machine specific langage, each instruction set processor
+	used it's assembly in our case `x86-64` not run on different processor.
+	A High-level language are translated into assembly who is used by processor to execute a program.  
+	The assembly language help you to see how system ressources like memory, registers work .
+	
+	It help to improve algorithm development skills, debugging by practicing 
+	because it requires more thought, more attention and nuanced approch .
+	The function / procedure call, Input/Output instructions including the content 
+	and structure of function, a important significant implementations are best 
+	understood when working at a low-level.
+
+	In security world a fondamental mechanism of multi-processing concept
+	a shared memory, threaded processing can help to nicely understood race condition
+	and others bugs associated to this type of concepts.
+
+## 1.1 - History and Begining
+
+	`x86-64` instruction set for `x86-64` class of processor using by `64-bit` 
+	operation system.
+	`x86-64` is a `CISC` (Complex Instruction Set Computing)
+	We have multiple **internals processor design philosophy**
+
+	(x86_64, AMD64, x64) is a `64-bit` extension of `x86` instruction set
+	First annonced and available is **AMD Opteron** in 2003.
+	It introduces **64-bit mode** and **compatible mode**, and new **4 level paging**
+	mechanism. Compared to `32-bit` it support **virtual and physical memory**,
+	and a number of `GPR` (General Purpose Register) from `8` to `16` .
+	`SSE2` instruction in **64-bit mode** permit a **floatin-point arithmetic**.
+
+	128-bit vector register (XMM registers), it can store **one or two double precision floating-point number** 
+	up to **4 single precision**
+
+	- **64-bit mode** instructions are modified to support **64-bit operands** and 
+		**64-bit addressing mode**.
+	- **x86-64 architecture** use a **16-bit** and **32-bit** applications to
+	run on system
+	- Opteron, Athlon followed by **X2, X3, X4** to indicate the number of cores
+		and **XLT models**, same for **Turion, Sempron, Phenom**
+		
+
+	It important to note that a reader would have a prerequist in C, C++ or Java, because many
+	explation assume that reader is already familiar with programming concepts and with linux-based 
+	operating system and it's command line interface.
+
+If not i highly recommended you to do a [C Pool](https://tednoob17.github.io/42) of 42 School.
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="20-architecture-overview"><a class="header" href="#20-architecture-overview">2.0 Architecture Overview</a></h1>
-<h2 id="21-components"><a class="header" href="#21-components">2.1 Components</a></h2>
-<p>A computer contains a CPU (Central Processing Unit), RAM (main memory), storage (SSD/HDD), and I/O devices (keyboard, mouse, display). Buses connect these components and carry data, addresses, and control signals.</p>
-<h3 id="cpu"><a class="header" href="#cpu">CPU</a></h3>
-<p>The CPU contains a Control Unit (CU), an Arithmetic Logic Unit (ALU), and registers. The CU orchestrates data movement and instruction fetching; the ALU performs arithmetic and logical operations.</p>
-<h3 id="registers-and-memory"><a class="header" href="#registers-and-memory">Registers and memory</a></h3>
-<p>Registers are small, fast storage locations inside the CPU used for computation. The <code>rsp</code> register points to the top of the stack, <code>rbp</code> is typically used as a frame/base pointer, and <code>rip</code> holds the address of the next instruction.</p>
-<p>The architecture is little-endian: the least-significant byte of a multi-byte value is stored at the lowest memory address.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;02&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;1da4210a-e2a5-453b-bd00-fb390c555985&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A diagram showing the CPU, memory, and I/O connected by a bus.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Draw a picture of the Von Neumann architecture.&quot;}},{&quot;id&quot;:&quot;b3296e3e-12f9-45bf-bff4-07c1aa877020&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Bus&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What component connects memory to the CPU?&quot;}},{&quot;id&quot;:&quot;4e6c7477-aa42-459f-8557-acce2119b33f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Secondary storage, such as SSD or HDD&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Where are programs stored when the computer is turned off?&quot;}},{&quot;id&quot;:&quot;58760b66-5fcb-450f-b753-dd8fcea89346&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Main memory, RAM&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Where must programs be located when they are executing?&quot;}},{&quot;id&quot;:&quot;9727f146-d3d5-42e8-8e14-14ac5280b392&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It stores data so it can be accessed much faster than in RAM.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How does cache memory help overall performance?&quot;}},{&quot;id&quot;:&quot;36017f3f-410d-4889-a540-53d75f3906aa&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;4 bytes&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How many bytes does a C++ integer declared with `int` use?&quot;}},{&quot;id&quot;:&quot;96e2dcda-6303-4050-900e-881bde67a26c&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;1 byte&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;On the Intel x86-64 architecture, how many bytes can be stored at each address?&quot;}},{&quot;id&quot;:&quot;4657cded-ea44-417c-93c4-40a2c5ac4f02&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;40&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), what is the least significant byte (LSB)?&quot;}},{&quot;id&quot;:&quot;21ba4797-7e96-432f-b3c7-064a7b3987f5&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;00&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), what is the most significant byte (MSB)?&quot;}},{&quot;id&quot;:&quot;56faeda6-9493-4da9-83c4-96c0f402df9a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;40 4B 4C 00&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Given the 32-bit hex `004C4B40` (16), show the little-endian memory layout.&quot;}},{&quot;id&quot;:&quot;bfa81060-8423-4678-9728-ee1634f932fa&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;A diagram of the layout for the `rax` register.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Draw a picture of the layout for the `rax` register.&quot;}},{&quot;id&quot;:&quot;c4db7c2b-f059-40e3-bca3-6695a5d9ee2a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;rip&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which register points to the next instruction to be executed?&quot;}},{&quot;id&quot;:&quot;19f73543-d078-474e-aabc-78a5f5a3f9eb&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;rsp&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which register points to the current top of the stack?&quot;}},{&quot;id&quot;:&quot;979bd28d-7e93-4a25-a7fc-d894e397c630&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0000000000000000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If `al` is set to `05` (16), `ax` is set to `0007` (16), `eax` is set to `00000020` (16), and `rax` is set to `0000000000000000` (16), show the final contents of `rax`.&quot;}},{&quot;id&quot;:&quot;ac8711d5-d197-45cb-a6f5-046fd2b0c2e1&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;EF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `al` in hex?&quot;}},{&quot;id&quot;:&quot;738988b4-44d3-4c50-b1d1-7c683e380396&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;CDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `ax` in hex?&quot;}},{&quot;id&quot;:&quot;dc4c88eb-341c-4696-a225-fde945823697&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;89ABCDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `eax` in hex?&quot;}},{&quot;id&quot;:&quot;1fe24477-60bf-4863-8a99-f27bedbcb5f2&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0123456789ABCDEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;If the `rax` register is set to `81,985,529,216,486,895` (10) (`123456789ABCDEF` (16)), what are the contents of `rax` in hex?&quot;}}]}" data-quiz-fullscreen="true"></div>
+<h1 id="2---architecture-overview"><a href="#2---architecture-overview" class="header">2 - Architecture Overview</a></h1>
+<pre><code># 2.0 - Architecture Overview
 
-<h3 id="memory-layout"><a class="header" href="#memory-layout">Memory layout</a></h3>
-<p>Typical process memory layout contains sections such as <code>.text</code> (code), <code>.data</code> (initialized data), <code>.bss</code> (uninitialized data), heap (dynamic allocation), and stack (local data and call frames).</p>
-<h2 id="22-data-sizes"><a class="header" href="#22-data-sizes">2.2 Data sizes</a></h2>
-<p>Data sizes (byte, word, double-word, quad-word) determine the range of representable values. For example, a 1-byte (8-bit) unsigned value ranges 0–255; a signed byte ranges -128–127.</p>
-<h2 id="23-registers-overview"><a class="header" href="#23-registers-overview">2.3 Registers overview</a></h2>
-<p>The x86-64 architecture provides general-purpose registers (e.g., <code>rax</code>, <code>rbx</code>, <code>rcx</code>, <code>rdx</code>) and SIMD registers (<code>xmm0</code>–<code>xmmN</code>) for floating-point and vector operations.</p>
-<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css"><div style="break-before: page; page-break-before: always;"></div>
-<h1 id="30-data-representation"><a class="header" href="#30-data-representation">3.0 Data Representation</a></h1>
-<p>Data representation describes how information is stored. Different types (integers, floating-point, characters) use different encodings.</p>
-<h2 id="31-integer-representation"><a class="header" href="#31-integer-representation">3.1 Integer representation</a></h2>
-<p>Computers represent numbers in binary. The number of bits determines the range: 8 bits → 256 values (0–255 unsigned, -128–127 signed). Larger types (16-bit word, 32-bit double-word, 64-bit quad-word) increase the range.</p>
-<p>Two’s complement is the common representation for signed integers: invert the bits (one’s complement) and add one.</p>
-<h2 id="32-floating-point-representation"><a class="header" href="#32-floating-point-representation">3.2 Floating-point representation</a></h2>
-<p>Floating-point numbers follow the IEEE 754 standard. A 32-bit single-precision value uses a sign bit, an 8-bit biased exponent (bias 127), and a 23-bit fraction.</p>
-<h2 id="33-characters-and-strings"><a class="header" href="#33-characters-and-strings">3.3 Characters and strings</a></h2>
-<p>Characters map to numeric codes (ASCII, Unicode). Strings are sequences of bytes, often terminated by a NUL byte in C-style strings.</p>
-<p>The button to see the quizzes is below.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;03&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;180681e4-4b8f-4133-8017-64d47fecb834&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-128 to +127&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed byte.&quot;}},{&quot;id&quot;:&quot;89cf5c8a-9084-4a85-ba5e-c5c6017e64ff&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 255&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned byte.&quot;}},{&quot;id&quot;:&quot;a991f526-346c-4bba-8ef0-35bb02d4bf3d&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-32,768 to +32,767&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed word.&quot;}},{&quot;id&quot;:&quot;e9e38ba5-8615-4c45-9e4e-12f744d84b21&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 65,535&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned word.&quot;}},{&quot;id&quot;:&quot;f33198c2-f335-486b-a862-77d11a645496&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-2,147,483,648 to +2,147,483,647&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for signed double-word.&quot;}},{&quot;id&quot;:&quot;f6052238-dff5-416a-9be5-9e6f3218b7d8&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0 to 4,294,967,295&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the range for unsigned double-word.&quot;}},{&quot;id&quot;:&quot;c1e907bd-1c9d-406d-8617-3ee0f231ca49&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0000101` (2).&quot;}},{&quot;id&quot;:&quot;b72ed023-8a9e-431f-9623-246f80686b70&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;9&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0001001` (2).&quot;}},{&quot;id&quot;:&quot;e5898813-80c4-4cfe-a8d1-6149884c01af&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;13&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0001101` (2).&quot;}},{&quot;id&quot;:&quot;bdbdb5de-5540-42b8-b54e-94ca21014c4b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;21&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `0010101` (2).&quot;}},{&quot;id&quot;:&quot;d0f0c205-b139-4e39-903b-16b0c0e66c62&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FD&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-3` (10).&quot;}},{&quot;id&quot;:&quot;94c0532d-4716-46dc-a653-eef681f2593f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0B&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `+11` (10).&quot;}},{&quot;id&quot;:&quot;def92d0e-f3db-401d-9104-aeadb4c1290a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;F7&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-9` (10).&quot;}},{&quot;id&quot;:&quot;5587ac36-0799-4715-a5ec-9950cd3e2e99&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;EB&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, byte-size, two&#39;s-complement value of `-21` (10).&quot;}},{&quot;id&quot;:&quot;76b612ed-5b35-4f5f-b086-dfc9cd9a2a69&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFEF&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-17` (10).&quot;}},{&quot;id&quot;:&quot;abdfa802-3f74-4518-b0f3-9f7f1d61e093&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0011&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `+17` (10).&quot;}},{&quot;id&quot;:&quot;0ae3ac6f-1ea6-44e9-8b4f-c8e1af2d4a6c&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFE1&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-31` (10).&quot;}},{&quot;id&quot;:&quot;d9931483-4f14-4dba-ab89-d27934c8eabc&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FF76&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, word-size, two&#39;s-complement value of `-138` (10).&quot;}},{&quot;id&quot;:&quot;9b9424ec-83fc-44a2-a73b-58283600e1ea&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFFF5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-11` (10).&quot;}},{&quot;id&quot;:&quot;16da217f-f832-4bf4-b4a3-8539e5a0e7a3&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFFE5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-27` (10).&quot;}},{&quot;id&quot;:&quot;16c0f43d-7955-43ee-8b64-59a8c726f01a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;00000007&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `+7` (10).&quot;}},{&quot;id&quot;:&quot;188d3206-0929-493b-bd4e-977cee51fcee&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;FFFFFEFB&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, double-word-size, two&#39;s-complement value of `-261` (10).&quot;}},{&quot;id&quot;:&quot;3e634d05-b809-41ff-93fa-42d72f7c0f72&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFFB` (16).&quot;}},{&quot;id&quot;:&quot;9dd6f8f7-42bd-4399-89f9-4f3cee10d667&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-22&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFEA` (16).&quot;}},{&quot;id&quot;:&quot;2a0b4a15-8905-4661-bc07-22e41cd88015&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-13&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFF3` (16).&quot;}},{&quot;id&quot;:&quot;529eb00f-1ae3-48c6-8f69-32db20322070&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-8&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal value of `FFFFFFF8` (16).&quot;}},{&quot;id&quot;:&quot;7cf0c7b6-4718-49de-b573-c482538c8b7a&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Which of the following decimal values has an exact representation in binary: 0.1, 0.2, 0.3, 0.4, or 0.5?&quot;}},{&quot;id&quot;:&quot;e595a2e7-233f-487a-b787-f998fcb8374f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-12.25&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC1440000`.&quot;}},{&quot;id&quot;:&quot;bee9d416-5935-4af5-8897-66d2dfd28196&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;12.25&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0x41440000`.&quot;}},{&quot;id&quot;:&quot;33699485-bf10-4dff-a27d-f04f7d367703&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-6.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC0D00000`.&quot;}},{&quot;id&quot;:&quot;18d9be56-ff33-462b-ac9c-220f64d7ce69&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;-7.5&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the decimal representation of `0xC0F00000`.&quot;}},{&quot;id&quot;:&quot;520d5c80-a163-4a4c-9fd2-2b307121609e&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41340000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of +11.25.&quot;}},{&quot;id&quot;:&quot;a05df955-53d3-4f09-aa2e-6d8b52da1e11&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0xC1888000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of -17.125.&quot;}},{&quot;id&quot;:&quot;bbcfa3e1-9df8-4807-90ba-953aefc708a5&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41AF0000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of +21.875.&quot;}},{&quot;id&quot;:&quot;a00e9e7c-a3bd-4115-b5f7-83ff786f5f2b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0xBF400000&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide the hex, IEEE 32-bit floating-point representation of -0.75.&quot;}},{&quot;id&quot;:&quot;1669c895-c5f1-4bbe-85f1-a6083f172fda&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x41&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for A?&quot;}},{&quot;id&quot;:&quot;b501efe2-48f7-49ad-8091-7fe5cca5fa7b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x61&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for a?&quot;}},{&quot;id&quot;:&quot;532aa616-b71c-4499-9c9b-0f204b218e6e&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x30&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for 0?&quot;}},{&quot;id&quot;:&quot;b35ddcb6-09a8-457c-827b-4a319341a56f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x38&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for 8?&quot;}},{&quot;id&quot;:&quot;d18ca1bf-bbe4-44ad-af52-cf4779df077b&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x09&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the ASCII code, in hex, for tab?&quot;}},{&quot;id&quot;:&quot;fc8b9153-5c77-44c3-ab19-7955aa1c089f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x57 0x6F 0x72 0x6C 0x64&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for World?&quot;}},{&quot;id&quot;:&quot;7de37a32-a04e-485c-8528-32a9408ebabe&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x31 0x32 0x33&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for 123?&quot;}},{&quot;id&quot;:&quot;a173e7c6-1186-4723-a0d5-f46f9b14fda8&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;0x59 0x65 0x73 0x21 0x3F&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the ASCII values, in hex, for Yes!?&quot;}}]}" data-quiz-fullscreen="true"></div>
 
-<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css"><div style="break-before: page; page-break-before: always;"></div>
+## 2.1 -  
+	A computer components include a **CPU** (Central Processing Unit), a **RAM** (Random Access Memory),
+	a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).
+	
+	
+	&lt;img src="img/Von_newman.png" style="min-width: 150px" /&gt;		
+
+	**A Big Picture of Von Neumann Architecture**
+	 
+
+	A **CPU or processor** is a **computer brain** that contains a **Control Unit** (CU), 
+	main memory, and **Arithmetic Logic Unit** (ALU)
+	A **CPU** includes all **circuitry** required to **process input, store data, and generate output**.
+	It also follows **program instructions** that tell it which information
+	to process and how to process it.
+
+	- **CU** (`Control Unit`): It responsible for how **data moves thoughout system**, for
+	redirect all **input** and **output flow**, and **gets code** for instructions.
+
+	- **ALU** (`Arithmetic and Logic Unit`) : It a part of **CPU** who handles all **computations**
+		like *addition*, *subtraction*, and *comparisons*, with **logical operations**, **arithmetic operations**
+		and **bit shifting operation**
+
+	- **Register** : It's a sort of highly fast **Computer memory** that is used to *accept*, *store*, and *transport data* 
+		A **Processor register** is the term used to define the **registers** that **CPU** uses (General Purpose Register) .
+
+	- **Accumulator** : It store the result of calculation that **ALU** makes.
+
+	- **Program Counter**: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
+		This next address is passed from **Program counter** to **Memory Adress Register**.
+
+	- **Memory Address Register** : `MAR` **stores** the **memory address locations** of those instructions 
+		that are either to be **fetched** from the  **memory** or to be **stored in the memory**.
+
+	- **Memory Data Register** : `MDR`  **stores** the **instructions** that are **fetched** from **memory**
+		or any *information* that is to be **transferred to and stored** in the **memory**.
+
+	- **Current Instruction Register** : `CIR` **stores** the recently **fetched instructions** while it waits for usage 
+		and **execution**
+
+	- **Instruction Buffer Register** : `IBR` is use for place the instruction that isn't be **immediately executed** .
+
+	### Input / Output Devices
+	  
+	   The **program or the data** is read into **main memory** (`RAM`) from the **secondary storage** (`HDD`, `SSD`)
+	   If an result are *evaluated* by a computer and saved in it , you can *present* them to user via **output devices**. 	
+
+	   - **Buses**: Data is sent from one part of a computer to another via **buses** which connect all key 
+	   	internal components to the memory and CPU.
+
+	   - **Control Bus**: It receive **control commands** from `CPU`, as well as status signals from **other
+	   		devices**, and uses them to **control and coordinate** all of the computer's actions.
+	   - **Address Bus**: It **communicates** between **memory and the processor**  data address (not the actual data)
+	   - **Data Bus**: It **relays information** between the **memory unit**, **I/O devices**, and the **processor**.
+
+## 2.2 Data Storage Sizes
+	The **x86-64 architecture** supports a specific set of **data storage size elements**.
+	The **storage size** are a direct **correlation** to variable declarations in high-level
+	language (C, C++, Rust)
+
+	
+
+	   &lt;img src="img/big-size.png" style="min-width: 150px" /&gt;
+
+
+## 	2.3 CPU Registers 
+		A **CPU Registers** or just **register**, is a *temporary* storage or **working
+		location** built into the **CPU** itself (separate)
+		A `64-bit` **General Purpose Registers** (GPRs) are in number of **60**, they can 
+		be used by all **64-bits** or some *portion* or subset accessed.
+
+		When a *data* want to used a element with **sizes** less than **64-bits** (32-bit, 16-bit, or 8-bit)
+		a specific part of this **less sized register** can be accessed by using a 
+		different **register name** like described here :
+
+		  
+	&lt;img src="img/big_tab.png" style="min-width: 150px" /&gt;
+
+As show in the **excalidrw diagram**, the first 4 registers, `rax`, `rbx`, `rcx`,
+`rdx` allow to accessed to 8-15 bits with the `ah`, `bh`, `ch`, and `dh` register names.
+But `ah` is provided for legacy support.
+
+A register save value the used to affected to them in **hex** base. By exemple if:
+
+```bn
+		rax = 50.000.000.000 	  # value set to rax in decimal base (10)
+		rax = 0000 000B A43B 7400 # the eax value is saved in hex base (16)
+
+		ax = 50.000 			  # if ax is set to 50.000 in base decimal (10)
+		ax = C350 				  # the ax calue is save in hex base 	(16)
+
+		rax = 0000 000B A43B C350 # each value is 1byte, the total do 16 byte, and each section separate by space do 16-bit
+								  # the total do 64-bit,  here the lower 16-bit ax of rax is set the upper 48-bits are unaffected
+								  # Note the change of ax to 7400 (16) to C350 (16)
+						
+		al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
+		rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
+```
+
+For **32-bit register operations**, the *upper* 32-bit (first 32-bit from left to right) is set cleared (set to 0)
+
+	### RSP (Register Stack Pointer)
+		A `rsp` is a **register** who is not used for *data* or other uses but it used to point to the **top of the stack**. 
+
+	### RBP (Register Base Pointer)
+		A `rbp` is used as a **base pointer** during functions calls, it her only functions.
+
+	### RIP (Register Instruction Pointer)
+		A 	`rip` is a **special register** used by CPU ro point to the *next instruction* to be executed.
+		So if `rip` *points* to the *next instruction* means that in *debugger* the `rip` point to a instruction who is not 
+		*already executed*.
+	### Flag Register (rFlags)
+		A **flag register**, `rFlags` is used for store  *status* and `CPU` *control information* about the *instruction* that
+		was just executed.
+		The **rFlag**  is *directly updated* (`Status`) by **processor** and not accessible by program,
+
+		
+		&lt;img src="img/rflag.png" style="min-width: 150px" /&gt;
+	### XMM registers
+
+	The `XMM` are set of **dedicated registers** used to support **32-bit** and **64-bit floating point** 
+	operations and **Single Instruction Multiple Data** (`SIMD`) instructions.
+	`SIMD` allow a *single instructions* allow a *single instruction* to be applied
+	*simultaneaously* to to *multiple data items*, it help to increase a performance.
+
+		
+		&lt;img src="img/xmm-registers" style="min-width: 150px" /&gt;
+
+	### Cache Memory
+
+	**Cache memory** is a small *subset of the primary storage* or `RAM` located in the
+	**CPU chip**. If a *memory location* is accessed, a *copy* of the *value* is *placed*
+	in the cache*.
+	A **memory read** involves *sending* the *address* via the *bus* to the *memory controller*, 
+	which will *obtain the value* at the *requested memory location*, and *send it back* 
+	through *the bus*. Comparatively, if a *value* is in *cache*, it would be much faster 
+	to *access* that *value*.
+	A *cache hit* occurs when the *requested data* can be found in a *cache*, while a cache miss
+	*occurs* when it cannot. **Cache hits** are served by **reading data** from the *cache*, which is
+	faster than reading from *main memory*. The more requests that can be **served from
+	cache**, the faster the system will *typically perform*.
+
+	
+		&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
+
+
+## Main memory
+ Memory can be viewed as a *series of bytes*, *one after another*. That is, *memory is byte
+ addressable*. This means *each memory address* holds *one byte* of information. To *store*
+ a **double-word**, **four bytes** are required which use *four memory addresses*.
+ Additionally, *architecture* is `little-endian`. This means that the **Least Significant Byte**
+ (`LSB`) is *stored* in the **lowest memory address**. The **Most Significant Byte** (`MSB`) is
+ stored in the **highest memory location**.
+ 
+	&lt;img src="img/memory_page" style="min-width: 150px" /&gt;
+
+For example, assuming the value of, **5,000,000** (`10`) `-&gt;` **004C4B40** (`16`), is to be placed in a
+**double-word** variable named `var1`.
+For a **little-endian** *architecture*, the **memory** picture would be as follows:
+
+
+&lt;img src="img/cpu_block_diagram2.png" style="min-width: 150px" /&gt;
+
+Based on the **little-endian** *architecture*, the `LSB` is stored in the *lowest memory address*
+and the `MSB` is stored in the *highest memory location*.
+
+## 2.5 Memory Layout
+
+The *general memory layout* for a program is as shown:
+
+&lt;img src="img/memory_layout" style="min-width: 150px" /&gt;
+
+The `reserved` *section* is not *available* to *user programs*. The `text` (or code) *section* is
+where the *machine language* (i.e., the `1`'s and `0`'s that *represent the code*) is stored. The
+`data` section is where the *initialized data* is stored. This includes *declared variables* that
+have been provided an *initial value* at *assemble-time*. The uninitialized *data section*,
+typically called `BSS` *section*, is where *declared variables* that have *not been provided* an
+*initial value* are stored. If *accessed* before being set, the *value* will not be meaningful.
+The `heap` is where *dynamically allocated* data will be *stored* (if *requested*). The `stack`
+starts in **high memory** and *grows downward*.
+
+
+## Memory Hierarchy
+ 
+In order to fully understand the various *different memory levels* and *associated usage*, it
+is useful to *review* the *memory hierarchy*. In general terms, *faster memory* is more
+*expensive* and *slower memory blocks* are *less expensive*. The `CPU` *registers* are *small*,
+*fast*, and *expensive*. **Secondary storage devices** such as *disk drives* and *Solid State
+Drives* (SSD's) are *larger, slower*, and *less expensive*. The overall goal is to *balance
+performance with cost*.
+An overview of the memory hierarchy is as follows:
+
+	&lt;img src="img/memory_hierarchy" style="min-width: 150px" /&gt;
+
+Where the *top* of the *triangle* represents the *fastest, smallest, and most expensive
+memory*. As we move down *levels*, the *memory becomes slower*, *larger*, and *less
+expensive*. The *goal* is to use an *effective balance between the small*, *fast*, *expensive
+memory* and the *large*, *slower*, and *cheaper memory*.
+
+
+
+	&lt;img src="img/table_hierarchy" style="min-width: 150px" /&gt;
+
+																			 
+Based on this table, a *primary storage access* at *100 nanoseconds*  is 30,000
+*times faster* than a *secondary storage* access, at *3 milliseconds* .
+The typical speeds improve over time (and these are already *out of date*). The key point
+is the relative *difference between* each *memory unit* is *significant*. *This difference*
+between *the memory units* applies even as newer, faster SSDs are being utilized.
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="3---data-representation"><a href="#3---data-representation" class="header">3 - Data Representation</a></h1>
+<pre><code># 3.0 Data Representation
+
+In a computer, data representation is how information is stored. It differs
+depending on what you want to store; for example, the method used to store integers
+is different from the method used to store floating-point numbers and strings.
+
+Different bases are used here (binary, decimal, hex) to represent a number.
+Ex:
+
+	- 19 = 19 (10) = 13 (16) = 0x13
+	
+## 3.1 Integer Representation
+The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
+amount of space provided by the computer.
+This directly impacts the size or range of numbers that can be represented.
+
+Ex:										 
+1 byte (8 bits) can represent 2^8, or 256, different numbers.
+These 256 numbers (0-255) can be unsigned (all positive).
+The signed range is (-128 to +127).
+
+So if a number that we want to represent need more space to be represented a larger
+size must be used. Like :
+	- A `word` 16-bits for 65.536 (0 - 65.535) for signed and (-32.768 - 32.767) for unsigned value
+	- A  `double-word` 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
+	+2.147,483,647) for unsigned value
+
+
+
+	&lt;img src="img/size-bytes.png"&gt;
+
+
+It is important to know whether a value can be represented; you need to know the size of the
+storage element (byte, word, double-word, quadword) being used and whether the values
+are signed or not.
+Signed values use a standard binary representation.
+Unsigned values use a **two's complement** representation.
+
+
+For example, the unsigned byte range can be represented using a number line as follows:
+
+	&lt;img src="img/size-bytes.png" &gt;
+		
+For example, the signed byte range can be represented using a number line as follows:
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+
+When we examine a binary file with a debugger, it is difficult to know 
+whether a variable in memory is signed or not because unsigned values have a 
+different, positive-only range than signed values.
+
+For example, when the unsigned and signed values are within the overlapping positive
+range (0 to +127):
+
+- A signed byte representation of 12 (10) is 0x0C (16)
+- An unsigned byte representation of 12 (10) is also 0x0C (16)
+
+When the unsigned and signed values are outside the overlapping range:
+
+- A signed byte representation of -15 (10) is 0xF1 (16)
+- An unsigned byte representation of 241 (10) is also 0xF1 (16)
+
+Note: if your number contains a group of 4 bits (1111), that is 15 in decimal.
+### Two's Complement
+	To find a two's-complement representation for negative values 
+
+	1. take the one's complement (negate)
+	2. add 1 (in binary)
+
+So, for that, we can take an example:
+- (`-9`) you can use the positive value (`9`)
+- convert it to binary
+- invert all bits (change `1` to `0` and `0` to `1`)
+- add `+1` (binary addition)
+- And now you have the negative value.
+
+See below example :
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+ 
+## 3.3 Floating-point Representation
+
+The representation of floating-point numbers differs by format.
+The representation shown here is **IEEE 754** 32-bit **floating-point**
+
+
+After these calculations, the next step is to calculate the biased exponent,
+which is the exponent from the normalized scientific notation plus the bias. The
+value for the IEEE 32-bit floating-point standard is **127**, and
+the result should be converted to 8 bits (1 byte) and stored in the biased exponent
+portion of the word.
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+A 64-bit floating-point standard representation is the same as 32-bit,
+however the format allows an `11-bit` biased exponent with a bias of `1023`
+
+
+	&lt;img src="img/size-bytes.png" &gt;
+
+It is possible that when a value is interpreted as floating-point and it does not
+conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
+This might occur if an integer representation is treated as a floating-point
+representation or a floating-point arithmetic operation (add, subtract, multiply, or
+divide) results in a value that is too large or too small to be represented.
+
+The incorrect format or unrepresentable number is referred to as a `NaN` (Not a Number).
+
+
+## 3.4 Characters and strings
+
+Computer memory is designed to store and retrieve numbers.
+So symbols (non-numeric data like characters) are assigned numeric values.
+This is the functionality of the ASCII (American Standard Code for Information Interchange) table.
+For example, the "A" character has the value "65" in decimal and "0x41" in hexadecimal.
+It is important to distinguish between the "2" character and the integer `2`.
+
+Unicode is an improvement over ASCII because it supports many languages.
+
+A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
+It is used to mark the end of strings.
+
+ 
+ 	 &lt;img src="img/size-bytes.png" &gt;
+
+And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
+A char uses 1 byte, so each character represents one byte plus a NULL character.
+An integer uses a minimum of 2 bytes.
+
+  &lt;img src="img/size-bytes.png" &gt;
+
+
+
+## Exercices
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="4---assembly-programming-draft"><a href="#4---assembly-programming-draft" class="header">4 - Assembly Programming (Draft)</a></h1>
-<h2 id="40-draft-assembly-programming"><a class="header" href="#40-draft-assembly-programming">4.0 (Draft) Assembly Programming</a></h2>
-<p>This chapter introduces basic assembly programming concepts, instruction formats, addressing modes, and simple examples. (Content migrated from the x86 folder and cleaned for grammar and formatting.)</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;04&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;25cfeffe-252b-41bf-8d7d-3b69b13a8429&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Yasm&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the assembler being used in this chapter?&quot;}},{&quot;id&quot;:&quot;611bf18d-6415-4dc8-a2c3-5d8b30cf5021&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;;&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;How are comments marked in an assembly language program?&quot;}},{&quot;id&quot;:&quot;428a107b-2cd6-4996-9c82-203fe0399428&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.data&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where initialized data is declared?&quot;}},{&quot;id&quot;:&quot;1f6e2b78-7bb8-4dbc-9d3f-438423b5f587&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.bss&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where uninitialized data is declared?&quot;}},{&quot;id&quot;:&quot;dcff8345-2645-4b00-8abc-b7c922ccc6f9&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;.text&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the name of the section where code is placed?&quot;}},{&quot;id&quot;:&quot;819bd8a2-07a8-4267-91e3-1845372add2f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;db, dw, dd, dq&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the data declarations for the following variables: byte-sized bNum=10, word-sized wNum=10291, double-word dwNum=2126010, quadword qwNum=10000000000?&quot;}},{&quot;id&quot;:&quot;36263b59-3a85-4a7d-9525-d55faf54cb21&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;resb, resw, resd, resq&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the uninitialized data declarations for: byte-sized array bArr with 100 elements, word-sized array wArr with 3000 elements, double-word array dwArr with 200 elements, quadword array qArr with 5000 elements?&quot;}},{&quot;id&quot;:&quot;c33cdaab-24aa-410f-9b25-2cedee712626&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;section .text&#92;nglobal _start&#92;n_start:&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What are the required declarations to signify the start of a program in the text section?&quot;}}]}" data-quiz-fullscreen="true"></div>
+<pre><code>## Program Format
 
-<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css"><div style="break-before: page; page-break-before: always;"></div>
+
+An assembly file contains several parts:
+	- `Data` section where initialized data is declared and defined.
+	- `BSS` section where uninitialized data is declared.
+	- `Text` section where code is placed.
+
+Note that assembly code uses a semicolon `;` to comment code, so any character
+or text after a semicolon is ignored.
+Numbers can be specified in decimal, hex, or octal.
+The default base is decimal.
+All hex or base-16 values must be preceded with `0x`.
+For octal or base-8 values, use a `q` suffix like `777q`.
+
+
+A constant is defined with the `equ` keyword; its value cannot be changed during
+program execution. It does not have an associated memory location
+and does not have a specific defined type/size (byte, word, double-word); it depends on the
+value.
+
+```asm
+	&lt;name&gt; equ 	&lt;value&gt;
+```
+Ex: 
+
+```asm
+	SIZE equ 	10000 ; Could be used as word or double-word but not a byte
+```
+## Data Section
+The `Data` section contains all initialized variables and constants. A naming
+specification for your variables is simple:
+	 It can start with an underscore or letter, followed by letters or numbers, including some special
+	 characters.
+
+```asm
+	&lt;variablename&gt;   &lt;dataType&gt; 	&lt;initialValue&gt;
+```
+
+Refer to these tables for a series of examples using various data types.
+
+![data type](img/data_types.png)
+
+Check out this example to see these primary assembler directives for initialized data declarations.
+Here `d` means `define`.
+
+```asm
+bVar		db		10 					; byte variable
+cVar		db		"H"					; single character
+strng		db		"Hello World"		; string
+wVar		dw		5000				; 16-bit variable
+dVar		dd		50000				; 32-bit variable
+arr			dd		100, 200, 300		; 3 element array
+flt1		dd		3.14159				; 32-bit float
+qVar		dq		1000000000			; 64-bit variable
+```
+The value specified here must fit the specified data type; for example,
+a `byte` variable set to `500` would generate an assembler error.
+
+## BSS section
+The `BSS` section contains uninitialized data or variables.
+It uses the same declaration pattern as the `Data` section.
+
+```asm
+	&lt;variable&gt;		&lt;resType&gt;		&lt;count&gt;
+```
+The supported data types are as follows:
+
+![data type](img/data_types2.png)
+
+These are the primary assembler directives used for uninitialized data declarations.
+
+```asm
+	bArr	resb		10 		; 10 element byte array
+	wArr	resw		50 		; 50 element word array
+	dArr	resd		100 	; 100 element double array
+	qArr	resq		200 	; 200 element quad array
+```
+
+Here `res` means reserve, and the last character after `res` tells you what type
+of variable you want to reserve space for without allocating memory.
+
+## Text Section
+
+The code is placed in the `text` section, and instructions are specified line by line.
+The text section includes some headers or labels before the code that defines the initial program
+entry point.
+
+```asm
+global _start
+_start:
+```
+
+No special label or directives are required to terminate the program.
+A system service is used to inform the operating system that the program should
+be terminated and the resources, such as memory, recovered and re-used.
+
+```asm
+; Simple example demonstrating basic program format and layout.
+; Ed Jorgensen
+; July 18, 2014
+; ************************************************************
+; Some basic data declarations
+
+section .data
+
+; -----
+
+; Define constants
+
+EXIT_SUCCESS	equ		0 		; successful operation
+SYS_exit		equ		60      ; call code for terminate
+
+; -----
+
+; Byte (8-bit) variable declarations
+
+bVar1			db		17
+bVar2			db		9
+bResult			db		0
+
+; -----
+
+; Word (16-bit)	variable declarations
+
+wVar1			dw		17000
+wVar2			dw		9000
+wResult			dw		0
+
+; -----
+
+; Double-Word (32-bit) variable declarations
+
+dVar1			dd		17000000
+dVar2			dd		9000000
+dResult			dd		0
+
+; -----
+
+; quadword (64-bit) variable declarations
+
+qVar1			dq		1700000000
+qVar2			dq		900000000
+qResult			dq		0
+
+; ************************************************************
+; Code Section
+
+section		.text
+global _start
+_start:
+
+; Performs a series of very basic addition operations
+; to demonstrate basic program format.
+
+; ----------
+; Byte example
+; bResult = bVar1 + bVar2
+
+mov	al,	byte [bVar1]
+add   al, byte [bVar2]
+mov	byte [bResult], al
+
+;------------
+; Word example
+; wResult = wVar1 + wVar2
+	
+mov	ax,	word [wVar1]
+add ax, word [wVar2]
+mov	[wResult], ax
+
+;------------
+; Double-Word example
+; dResult = dVar1 + dVar2
+	
+mov	eax, dword [dVar1]
+add eax, dword [dVar2]
+mov	[dResult], eax
+;------------
+; QuadWord example
+; qResult = qVar1 + qVar2
+	
+mov	rax,	qword [qVar1]
+add rax, qword [qVar2]
+mov	[qResult], rax
+
+
+; ************************************************************
+; Done, terminate program.
+
+last:
+	mov		rax, SYS_exit		; Call code for exit
+	mov		rdi, EXIT_SUCCESS	; Exit program with success
+	syscall
+```
+
+
+
+
+
+
+## Exercices
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="5---examples-and-exercises-draft"><a href="#5---examples-and-exercises-draft" class="header">5 - Examples and Exercises (Draft)</a></h1>
-<h2 id="50-draft-examples-and-exercises"><a class="header" href="#50-draft-examples-and-exercises">5.0 (Draft) Examples and Exercises</a></h2>
-<p>This chapter contains examples and exercises migrated from the x86 folder. Exercises will be reviewed and formatted to match the interactive quiz system.</p>
-<div class="quiz-placeholder" data-quiz-name="&quot;05&quot;" data-quiz-questions="{&quot;questions&quot;:[{&quot;id&quot;:&quot;b3392c97-c6d8-48a5-80db-b388ea68d2b8&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Assembly is a human-readable symbolic form of machine language.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is the relationship between assembly language and machine language?&quot;}},{&quot;id&quot;:&quot;e3d7b469-2afb-4610-9c2b-0af590112918&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It assigns addresses and builds the symbol table.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What actions are performed on the first pass of the assembler?&quot;}},{&quot;id&quot;:&quot;425d6dd1-4b0e-4ea0-aeda-44b865561a98&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It resolves symbols and emits machine code.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What actions are performed on the second pass of the assembler?&quot;}},{&quot;id&quot;:&quot;be3d2c2d-fef3-4d45-b7d4-609a6f92861d&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It combines object files and resolves external references.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What actions are performed by the linker?&quot;}},{&quot;id&quot;:&quot;f9856bd6-364e-41ba-92c5-022b612d03a6&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;It maps the program into memory and starts execution.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What actions are performed by the loader?&quot;}},{&quot;id&quot;:&quot;592b406c-62a7-4c80-8b15-141be3d63f07&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;2 + 3 * 4&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Provide an example of a constant expression.&quot;}},{&quot;id&quot;:&quot;6d0d968d-19b3-465c-9900-9c1124da239f&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Source code -&gt; assembler -&gt; object file(s) -&gt; linker -&gt; executable -&gt; loader -&gt; running program&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;Draw a diagram of the entire assemble, link, and load process.&quot;}},{&quot;id&quot;:&quot;8741b47e-94b4-467d-95c5-b64ccb708082&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;At load time, by the dynamic linker.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;When is a shared object file linked with a program?&quot;}},{&quot;id&quot;:&quot;43623dd7-5929-4676-8822-d8b0455df4ea&quot;,&quot;type&quot;:&quot;ShortAnswer&quot;,&quot;answer&quot;:{&quot;answer&quot;:&quot;Symbol names and their addresses.&quot;},&quot;prompt&quot;:{&quot;prompt&quot;:&quot;What is contained in the symbol table (two things)?&quot;}}]}" data-quiz-fullscreen="true"></div>
+<pre><code>## Tool Chain
 
-<script type="text/javascript" src="quiz/quiz-embed.iife.js"></script><link rel="stylesheet" type="text/css" href="quiz/style.css"><div style="break-before: page; page-break-before: always;"></div>
+In general, the set of programming tools used to create a program is referred to as the
+tool chain.
+The tool chain used here consists of the following:
+
+	- Assembler
+	- Linker
+	- Loader
+	- Debugger
+
+## 5.1 - Assemble / Link / Load Overview
+
+The source code file passes through multiple stages before becoming an executable program
+during the assemble, link, and load process. 
+The human-readable source code file is converted into an object file by the
+assembler, which is then transformed into an executable by the linker, and the
+executable is loaded into memory with the help of `loader`.
+
+
+
+
+![Overview: Assemble, Link, Load](src/)
+
+### Assembler 
+The assembler is a program that will read an assembly language source  code containing assembly 
+instruction in input file and convert the code into a machine language binary (bytecode).
+
+During this process the comment are removed and variable names and label are converted into appropriate
+addres (as required by the CPU during execution)
+
+The assembler used here is a `yasm` assembler.
+
+```yasm
+	yasm -g dwarf2 -f elf64 example.asm -l example.lst
+```
+
+- `-g dwarf2` : it used to specify to assembler to include debugging information in object file (`.o`)
+- `-f elf64` : Informs the assembler to create the object file in `elf64` format (which is appropriate to 64-bit Linux based-system)
+- `axample.asm` : is a assembly source file in input.
+- `-l example.lst` : in form assembler to create a list file named `example.lst`
+
+But What is **List File** ? The list file shows the line number, the relative address, the machine language version
+of instruction (including variable references), and the original source line, all these information can be 
+useful when debugging.
+
+```lst
+36 00000009 40660301		dVar1	dd		17000000
+37 0000000D 40548900		dVar2	dd		9000000
+38 00000011 00000000		dResult	dd		0
+```
+
+* Line 36
+	- relativ address : `0x00000009` stored in the **data area**
+	- double-word variable: `dVar1` requires four-bytes.
+	- next address is `0x0000000D` so `dVar1` uses a `0x00000009`, `0x0000000A`, `0x0000000B`, `0x0000000C`
+	- `0x40660301` is the value in hex, as placed in memory. A `17000000` is `0x01036640.` in hex.
+		Remembered that architecture used here is  **little-endian** , the `LSB` (0x40) is placed 
+		in the lowest memory addess .
+	- A `0x40` is placed at `0x00000009` next `0x66` is placed in address `0x0000000A`
+	
+![Overview: Assemble, Link, Load](src/)
+
+
+For example, a fragment of the list file text section, excerpted from the example
+program in the previous chapter is as follows:
+```lst
+95						last:
+96	0000005A 48C7C03C000000		mov		rax, SYS_exit
+97	00000061 48C7C300000000		mov		rdi, EXIT_SUCCESS
+98	00000068 0F05				syscall
+```
+
+- Again, the number to the left are the line numbers, the net number `0x0000005A` is the relative address
+	if where the line of code is placed.
+- The next number `0x48C7C03C000000`  is the machine language version of instruction, in hex , that the CPU
+	reads and understands.
+- The rest of the line is the original assembly language source instruction.
+- The label `last:` does not have a machine language instruction, it not a executable instruction.
+
+
+## Two-Pass Assembler
+
+The assembler will read a source code and convert it in bytecode who it translate in binary (understand by CPU)
+The 1's and 0's are referred to as machine language. This relationship between assembly code and binary readable language
+means that machine language can be converted back to human readable, but of course the comment, variable names and label names
+are missing, so the resulting code can be very difficult to read.
+
+Each line read by the assembler has her instruction generated, but in case when a instructions is a jumps
+like If statements or unconditional jumps, it not possible to perform the convertion of this instructions.
+
+Ex :	
+	```asm
+		mov		rax, 0
+		jmp		skipRest
+		...
+		...
+		...
+	skipRest:
+	```
+	Reading line by line a assembler cannot know if a skipRest is defined or just exist when
+	it read a line when it called, the solution for that is to read a file twice, it know by name of 
+	two-pass assembler.
+
+	### Fisrt pass
+
+		This step vary  of the design specific assembler, but several basic operations performed is:
+
+		- Create symbol table
+		- Expand macros
+		- Evaluate constant expressions
+
+		A `macro` is a program element that is expanded into a set of programmer predefinned
+		instructions.
+		A constant expression is an expression composed entirel of contants.
+		By example if a constant is used in one line do a operations, if we know from begenning that it was
+		declared this line can be read, understand and executed without problem.
+
+		Ex: 
+		
+		```asm
+			mov rax, BUFF+5
+		```
+
+
+	### Second pass
+
+	The steps taken on the second pass vary based on design of the specific assembler.
+	The differents basic operation performed on the second pass include :
+
+	- Final generation of code
+	- Creation of list file (if requested)
+	- Create object file
+
+	The generation of code is about to the conversion of the assembly language into
+	the CPU executable machine instruction. Knowing that a one-to-one correspondance, is used for transform 
+	instructions (instructions that do not use symbols on either the first or second pass)
+
+	A based assembler design can help to done code generation be done on the first or all done on the second pass. 
+	In much case a final generation is performed on second pass and require using the symbol table to check program
+	symbols and obtain the appropriate addresses from the table.
+
+	### Assembler Directives
+	Assembler directives are instructions to the assembler that direct the assembler to do
+	something. This might be formatting or layout. These directives are not translated into
+	instructions for the CPU.
+
+	##  Linker
+	The linker, sometimes referred to as linkage editor, will combine one or more object files into a 
+	single executable file including any neccesary libraries . 
+	A example using example file from previous chapter with GNU gold linker.
+
+	```sh
+		ld -g -o example example.o
+	```
+
+	  - `-g` is used to included debugging information in the final executable file.
+	  - `-o` specifies to create a executable file name **example** (with no extension)
+	  		 when the `-o` is ommitted the output file is named `a.out`
+	  The linker reader a `example.o` file who is input here, note that you can name you file
+	  like what you want and not need to have the same name as any of the input object files.
+
+	  It also possible to link multiples object file
+
+	  ```sh
+		ld -g -o example main.o example.o
+	  ```
+	When a function are located in **external** source file, any function not in the current source file 
+	must be declared as extern . Variables, such as
+	global variables, in other source files can be accessed by using the extern statement as
+	well, however data is typically transferred as arguments of the function call.
+
+	### Linking Process
+	
+	The object files and library routines are combined into a single executale module.
+	As part of combining the object file, the linker must adjust the relocatable addresses as necessary.
+	
+	Assuming there are  two source files, the main and  secondary source file
+	boths of which have been assembled into object file `main.o` and `funcs.o` .4
+	After assembles the calls to routines outside of file being assembled are declared with the external
+	assembler directive.
+
+	The code is not available
+	for an external reference and such references are marked as external in the object file.
+	The list file will show an R for such relocatable addresses. The linker must satisfy the
+	external references. Additionally, the final location of the external references must be
+	placed in the code.
+	For example, if the main.o object file calls a function in the funcs.o file, the linker must
+	update the call with the appropriate address as shown in the following illustration.
+
+
+	![free](src/)
+
+	Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
+	It started to relative address (0x100), and when it was combined with main.o the final executable 
+	it adapt her and take `0x400` like address, and the linker insert this address into the call statement
+	in the main in order to complete the linking process and ensure the function call work correctly it 
+	work with the relocatable adresses for both code and data.
+	
+
+
+	### Dynamic Linking
+	The linux Operating system supports dynamic linking who is represented by a `.so` (shared object file), which allows for postponing the resolution of some
+	symbols until a program is  being executed.
+	The actual instructions are not placed in exacutable file and instead, if needed, resolved and accessed at run-time.
+
+	This approach offers two advantages:
+	- The libraries oftem-used can be stored in only one location, not dupplicated in every single binary
+		because of failing / anomalyze dynamic linking
+	- If a nug in library is corrected all programs using dynamically will benefit from the correction (at next execution)
+		and others programs using a static linking would have to be re-linked before the correction is applied.
+
+	* Disadvantages
+	- When a library is updated the executable is break, because it depend of previous library version
+	- A program using his own library must be trusted so certified as package but not in component can be replaced.
+	
+	## Assemble / Link Script
+
+	For not wast a time for type always the command to assemble and link with `ld` it possible to write a script who do all
+	assembly and linking process 
+	See below: 
+	```bash
+	#!/bin/bash
+	
+	# Simple assemble/link script
+	
+	if [ -z $1 ]; then
+		echo "Usage: ./asm64 &lt;asmMainFile&gt; (no extension)"
+		exit
+	fi
+	#Verify no extensions were entered
+	
+	if [ ! -e "$1.asm" ]; then
+		echo "Error, $1.asm not found."
+		echo "Note, do not enter file extensions."
+		exit
+	fi
+	
+	# Compile, assemble, and link.
+	
+	yasm -Worphan-labels -g dwarf2 -f elf64 $1.asm -l $1.lst
+	
+	ld -g -o $1 $1.o
+	```
+	This script file can be name `asm64` we don't need obligatory a extension here because on linu
+	all is file.
+
+	```bash
+		chmod +x asm64  # to give execution right to script file
+	```
+
+	Execute it:
+	```bash
+		./asm64 example # to compile a file and give her the name example note that you can use another filename
+	```
+	## Loader 
+
+	The loader is a part of our opereationg system who load the file from secondary storage (Hard drive)
+	to primary storage (RAM), it create a new process for executable, and load the code in memeory, the program
+	is run when the executable is invoked 
+
+	```bash
+	./example  # the previous file created after linking and assembley
+	```
+
+	## Debugger
+
+	The debugger is used for control program execution of program, if during execution
+	nothing is printed to user it possible to use debugger to check a result .
+	Multiple debugger exist but the GNU product is appreciated for our exporation.
+	So we used a GNU DDD who is a graphical interface for `GDB`.
+
+	## Exercice
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="style-guide"><a class="header" href="#style-guide">Style Guide</a></h1>
 <p>Follow the project’s style conventions for headings, prose, code blocks, and links. Prefer title case for headings, italics for terms, and hard wrap at 80 characters. Use relative links for intra-book references and <code>bash</code> highlighting for shell examples.</p>
 
