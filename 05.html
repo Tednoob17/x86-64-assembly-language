@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-1f255e44.js";
+            window.path_to_searchindex_js = "searchindex-12068258.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -198,7 +198,7 @@ during the assemble, link, and load process.
 The human-readable source code file is converted into an object file by the
 assembler, which is then transformed into an executable by the linker, and the
 executable is loaded into memory with the help of <code>loader</code>.</p>
-<p><img src="src/" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <h3 id="assembler"><a class="header" href="#assembler">Assembler</a></h3>
 <p>The assembler is a program that will read an assembly language source  code containing assembly
 instruction in input file and convert the code into a machine language binary (bytecode).</p>
@@ -232,7 +232,7 @@ Remembered that architecture used here is  <strong>little-endian</strong> , the 
 in the lowest memory addess .</li>
 <li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
 </ul>
-<p><img src="src/" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <p>For example, a fragment of the list file text section, excerpted from the example
 program in the previous chapter is as follows:</p>
 <pre><code class="language-lst">95						last:
@@ -333,7 +333,7 @@ external references. Additionally, the final location of the external references
 placed in the code.
 For example, if the main.o object file calls a function in the funcs.o file, the linker must
 update the call with the appropriate address as shown in the following illustration.</p>
-<p><img src="src/" alt="free"></p>
+<p><img src="src/img/cpu_block_diagram2.png" alt="free"></p>
 <p>Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
 It started to relative address (0x100), and when it was combined with main.o the final executable
 it adapt her and take <code>0x400</code> like address, and the linker insert this address into the call statement
