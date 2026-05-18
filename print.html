@@ -273,7 +273,7 @@ and their command-line interfaces.</p>
 <h2 id="21--"><a class="header" href="#21--">2.1 -</a></h2>
 <p>A computer components include a <strong>CPU</strong> (Central Processing Unit), a <strong>RAM</strong> (Random Access Memory),
 a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).</p>
-<img src="img/Von_newman.png" style="min-width: 150px" />		
+<p><img src="&quot;img/Von_newman.png&quot;" alt="von newman"></p>
 <p><strong>A Big Picture of Von Neumann Architecture</strong></p>
 <p>A <strong>CPU or processor</strong> is a <strong>computer brain</strong> that contains a <strong>Control Unit</strong> (CU),
 main memory, and <strong>Arithmetic Logic Unit</strong> (ALU)
@@ -340,7 +340,7 @@ devices</strong>, and uses them to <strong>control and coordinate</strong> all o
 <p>The <strong>x86-64 architecture</strong> supports a specific set of <strong>data storage size elements</strong>.
 The <strong>storage size</strong> are a direct <strong>correlation</strong> to variable declarations in high-level
 language (C, C++, Rust)</p>
-   <img src="img/big-size.png" style="min-width: 150px" />
+   <img src="img/big-size.png" />
 <h2 id="23-cpu-registers"><a class="header" href="#23-cpu-registers">2.3 CPU Registers</a></h2>
 <p>A <strong>CPU Registers</strong> or just <strong>register</strong>, is a <em>temporary</em> storage or <strong>working
 location</strong> built into the <strong>CPU</strong> itself (separate)
@@ -349,7 +349,7 @@ be used by all <strong>64-bits</strong> or some <em>portion</em> or subset acces
 <p>When a <em>data</em> want to used a element with <strong>sizes</strong> less than <strong>64-bits</strong> (32-bit, 16-bit, or 8-bit)
 a specific part of this <strong>less sized register</strong> can be accessed by using a
 different <strong>register name</strong> like described here :</p>
-<img src="img/big_tab.png" style="min-width: 150px" />
+<img src="img/size-bytes.png" />
 <p>As show in the <strong>excalidrw diagram</strong>, the first 4 registers, <code>rax</code>, <code>rbx</code>, <code>rcx</code>,
 <code>rdx</code> allow to accessed to 8-15 bits with the <code>ah</code>, <code>bh</code>, <code>ch</code>, and <code>dh</code> register names.
 But <code>ah</code> is provided for legacy support.</p>
@@ -573,7 +573,7 @@ characters.</p>
 <pre><code class="language-asm">&lt;variablename&gt;   &lt;dataType&gt; 	&lt;initialValue&gt;
 </code></pre>
 <p>Refer to these tables for a series of examples using various data types.</p>
-<p><img src="src/img/data_types.png" alt="data type"></p>
+<p><img src="img/data_types.png" alt="data type"></p>
 <p>Check out this example to see these primary assembler directives for initialized data declarations.
 Here <code>d</code> means <code>define</code>.</p>
 <pre><code class="language-asm">bVar		db		10 					; byte variable
@@ -593,7 +593,7 @@ It uses the same declaration pattern as the <code>Data</code> section.</p>
 <pre><code class="language-asm">&lt;variable&gt;		&lt;resType&gt;		&lt;count&gt;
 </code></pre>
 <p>The supported data types are as follows:</p>
-<p><img src="src/img/data_types2.png" alt="data type"></p>
+<p><img src="img/data_types2.png" alt="data type"></p>
 <p>These are the primary assembler directives used for uninitialized data declarations.</p>
 <pre><code class="language-asm">bArr	resb		10 		; 10 element byte array
 wArr	resw		50 		; 50 element word array
@@ -862,7 +862,7 @@ external references. Additionally, the final location of the external references
 placed in the code.
 For example, if the main.o object file calls a function in the funcs.o file, the linker must
 update the call with the appropriate address as shown in the following illustration.</p>
-<p><img src="src/img/cpu_block_diagram2.png" alt="free"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="free"></p>
 <p>Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
 It started to relative address (0x100), and when it was combined with main.o the final executable
 it adapt her and take <code>0x400</code> like address, and the linker insert this address into the call statement

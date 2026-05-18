@@ -333,7 +333,7 @@ external references. Additionally, the final location of the external references
 placed in the code.
 For example, if the main.o object file calls a function in the funcs.o file, the linker must
 update the call with the appropriate address as shown in the following illustration.</p>
-<p><img src="src/img/cpu_block_diagram2.png" alt="free"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="free"></p>
 <p>Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
 It started to relative address (0x100), and when it was combined with main.o the final executable
 it adapt her and take <code>0x400</code> like address, and the linker insert this address into the call statement
