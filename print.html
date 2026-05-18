@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-8ba6f394.js";
+            window.path_to_searchindex_js = "searchindex-d80a0928.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -273,7 +273,7 @@ and their command-line interfaces.</p>
 <h2 id="21--"><a class="header" href="#21--">2.1 -</a></h2>
 <p>A computer components include a <strong>CPU</strong> (Central Processing Unit), a <strong>RAM</strong> (Random Access Memory),
 a storage device (SSD / HDD), input / output devices (screenm keyboard, mouse).</p>
-<p><img src="&quot;img/Von_newman.png&quot;" alt="von newman"></p>
+<p><img src="img/Von_newman.png" alt="Von Neumann"></p>
 <p><strong>A Big Picture of Von Neumann Architecture</strong></p>
 <p>A <strong>CPU or processor</strong> is a <strong>computer brain</strong> that contains a <strong>Control Unit</strong> (CU),
 main memory, and <strong>Arithmetic Logic Unit</strong> (ALU)
@@ -282,8 +282,8 @@ It also follows <strong>program instructions</strong> that tell it which informa
 to process and how to process it.</p>
 <ul>
 <li>
-<p><strong>CU</strong> (<code>Control Unit</code>): It responsible for how <strong>data moves thoughout system</strong>, for
-redirect all <strong>input</strong> and <strong>output flow</strong>, and <strong>gets code</strong> for instructions.</p>
+<p><strong>CU</strong> (<code>Control Unit</code>): It is responsible for how <strong>data moves throughout the system</strong>, for
+redirecting all <strong>input</strong> and <strong>output flow</strong>, and for <strong>fetching instruction code</strong>.</p>
 </li>
 <li>
 <p><strong>ALU</strong> (<code>Arithmetic and Logic Unit</code>) : It a part of <strong>CPU</strong> who handles all <strong>computations</strong>
@@ -298,23 +298,22 @@ A <strong>Processor register</strong> is the term used to define the <strong>reg
 <p><strong>Accumulator</strong> : It store the result of calculation that <strong>ALU</strong> makes.</p>
 </li>
 <li>
-<p><strong>Program Counter</strong>: The memory adress of the next instruction (instruction who will be executed after actual nstruction)
-This next address is passed from <strong>Program counter</strong> to <strong>Memory Adress Register</strong>.</p>
+<p><strong>Program Counter</strong>: The memory address of the next instruction (the instruction that will be executed next).
+This next address is passed from the <strong>Program Counter</strong> to the <strong>Memory Address Register</strong>.</p>
 </li>
 <li>
 <p><strong>Memory Address Register</strong> : <code>MAR</code> <strong>stores</strong> the <strong>memory address locations</strong> of those instructions
-that are either to be <strong>fetched</strong> from the  <strong>memory</strong> or to be <strong>stored in the memory</strong>.</p>
+that are either to be <strong>fetched</strong> from <strong>memory</strong> or to be <strong>stored</strong> in <strong>memory</strong>.</p>
 </li>
 <li>
 <p><strong>Memory Data Register</strong> : <code>MDR</code>  <strong>stores</strong> the <strong>instructions</strong> that are <strong>fetched</strong> from <strong>memory</strong>
 or any <em>information</em> that is to be <strong>transferred to and stored</strong> in the <strong>memory</strong>.</p>
 </li>
 <li>
-<p><strong>Current Instruction Register</strong> : <code>CIR</code> <strong>stores</strong> the recently <strong>fetched instructions</strong> while it waits for usage
-and <strong>execution</strong></p>
+<p><strong>Current Instruction Register</strong> : <code>CIR</code> <strong>stores</strong> the recently <strong>fetched instructions</strong> while they wait for <strong>execution</strong>.</p>
 </li>
 <li>
-<p><strong>Instruction Buffer Register</strong> : <code>IBR</code> is use for place the instruction that isn’t be <strong>immediately executed</strong> .</p>
+<p><strong>Instruction Buffer Register</strong> : <code>IBR</code> is used to hold instructions that are not <strong>immediately executed</strong>.</p>
 </li>
 </ul>
 <h3 id="input--output-devices"><a class="header" href="#input--output-devices">Input / Output Devices</a></h3>
@@ -449,17 +448,17 @@ between <em>the memory units</em> applies even as newer, faster SSDs are being u
 <p>In a computer, data representation is how information is stored. It differs
 depending on what you want to store; for example, the method used to store integers
 is different from the method used to store floating-point numbers and strings.</p>
-<p>Different bases are used here (binary, decimal, hex) to represent a number.
+<p>Different bases are used here (<strong>binary</strong>, <strong>decimal</strong>, <strong>hex</strong>) to represent a number.
 Ex:</p>
 <ul>
-<li>19 = 19 (10) = 13 (16) = 0x13</li>
+<li><code>19 = 19 (10) = 13 (16) = 0x13</code></li>
 </ul>
 <h2 id="31-integer-representation"><a class="header" href="#31-integer-representation">3.1 Integer Representation</a></h2>
 <p>The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
 amount of space provided by the computer.
 This directly impacts the size or range of numbers that can be represented.</p>
-<p>Ex:<br>1 byte (8 bits) can represent 2^8, or 256, different numbers.
-These 256 numbers (0-255) can be unsigned (all positive).
+<p>Ex:<br><code>1 byte (8 bits)</code> can represent <code>2^8</code>, or <code>256</code>, different numbers.
+These <code>256</code> numbers (0-255) can be unsigned (all positive).
 The signed range is (-128 to +127).</p>
 <p>So if a number that we want to represent need more space to be represented a larger
 size must be used. Like :</p>
@@ -530,11 +529,11 @@ divide) results in a value that is too large or too small to be represented.</p>
 <h2 id="34-characters-and-strings"><a class="header" href="#34-characters-and-strings">3.4 Characters and strings</a></h2>
 <p>Computer memory is designed to store and retrieve numbers.
 So symbols (non-numeric data like characters) are assigned numeric values.
-This is the functionality of the ASCII (American Standard Code for Information Interchange) table.
+This is the functionality of the <strong>ASCII</strong> (American Standard Code for Information Interchange) table.
 For example, the “A” character has the value “65” in decimal and “0x41” in hexadecimal.
 It is important to distinguish between the “2” character and the integer <code>2</code>.</p>
 <p>Unicode is an improvement over ASCII because it supports many languages.</p>
-<p>A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
+<p>A string is a series of ASCII characters terminated with <code>NULL</code> (a non-printable ASCII character).
 It is used to mark the end of strings.</p>
 <p><img src="img/size-bytes.png" alt=""></p>
 <p>And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
@@ -546,9 +545,9 @@ An integer uses a minimum of 2 bytes.</p>
 <h2 id="program-format"><a class="header" href="#program-format">Program Format</a></h2>
 <p>An assembly file contains several parts:</p>
 <ul>
-<li><code>Data</code> section where initialized data is declared and defined.</li>
-<li><code>BSS</code> section where uninitialized data is declared.</li>
-<li><code>Text</code> section where code is placed.</li>
+<li><strong>Data</strong> section where initialized data is declared and defined.</li>
+<li><strong>BSS</strong> section where uninitialized data is declared.</li>
+<li><strong>Text</strong> section where code is placed.</li>
 </ul>
 <p>Note that assembly code uses a semicolon <code>;</code> to comment code, so any character
 or text after a semicolon is ignored.
@@ -716,10 +715,10 @@ syscall
 tool chain.
 The tool chain used here consists of the following:</p>
 <ul>
-<li>Assembler</li>
-<li>Linker</li>
-<li>Loader</li>
-<li>Debugger</li>
+<li><strong>Assembler</strong></li>
+<li><strong>Linker</strong></li>
+<li><strong>Loader</strong></li>
+<li><strong>Debugger</strong></li>
 </ul>
 <h2 id="51---assemble--link--load-overview"><a class="header" href="#51---assemble--link--load-overview">5.1 - Assemble / Link / Load Overview</a></h2>
 <p>The source code file passes through multiple stages before becoming an executable program
@@ -727,13 +726,13 @@ during the assemble, link, and load process.
 The human-readable source code file is converted into an object file by the
 assembler, which is then transformed into an executable by the linker, and the
 executable is loaded into memory with the help of <code>loader</code>.</p>
-<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <h3 id="assembler"><a class="header" href="#assembler">Assembler</a></h3>
 <p>The assembler is a program that will read an assembly language source  code containing assembly
 instruction in input file and convert the code into a machine language binary (bytecode).</p>
 <p>During this process the comment are removed and variable names and label are converted into appropriate
 addres (as required by the CPU during execution)</p>
-<p>The assembler used here is a <code>yasm</code> assembler.</p>
+<p>The assembler used here is a <strong>yasm</strong> assembler.</p>
 <pre><code class="language-yasm">yasm -g dwarf2 -f elf64 example.asm -l example.lst
 </code></pre>
 <ul>
@@ -761,7 +760,7 @@ Remembered that architecture used here is  <strong>little-endian</strong> , the 
 in the lowest memory addess .</li>
 <li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
 </ul>
-<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <p>For example, a fragment of the list file text section, excerpted from the example
 program in the previous chapter is as follows:</p>
 <pre><code class="language-lst">95						last:

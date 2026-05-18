@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-8ba6f394.js";
+            window.path_to_searchindex_js = "searchindex-d80a0928.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -187,10 +187,10 @@
 tool chain.
 The tool chain used here consists of the following:</p>
 <ul>
-<li>Assembler</li>
-<li>Linker</li>
-<li>Loader</li>
-<li>Debugger</li>
+<li><strong>Assembler</strong></li>
+<li><strong>Linker</strong></li>
+<li><strong>Loader</strong></li>
+<li><strong>Debugger</strong></li>
 </ul>
 <h2 id="51---assemble--link--load-overview"><a class="header" href="#51---assemble--link--load-overview">5.1 - Assemble / Link / Load Overview</a></h2>
 <p>The source code file passes through multiple stages before becoming an executable program
@@ -198,13 +198,13 @@ during the assemble, link, and load process.
 The human-readable source code file is converted into an object file by the
 assembler, which is then transformed into an executable by the linker, and the
 executable is loaded into memory with the help of <code>loader</code>.</p>
-<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <h3 id="assembler"><a class="header" href="#assembler">Assembler</a></h3>
 <p>The assembler is a program that will read an assembly language source  code containing assembly
 instruction in input file and convert the code into a machine language binary (bytecode).</p>
 <p>During this process the comment are removed and variable names and label are converted into appropriate
 addres (as required by the CPU during execution)</p>
-<p>The assembler used here is a <code>yasm</code> assembler.</p>
+<p>The assembler used here is a <strong>yasm</strong> assembler.</p>
 <pre><code class="language-yasm">yasm -g dwarf2 -f elf64 example.asm -l example.lst
 </code></pre>
 <ul>
@@ -232,7 +232,7 @@ Remembered that architecture used here is  <strong>little-endian</strong> , the 
 in the lowest memory addess .</li>
 <li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
 </ul>
-<p><img src="src/img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
 <p>For example, a fragment of the list file text section, excerpted from the example
 program in the previous chapter is as follows:</p>
 <pre><code class="language-lst">95						last:

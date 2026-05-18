@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-8ba6f394.js";
+            window.path_to_searchindex_js = "searchindex-d80a0928.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -186,17 +186,17 @@
 <p>In a computer, data representation is how information is stored. It differs
 depending on what you want to store; for example, the method used to store integers
 is different from the method used to store floating-point numbers and strings.</p>
-<p>Different bases are used here (binary, decimal, hex) to represent a number.
+<p>Different bases are used here (<strong>binary</strong>, <strong>decimal</strong>, <strong>hex</strong>) to represent a number.
 Ex:</p>
 <ul>
-<li>19 = 19 (10) = 13 (16) = 0x13</li>
+<li><code>19 = 19 (10) = 13 (16) = 0x13</code></li>
 </ul>
 <h2 id="31-integer-representation"><a class="header" href="#31-integer-representation">3.1 Integer Representation</a></h2>
 <p>The computer represents numbers in binary (1s and 0s). A number or variable can be stored in a limited
 amount of space provided by the computer.
 This directly impacts the size or range of numbers that can be represented.</p>
-<p>Ex:<br>1 byte (8 bits) can represent 2^8, or 256, different numbers.
-These 256 numbers (0-255) can be unsigned (all positive).
+<p>Ex:<br><code>1 byte (8 bits)</code> can represent <code>2^8</code>, or <code>256</code>, different numbers.
+These <code>256</code> numbers (0-255) can be unsigned (all positive).
 The signed range is (-128 to +127).</p>
 <p>So if a number that we want to represent need more space to be represented a larger
 size must be used. Like :</p>
@@ -267,11 +267,11 @@ divide) results in a value that is too large or too small to be represented.</p>
 <h2 id="34-characters-and-strings"><a class="header" href="#34-characters-and-strings">3.4 Characters and strings</a></h2>
 <p>Computer memory is designed to store and retrieve numbers.
 So symbols (non-numeric data like characters) are assigned numeric values.
-This is the functionality of the ASCII (American Standard Code for Information Interchange) table.
+This is the functionality of the <strong>ASCII</strong> (American Standard Code for Information Interchange) table.
 For example, the “A” character has the value “65” in decimal and “0x41” in hexadecimal.
 It is important to distinguish between the “2” character and the integer <code>2</code>.</p>
 <p>Unicode is an improvement over ASCII because it supports many languages.</p>
-<p>A string is a series of ASCII characters terminated with NULL (a non-printable ASCII character).
+<p>A string is a series of ASCII characters terminated with <code>NULL</code> (a non-printable ASCII character).
 It is used to mark the end of strings.</p>
 <p><img src="img/size-bytes.png" alt=""></p>
 <p>And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
