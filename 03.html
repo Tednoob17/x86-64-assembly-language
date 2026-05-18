@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-d80a0928.js";
+            window.path_to_searchindex_js = "searchindex-2250483d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -229,22 +229,21 @@ range (0 to +127):</p>
 <li>A signed byte representation of -15 (10) is 0xF1 (16)</li>
 <li>An unsigned byte representation of 241 (10) is also 0xF1 (16)</li>
 </ul>
-<p>Note: if your number contains a group of 4 bits (1111), that is 15 in decimal.</p>
+<p>Note: if your number contains a group of 4 bits (<code>1111</code>), that is <code>15</code> in decimal.</p>
 <h3 id="twos-complement"><a class="header" href="#twos-complement">Two’s Complement</a></h3>
-<p>To find a two’s-complement representation for negative values</p>
+<p>To find a <strong>two’s-complement</strong> representation for negative values:</p>
 <ol>
-<li>take the one’s complement (negate)</li>
-<li>add 1 (in binary)</li>
+<li>Take the one’s complement (negate all bits).</li>
+<li>Add <code>1</code> (binary addition).</li>
 </ol>
-<p>So, for that, we can take an example:</p>
+<p>For example, to represent <code>-9</code>:</p>
 <ul>
-<li>(<code>-9</code>) you can use the positive value (<code>9</code>)</li>
-<li>convert it to binary</li>
-<li>invert all bits (change <code>1</code> to <code>0</code> and <code>0</code> to <code>1</code>)</li>
-<li>add <code>+1</code> (binary addition)</li>
-<li>And now you have the negative value.</li>
+<li>Start with the positive value <code>9</code>.</li>
+<li>Convert it to binary.</li>
+<li>Invert all bits (change <code>1</code> to <code>0</code> and <code>0</code> to <code>1</code>).</li>
+<li>Add <code>1</code>.</li>
 </ul>
-<p>See below example :</p>
+<p>See the example below:</p>
 <p><img src="img/size-bytes.png" alt=""></p>
 <h2 id="33-floating-point-representation"><a class="header" href="#33-floating-point-representation">3.3 Floating-point Representation</a></h2>
 <p>The representation of floating-point numbers differs by format.
@@ -260,10 +259,10 @@ however the format allows an <code>11-bit</code> biased exponent with a bias of 
 <p><img src="img/size-bytes.png" alt=""></p>
 <p>It is possible that when a value is interpreted as floating-point and it does not
 conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
-This might occur if an integer representation is treated as a floating-point
-representation or a floating-point arithmetic operation (add, subtract, multiply, or
-divide) results in a value that is too large or too small to be represented.</p>
-<p>The incorrect format or unrepresentable number is referred to as a <code>NaN</code> (Not a Number).</p>
+This can occur if an integer representation is mistakenly interpreted as a floating-point
+value, or when a floating-point arithmetic operation (add, subtract, multiply, divide)
+produces a value that is too large or too small to represent.</p>
+<p>An incorrect format or an unrepresentable value is referred to as <code>NaN</code> (Not a Number).</p>
 <h2 id="34-characters-and-strings"><a class="header" href="#34-characters-and-strings">3.4 Characters and strings</a></h2>
 <p>Computer memory is designed to store and retrieve numbers.
 So symbols (non-numeric data like characters) are assigned numeric values.

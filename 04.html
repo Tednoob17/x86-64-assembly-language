@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-d80a0928.js";
+            window.path_to_searchindex_js = "searchindex-2250483d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -189,16 +189,14 @@
 <li><strong>BSS</strong> section where uninitialized data is declared.</li>
 <li><strong>Text</strong> section where code is placed.</li>
 </ul>
-<p>Note that assembly code uses a semicolon <code>;</code> to comment code, so any character
-or text after a semicolon is ignored.
+<p>Note that assembly uses a semicolon <code>;</code> for comments; any text after <code>;</code> is ignored.
 Numbers can be specified in decimal, hex, or octal.
 The default base is decimal.
 All hex or base-16 values must be preceded with <code>0x</code>.
 For octal or base-8 values, use a <code>q</code> suffix like <code>777q</code>.</p>
 <p>A constant is defined with the <code>equ</code> keyword; its value cannot be changed during
-program execution. It does not have an associated memory location
-and does not have a specific defined type/size (byte, word, double-word); it depends on the
-value.</p>
+program execution. It does not have an associated memory location or a fixed size
+(byte, word, double-word); the size depends on the value.</p>
 <pre><code class="language-asm">&lt;name&gt; equ 	&lt;value&gt;
 </code></pre>
 <p>Ex:</p>
@@ -213,7 +211,7 @@ characters.</p>
 </code></pre>
 <p>Refer to these tables for a series of examples using various data types.</p>
 <p><img src="img/data_types.png" alt="data type"></p>
-<p>Check out this example to see these primary assembler directives for initialized data declarations.
+<p>See the example below for common assembler directives used for initialized data declarations.
 Here <code>d</code> means <code>define</code>.</p>
 <pre><code class="language-asm">bVar		db		10 					; byte variable
 cVar		db		"H"					; single character
@@ -233,7 +231,7 @@ It uses the same declaration pattern as the <code>Data</code> section.</p>
 </code></pre>
 <p>The supported data types are as follows:</p>
 <p><img src="img/data_types2.png" alt="data type"></p>
-<p>These are the primary assembler directives used for uninitialized data declarations.</p>
+<p>The following are common assembler directives for uninitialized data declarations.</p>
 <pre><code class="language-asm">bArr	resb		10 		; 10 element byte array
 wArr	resw		50 		; 50 element word array
 dArr	resd		100 	; 100 element double array

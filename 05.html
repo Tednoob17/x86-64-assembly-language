@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-d80a0928.js";
+            window.path_to_searchindex_js = "searchindex-2250483d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -182,10 +182,10 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="tool-chain"><a class="header" href="#tool-chain">Tool Chain</a></h2>
+                        <h2 id="toolchain"><a class="header" href="#toolchain">Toolchain</a></h2>
 <p>In general, the set of programming tools used to create a program is referred to as the
-tool chain.
-The tool chain used here consists of the following:</p>
+toolchain.
+The toolchain used here consists of the following:</p>
 <ul>
 <li><strong>Assembler</strong></li>
 <li><strong>Linker</strong></li>
@@ -204,7 +204,7 @@ executable is loaded into memory with the help of <code>loader</code>.</p>
 instruction in input file and convert the code into a machine language binary (bytecode).</p>
 <p>During this process the comment are removed and variable names and label are converted into appropriate
 addres (as required by the CPU during execution)</p>
-<p>The assembler used here is a <strong>yasm</strong> assembler.</p>
+<p>The assembler used here is <strong>yasm</strong>.</p>
 <pre><code class="language-yasm">yasm -g dwarf2 -f elf64 example.asm -l example.lst
 </code></pre>
 <ul>
@@ -213,8 +213,8 @@ addres (as required by the CPU during execution)</p>
 <li><code>axample.asm</code> : is a assembly source file in input.</li>
 <li><code>-l example.lst</code> : in form assembler to create a list file named <code>example.lst</code></li>
 </ul>
-<p>But What is <strong>List File</strong> ? The list file shows the line number, the relative address, the machine language version
-of instruction (including variable references), and the original source line, all these information can be
+<p>But what is a <strong>list file</strong>? A list file shows the line number, the relative address, the machine-language
+version of the instruction (including variable references), and the original source line. This information is
 useful when debugging.</p>
 <pre><code class="language-lst">36 00000009 40660301		dVar1	dd		17000000
 37 0000000D 40548900		dVar2	dd		9000000
@@ -228,8 +228,8 @@ useful when debugging.</p>
 <li>double-word variable: <code>dVar1</code> requires four-bytes.</li>
 <li>next address is <code>0x0000000D</code> so <code>dVar1</code> uses a <code>0x00000009</code>, <code>0x0000000A</code>, <code>0x0000000B</code>, <code>0x0000000C</code></li>
 <li><code>0x40660301</code> is the value in hex, as placed in memory. A <code>17000000</code> is <code>0x01036640.</code> in hex.
-Remembered that architecture used here is  <strong>little-endian</strong> , the <code>LSB</code> (0x40) is placed
-in the lowest memory addess .</li>
+Remember that the architecture used here is <strong>little-endian</strong>; the <code>LSB</code> (0x40) is placed
+in the lowest memory address.</li>
 <li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
 </ul>
 <p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
@@ -312,7 +312,7 @@ when the <code>-o</code> is ommitted the output file is named <code>a.out</code>
 The linker reader a <code>example.o</code> file who is input here, note that you can name you file
 like what you want and not need to have the same name as any of the input object files.</li>
 </ul>
-<p>It also possible to link multiples object file</p>
+<p>It is also possible to link multiple object files.</p>
 <pre><code class="language-sh">ld -g -o example main.o example.o
 </code></pre>
 <p>When a function are located in <strong>external</strong> source file, any function not in the current source file
@@ -345,17 +345,15 @@ symbols until a program is  being executed.
 The actual instructions are not placed in exacutable file and instead, if needed, resolved and accessed at run-time.</p>
 <p>This approach offers two advantages:</p>
 <ul>
-<li>The libraries oftem-used can be stored in only one location, not dupplicated in every single binary
-because of failing / anomalyze dynamic linking</li>
-<li>If a nug in library is corrected all programs using dynamically will benefit from the correction (at next execution)
-and others programs using a static linking would have to be re-linked before the correction is applied.</li>
+<li>Commonly used libraries can be stored in a single location instead of being duplicated in every binary.</li>
+<li>If a bug in a shared library is fixed, programs that use it dynamically will benefit from the fix on next run.</li>
 </ul>
 <ul>
 <li>Disadvantages</li>
 </ul>
 <ul>
-<li>When a library is updated the executable is break, because it depend of previous library version</li>
-<li>A program using his own library must be trusted so certified as package but not in component can be replaced.</li>
+<li>When a library is updated, the executable may break because it depends on the previous library version.</li>
+<li>A program using its own library must be trusted; replacing components can introduce compatibility issues.</li>
 </ul>
 <h2 id="assemble--link-script"><a class="header" href="#assemble--link-script">Assemble / Link Script</a></h2>
 <p>For not wast a time for type always the command to assemble and link with <code>ld</code> it possible to write a script who do all
