@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-f64912c2.js";
+            window.path_to_searchindex_js = "searchindex-b3189d1d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -511,19 +511,21 @@ range (0 to +127):</p>
 <h2 id="33-floating-point-representation"><a class="header" href="#33-floating-point-representation">3.3 Floating-point Representation</a></h2>
 <p>The representation of floating-point numbers differs by format.
 The representation shown here is <strong>IEEE 754</strong> 32-bit <strong>floating-point</strong></p>
-<p>After these calculations, the next step is to calculate the biased exponent,
-which is the exponent from the normalized scientific notation plus the bias. The
-value for the <code>IEEE 32-bit</code> <strong>floating-point</strong> standard is <strong>127</strong>, and
-the result should be converted to 8 bits (1 byte) and stored in the biased exponent
-portion of the word.</p>
 <p><img src="img/ieee-32-bit-representationt-x2.png" alt=""></p>
+<p>Where s is the sign (<code>0</code> =&gt; <em>positive</em> and <code>1</code> =&gt; negat*ive). More formally, this can be written as;</p>
+<p><img src="img/floating-point-formule-x2.png" alt=""></p>
+<p>After these calculations, the next step is to calculate the biased exponent,
+which is the exponent from the normalized scientific notation plus the bias.</p>
+<p><img src="img/ieee-64-bit-representation-x2.png" alt=""></p>
+<p>The value for the <code>IEEE 32-bit</code> <strong>floating-point</strong> standard is <strong>127</strong>, and
+the result should be converted to 8 bits (1 byte) and stored in the biased exponent portion of the word.</p>
+<p><img src="img/floating-point-calcul-representation-big-picture-x" alt=""></p>
 <p>A 64-bit floating-point standard representation is the same as 32-bit,
 however the format allows an <code>11-bit</code> biased exponent with a bias of <code>1023</code></p>
 <p><img src="img/fraction-component-floating-point-x2.png" alt=""></p>
 <p>It is possible that when a value is interpreted as floating-point and it does not
 conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
-This can occur if an integer representation is mistakenly interpreted as a floating-point
-value, or when a floating-point arithmetic operation (add, subtract, multiply, divide)
+This can occur if an integer representation is mistakenly interpreted as a floating-point value, or when a floating-point arithmetic operation (add, subtract, multiply, divide)
 produces a value that is too large or too small to represent.</p>
 <p>An incorrect format or an unrepresentable value is referred to as <code>NaN</code> (Not a Number).</p>
 <h2 id="34-characters-and-strings"><a class="header" href="#34-characters-and-strings">3.4 Characters and strings</a></h2>
@@ -535,11 +537,12 @@ It is important to distinguish between the “2” character and the integer <co
 <p>Unicode is an improvement over ASCII because it supports many languages.</p>
 <p>A string is a series of ASCII characters terminated with <code>NULL</code> (a non-printable ASCII character).
 It is used to mark the end of strings.</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/string-representation-one-x2.png" alt=""></p>
 <p>And, as described, strings can contain numeric symbols, but they are not considered numeric numbers.
 A char uses 1 byte, so each character represents one byte plus a NULL character.
 An integer uses a minimum of 2 bytes.</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/string-representation-two-x2.png" alt=""></p>
+<p>Again, it is very important to understand the difference between the string <code>19653</code> (using 6 bytes) and the single integer 19,65310 (which can be stored in a single word which is 2 bytes).</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="4---assembly-programming-draft"><a href="#4---assembly-programming-draft" class="header">4 - Assembly Programming (Draft)</a></h1>
 <h2 id="program-format"><a class="header" href="#program-format">Program Format</a></h2>
