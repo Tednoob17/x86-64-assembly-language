@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-b3189d1d.js";
+            window.path_to_searchindex_js = "searchindex-dff57f47.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -573,7 +573,7 @@ characters.</p>
 <pre><code class="language-asm">&lt;variablename&gt;   &lt;dataType&gt; 	&lt;initialValue&gt;
 </code></pre>
 <p>Refer to these tables for a series of examples using various data types.</p>
-<p><img src="img/data_types.png" alt="data type"></p>
+<p><img src="img/data-section-table.png" alt="data type"></p>
 <p>See the example below for common assembler directives used for initialized data declarations.
 Here <code>d</code> means <code>define</code>.</p>
 <pre><code class="language-asm">bVar		db		10 					; byte variable
@@ -593,7 +593,7 @@ It uses the same declaration pattern as the <code>Data</code> section.</p>
 <pre><code class="language-asm">&lt;variable&gt;		&lt;resType&gt;		&lt;count&gt;
 </code></pre>
 <p>The supported data types are as follows:</p>
-<p><img src="img/data_types2.png" alt="data type"></p>
+<p><img src="img/bss-section-table-x2.png" alt="data type"></p>
 <p>The following are common assembler directives for uninitialized data declarations.</p>
 <pre><code class="language-asm">bArr	resb		10 		; 10 element byte array
 wArr	resw		50 		; 50 element word array
@@ -727,7 +727,7 @@ during the assemble, link, and load process.
 The human-readable source code file is converted into an object file by the
 assembler, which is then transformed into an executable by the linker, and the
 executable is loaded into memory with the help of <code>loader</code>.</p>
-<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/assemble-link-load-overview-x3.png" alt="Overview: Assemble, Link, Load"></p>
 <h3 id="assembler"><a class="header" href="#assembler">Assembler</a></h3>
 <p>The assembler is a program that will read an assembly language source  code containing assembly
 instruction in input file and convert the code into a machine language binary (bytecode).</p>
@@ -761,7 +761,7 @@ Remember that the architecture used here is <strong>little-endian</strong>; the 
 in the lowest memory address.</li>
 <li>A <code>0x40</code> is placed at <code>0x00000009</code> next <code>0x66</code> is placed in address <code>0x0000000A</code></li>
 </ul>
-<p><img src="img/cpu_block_diagram2.png" alt="Overview: Assemble, Link, Load"></p>
+<p><img src="img/Little-endian-layout-large-x2.png" alt="Little Endian"></p>
 <p>For example, a fragment of the list file text section, excerpted from the example
 program in the previous chapter is as follows:</p>
 <pre><code class="language-lst">95						last:
@@ -862,7 +862,7 @@ external references. Additionally, the final location of the external references
 placed in the code.
 For example, if the main.o object file calls a function in the funcs.o file, the linker must
 update the call with the appropriate address as shown in the following illustration.</p>
-<p><img src="img/cpu_block_diagram2.png" alt="free"></p>
+<p><img src="img/linking-multiple-files-x2.png" alt="linking multiple"></p>
 <p>Here fnc1 is external to main.o it inside a funcs.o file and it marked with the R.
 It started to relative address (0x100), and when it was combined with main.o the final executable
 it adapt her and take <code>0x400</code> like address, and the linker insert this address into the call statement
@@ -928,7 +928,6 @@ is run when the executable is invoked</p>
 nothing is printed to user it possible to use debugger to check a result .
 Multiple debugger exist but the GNU product is appreciated for our exporation.
 So we used a GNU DDD who is a graphical interface for <code>GDB</code>.</p>
-<h2 id="exercice"><a class="header" href="#exercice">Exercice</a></h2>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="style-guide"><a class="header" href="#style-guide">Style Guide</a></h1>
 <p>Follow the project’s style conventions for headings, prose, code blocks, and links. Prefer title case for headings, italics for terms, and hard wrap at 80 characters. Use relative links for intra-book references and <code>bash</code> highlighting for shell examples.</p>
