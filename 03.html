@@ -40,7 +40,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-2250483d.js";
+            window.path_to_searchindex_js = "searchindex-f64912c2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -205,16 +205,16 @@ size must be used. Like :</p>
 <li>A  <code>double-word</code> 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
 +2.147,483,647) for unsigned value</li>
 </ul>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/Data-size-representation-x2.png" alt="size-bytes"></p>
 <p>It is important to know whether a value can be represented; you need to know the size of the
 storage element (byte, word, double-word, quadword) being used and whether the values
 are signed or not.
 Signed values use a standard binary representation.
 Unsigned values use a <strong>two’s complement</strong> representation.</p>
 <p>For example, the unsigned byte range can be represented using a number line as follows:</p>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/Unsigned-byte-range-x2.png" alt="unsigned-bytes"></p>
 <p>For example, the signed byte range can be represented using a number line as follows:</p>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/signed-byte-range-x2.png" alt="signed-bytes"></p>
 <p>When we examine a binary file with a debugger, it is difficult to know
 whether a variable in memory is signed or not because unsigned values have a
 different, positive-only range than signed values.</p>
@@ -244,19 +244,19 @@ range (0 to +127):</p>
 <li>Add <code>1</code>.</li>
 </ul>
 <p>See the example below:</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/Calcul-and-2-complement-x2.png" alt=""></p>
 <h2 id="33-floating-point-representation"><a class="header" href="#33-floating-point-representation">3.3 Floating-point Representation</a></h2>
 <p>The representation of floating-point numbers differs by format.
 The representation shown here is <strong>IEEE 754</strong> 32-bit <strong>floating-point</strong></p>
 <p>After these calculations, the next step is to calculate the biased exponent,
 which is the exponent from the normalized scientific notation plus the bias. The
-value for the IEEE 32-bit floating-point standard is <strong>127</strong>, and
+value for the <code>IEEE 32-bit</code> <strong>floating-point</strong> standard is <strong>127</strong>, and
 the result should be converted to 8 bits (1 byte) and stored in the biased exponent
 portion of the word.</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/ieee-32-bit-representationt-x2.png" alt=""></p>
 <p>A 64-bit floating-point standard representation is the same as 32-bit,
 however the format allows an <code>11-bit</code> biased exponent with a bias of <code>1023</code></p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/fraction-component-floating-point-x2.png" alt=""></p>
 <p>It is possible that when a value is interpreted as floating-point and it does not
 conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
 This can occur if an integer representation is mistakenly interpreted as a floating-point

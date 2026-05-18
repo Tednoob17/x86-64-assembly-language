@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "dark";
             const default_dark_theme = "ayu";
-            window.path_to_searchindex_js = "searchindex-2250483d.js";
+            window.path_to_searchindex_js = "searchindex-f64912c2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0da21379.js"></script>
@@ -339,7 +339,7 @@ devices</strong>, and uses them to <strong>control and coordinate</strong> all o
 <p>The <strong>x86-64 architecture</strong> supports a specific set of <strong>data storage size elements</strong>.
 The <strong>storage size</strong> are a direct <strong>correlation</strong> to variable declarations in high-level
 language (C, C++, Rust)</p>
-   <img src="img/big-size.png" />
+   <img src="img/size-bytes.png" />
 <h2 id="23-cpu-registers"><a class="header" href="#23-cpu-registers">2.3 CPU Registers</a></h2>
 <p>A <strong>CPU Registers</strong> or just <strong>register</strong>, is a <em>temporary</em> storage or <strong>working
 location</strong> built into the <strong>CPU</strong> itself (separate)
@@ -348,7 +348,7 @@ be used by all <strong>64-bits</strong> or some <em>portion</em> or subset acces
 <p>When a <em>data</em> want to used a element with <strong>sizes</strong> less than <strong>64-bits</strong> (32-bit, 16-bit, or 8-bit)
 a specific part of this <strong>less sized register</strong> can be accessed by using a
 different <strong>register name</strong> like described here :</p>
-<img src="img/size-bytes.png" />
+<img src="img/big-tb.png" />
 <p>As show in the <strong>excalidrw diagram</strong>, the first 4 registers, <code>rax</code>, <code>rbx</code>, <code>rcx</code>,
 <code>rdx</code> allow to accessed to 8-15 bits with the <code>ah</code>, <code>bh</code>, <code>ch</code>, and <code>dh</code> register names.
 But <code>ah</code> is provided for legacy support.</p>
@@ -367,6 +367,7 @@ al = 50					  # al register is set to 50 (10), who is 32 (16) in hex
 rax = 0000 000B A43B C332 # when the lower 8-bit al portion of the 64-bit is set the 56-bits are unaffected
 </code></pre>
 <p>For <strong>32-bit register operations</strong>, the <em>upper</em> 32-bit (first 32-bit from left to right) is set cleared (set to 0)</p>
+<img src="img/section-refisters.png" />
 <h3 id="rsp-register-stack-pointer"><a class="header" href="#rsp-register-stack-pointer">RSP (Register Stack Pointer)</a></h3>
 <p>A <code>rsp</code> is a <strong>register</strong> who is not used for <em>data</em> or other uses but it used to point to the <strong>top of the stack</strong>.</p>
 <h3 id="rbp-register-base-pointer"><a class="header" href="#rbp-register-base-pointer">RBP (Register Base Pointer)</a></h3>
@@ -379,13 +380,13 @@ So if <code>rip</code> <em>points</em> to the <em>next instruction</em> means th
 <p>A <strong>flag register</strong>, <code>rFlags</code> is used for store  <em>status</em> and <code>CPU</code> <em>control information</em> about the <em>instruction</em> that
 was just executed.
 The <strong>rFlag</strong>  is <em>directly updated</em> (<code>Status</code>) by <strong>processor</strong> and not accessible by program,</p>
-<img src="img/rflag.png" style="min-width: 150px" />
-### XMM registers
+<img src="img/rflag-x2.png" />
+<h3 id="xmm-registers"><a class="header" href="#xmm-registers">XMM registers</a></h3>
 <p>The <code>XMM</code> are set of <strong>dedicated registers</strong> used to support <strong>32-bit</strong> and <strong>64-bit floating point</strong>
 operations and <strong>Single Instruction Multiple Data</strong> (<code>SIMD</code>) instructions.
 <code>SIMD</code> allow a <em>single instructions</em> allow a <em>single instruction</em> to be applied
 <em>simultaneaously</em> to to <em>multiple data items</em>, it help to increase a performance.</p>
-<img src="img/xmm-registers" style="min-width: 150px" />
+<img src="img/128-bit-register-xmm-x2.png" style="min-width: 150px" />
 <h3 id="cache-memory"><a class="header" href="#cache-memory">Cache Memory</a></h3>
 <p><strong>Cache memory</strong> is a small <em>subset of the primary storage</em> or <code>RAM</code> located in the
 <strong>CPU chip</strong>. If a <em>memory location</em> is accessed, a <em>copy</em> of the <em>value</em> is <em>placed</em>
@@ -406,16 +407,16 @@ a <strong>double-word</strong>, <strong>four bytes</strong> are required which u
 Additionally, <em>architecture</em> is <code>little-endian</code>. This means that the <strong>Least Significant Byte</strong>
 (<code>LSB</code>) is <em>stored</em> in the <strong>lowest memory address</strong>. The <strong>Most Significant Byte</strong> (<code>MSB</code>) is
 stored in the <strong>highest memory location</strong>.</p>
-<img src="img/memory_page" style="min-width: 150px" />
+<img src="img/memory-bagde-x2.png" style="min-width: 150px" />
 <p>For example, assuming the value of, <strong>5,000,000</strong> (<code>10</code>) <code>-&gt;</code> <strong>004C4B40</strong> (<code>16</code>), is to be placed in a
 <strong>double-word</strong> variable named <code>var1</code>.
 For a <strong>little-endian</strong> <em>architecture</em>, the <strong>memory</strong> picture would be as follows:</p>
-<img src="img/cpu_block_diagram2.png" style="min-width: 150px" />
+<img src="img/Little-endian-layout-large-x2.png" />
 <p>Based on the <strong>little-endian</strong> <em>architecture</em>, the <code>LSB</code> is stored in the <em>lowest memory address</em>
 and the <code>MSB</code> is stored in the <em>highest memory location</em>.</p>
 <h2 id="25-memory-layout"><a class="header" href="#25-memory-layout">2.5 Memory Layout</a></h2>
 <p>The <em>general memory layout</em> for a program is as shown:</p>
-<img src="img/memory_layout" style="min-width: 150px" />
+<img src="img/1-general-memory-layout-x2.png" />
 <p>The <code>reserved</code> <em>section</em> is not <em>available</em> to <em>user programs</em>. The <code>text</code> (or code) <em>section</em> is
 where the <em>machine language</em> (i.e., the <code>1</code>’s and <code>0</code>’s that <em>represent the code</em>) is stored. The
 <code>data</code> section is where the <em>initialized data</em> is stored. This includes <em>declared variables</em> that
@@ -432,12 +433,12 @@ is useful to <em>review</em> the <em>memory hierarchy</em>. In general terms, <e
 Drives</em> (SSD’s) are <em>larger, slower</em>, and <em>less expensive</em>. The overall goal is to <em>balance
 performance with cost</em>.
 An overview of the memory hierarchy is as follows:</p>
-<img src="img/memory_hierarchy" style="min-width: 150px" />
+<img src="img/memory-hierarchy-x2.png" style="min-width: 150px" />
 <p>Where the <em>top</em> of the <em>triangle</em> represents the <em>fastest, smallest, and most expensive
 memory</em>. As we move down <em>levels</em>, the <em>memory becomes slower</em>, <em>larger</em>, and <em>less
 expensive</em>. The <em>goal</em> is to use an <em>effective balance between the small</em>, <em>fast</em>, <em>expensive
 memory</em> and the <em>large</em>, <em>slower</em>, and <em>cheaper memory</em>.</p>
-<img src="img/table_hierarchy" style="min-width: 150px" />
+<img src="img/table_storage-x2.png" style="min-width: 150px" />
 <p>Based on this table, a <em>primary storage access</em> at <em>100 nanoseconds</em>  is 30,000
 <em>times faster</em> than a <em>secondary storage</em> access, at <em>3 milliseconds</em> .
 The typical speeds improve over time (and these are already <em>out of date</em>). The key point
@@ -467,16 +468,16 @@ size must be used. Like :</p>
 <li>A  <code>double-word</code> 32-bits for 4.294.967.296 (0 - 4.294.967.295) for signed and (-2.147.483.648 to
 +2.147,483,647) for unsigned value</li>
 </ul>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/Data-size-representation-x2.png" alt="size-bytes"></p>
 <p>It is important to know whether a value can be represented; you need to know the size of the
 storage element (byte, word, double-word, quadword) being used and whether the values
 are signed or not.
 Signed values use a standard binary representation.
 Unsigned values use a <strong>two’s complement</strong> representation.</p>
 <p>For example, the unsigned byte range can be represented using a number line as follows:</p>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/Unsigned-byte-range-x2.png" alt="unsigned-bytes"></p>
 <p>For example, the signed byte range can be represented using a number line as follows:</p>
-<p><img src="img/size-bytes.png" alt="size-bytes"></p>
+<p><img src="img/signed-byte-range-x2.png" alt="signed-bytes"></p>
 <p>When we examine a binary file with a debugger, it is difficult to know
 whether a variable in memory is signed or not because unsigned values have a
 different, positive-only range than signed values.</p>
@@ -506,19 +507,19 @@ range (0 to +127):</p>
 <li>Add <code>1</code>.</li>
 </ul>
 <p>See the example below:</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/Calcul-and-2-complement-x2.png" alt=""></p>
 <h2 id="33-floating-point-representation"><a class="header" href="#33-floating-point-representation">3.3 Floating-point Representation</a></h2>
 <p>The representation of floating-point numbers differs by format.
 The representation shown here is <strong>IEEE 754</strong> 32-bit <strong>floating-point</strong></p>
 <p>After these calculations, the next step is to calculate the biased exponent,
 which is the exponent from the normalized scientific notation plus the bias. The
-value for the IEEE 32-bit floating-point standard is <strong>127</strong>, and
+value for the <code>IEEE 32-bit</code> <strong>floating-point</strong> standard is <strong>127</strong>, and
 the result should be converted to 8 bits (1 byte) and stored in the biased exponent
 portion of the word.</p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/ieee-32-bit-representationt-x2.png" alt=""></p>
 <p>A 64-bit floating-point standard representation is the same as 32-bit,
 however the format allows an <code>11-bit</code> biased exponent with a bias of <code>1023</code></p>
-<p><img src="img/size-bytes.png" alt=""></p>
+<p><img src="img/fraction-component-floating-point-x2.png" alt=""></p>
 <p>It is possible that when a value is interpreted as floating-point and it does not
 conform to the standard (either 32-bit or 64-bit), then it cannot be used as a floating-point value.
 This can occur if an integer representation is mistakenly interpreted as a floating-point
