@@ -14,47 +14,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      # --- Build prerequisites -------------------------------------------------
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm
-
-      - name: Cache pnpm store
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: pnpm-${{ hashFiles('x86/js-extensions/pnpm-lock.yaml') }}-${{ runner.os }}
-          restore-keys: pnpm-${{ runner.os }}-
-
-      - name: Build js-extensions (pnpm)
-        working-directory: x86/js-extensions
-        run: |
-          pnpm install
-          pnpm run build
-
-      - name: Copy js-extensions dist into repo root
-        run: |
-          mkdir -p js-extensions/packages
-          for d in x86/js-extensions/packages/*/dist ; do
-            pkg=$(basename $(dirname $d))
-            mkdir -p js-extensions/packages/$pkg
-            cp -r "$d" js-extensions/packages/$pkg/ || true
-          done
 
       - name: Setup Rust toolchain
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
           toolchain: stable
-          profile: minimal
-          override: true
-
-      - name: Install mdbook-quiz preprocessor
-        run: cargo install mdbook-quiz --locked
 
       - name: Cache cargo registry and target
         uses: actions/cache@v4
@@ -66,19 +30,39 @@ jobs:
           key: cargo-${{ hashFiles('**/Cargo.lock') }}-${{ runner.os }}
           restore-keys: cargo-${{ runner.os }}-
 
+      - name: Install mdbook-quiz preprocessor
+        run: cargo install mdbook-quiz --locked
+
       # --- mdBook itself ------------------------------------------------------
       - name: Install mdBook
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          mdbook-version: 'latest'
+        run: cargo install mdbook --locked
 
       - name: Build book
         run: mdbook build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          rm -rf /tmp/gh-pages
+
+          if git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+            git worktree add -B gh-pages /tmp/gh-pages origin/gh-pages
+          else
+            git worktree add --detach /tmp/gh-pages
+            git -C /tmp/gh-pages switch --orphan gh-pages
+            git -C /tmp/gh-pages rm -rf .
+          fi
+
+          rsync -a --delete --exclude '.git' book/ /tmp/gh-pages/
+          git -C /tmp/gh-pages add -A
+
+          if git -C /tmp/gh-pages diff --cached --quiet; then
+            echo "No changes to deploy"
+          else
+            git -C /tmp/gh-pages commit -m "Deploy book"
+            git -C /tmp/gh-pages push origin gh-pages
+          fi
 
           
